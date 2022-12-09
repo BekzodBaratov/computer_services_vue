@@ -78,7 +78,7 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import { RouterLink } from "vue-router";
+// import { RouterLink } from "vue-router";
 import { useRoute } from "vue-router";
 import { shopStore } from "../store/shop";
 import RouteLink from "../components/RouteLink.vue";
