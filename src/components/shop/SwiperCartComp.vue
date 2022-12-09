@@ -36,24 +36,26 @@
       class="swiperCardComp max-h-[34rem]"
     >
       <SwiperSlide v-for="(val, key) in val[1]" :key="key" class="bg-white h-full rounded-3xl">
-        <div class="imgCard p-2">
-          <img class="w-full swiper-lazy" src="../../assets/img/magazin/card/Rectangle 64.png" :alt="val.name" />
-          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </div>
-        <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl h-full space-y-2">
-          <div class="flex justify-between items-center flex-wrap">
-            <div class="text-[#4F87D3]">{{ val.rating }}</div>
-            <div class="text-[#4F87D3]">{{ val.review }} отзывов</div>
+        <RouterLink :to="'/shop/' + key">
+          <div class="imgCard p-2">
+            <img class="w-full swiper-lazy" src="../../assets/img/magazin/card/Rectangle 64.png" :alt="val.name" />
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
           </div>
-          <div>{{ val.name }}</div>
-          <div>{{ val.typeOfMoney }}</div>
-          <div class="flex justify-between items-center flex-wrap">
-            <div class="font-semibold">{{ val.cost }} {{ val.currency }}</div>
-            <div>
-              <button class="border rounded-xl text-[#4F87D3] border-[#4F87D3] py-1 px-3">В корзину</button>
+          <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl h-full space-y-2">
+            <div class="flex justify-between items-center flex-wrap">
+              <div class="text-[#4F87D3]">{{ val.rating }}</div>
+              <div class="text-[#4F87D3]">{{ val.review }} отзывов</div>
+            </div>
+            <div>{{ val.name }}</div>
+            <div>{{ val.typeOfMoney }}</div>
+            <div class="flex justify-between items-center flex-wrap">
+              <div class="font-semibold">{{ val.cost }} {{ val.currency }}</div>
+              <div>
+                <button class="border rounded-xl text-[#4F87D3] border-[#4F87D3] py-1 px-3">В корзину</button>
+              </div>
             </div>
           </div>
-        </div>
+        </RouterLink>
       </SwiperSlide>
     </Swiper>
   </div>
@@ -62,6 +64,7 @@
 <script setup>
 import { shopStore } from "../../store/shop";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { RouterLink } from "vue-router";
 
 import "swiper/css";
 import "swiper/css/navigation";

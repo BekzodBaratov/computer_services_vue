@@ -24,15 +24,15 @@
     className="swiperBigComp"
   >
     <swiper-slide v-for="(val, key) in store.arr" :key="key" className="rounded-3xl">
-      <RouterView :to="val.link">
+      <RouterLink :to="val.link">
         <img src="../../assets/img/magazin/Group 2.png" alt="rasm" />
-      </RouterView>
+      </RouterLink>
     </swiper-slide>
   </swiper>
 </template>
 
 <script setup>
-import { RouterView } from "vue-router";
+import { RouterLink } from "vue-router";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { shopStore } from "../../store/shop";
 
