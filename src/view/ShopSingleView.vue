@@ -39,7 +39,7 @@
       </div>
       <div class="">{{ singleObj.review }} отзывов</div>
     </div>
-    <div class="singleComp grid grid-cols-12 gap-2">
+    <div class="singleComp grid grid-cols-12 gap-8 my-8">
       <div class="swiperImg col-span-5"><TheShopSingleComp /></div>
       <div class="content col-span-7"><SingleContentComp /></div>
     </div>

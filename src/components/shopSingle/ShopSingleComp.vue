@@ -1,8 +1,8 @@
 <template>salom shopSingle</template>
 
-<script>
-import { route } from "vue-router";
-const route = route();
+<script setup>
+import { useRoute } from "vue-router";
+const route = useRoute();
 
 console.log(route.params.id);
 </script>
