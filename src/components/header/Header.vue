@@ -1,9 +1,12 @@
 <template>
   <div class="w-[95%] fixed z-[99999] top-0 left-1/2 -translate-x-1/2">
     <div class="px-4 bg-[#444444BF] drop-shadow-lg rounded-b-2xl flex justify-between items-center shadow-lg">
-      <div class="flex items-center gap-1">
+      <span class="md:hidden text-white">
+        <i class="fa-solid fa-bars p-3"></i>
+      </span>
+      <RouterLink to="/" class="flex items-center gap-1">
         <span class="">
-          <svg width="40" height="50" viewBox="0 0 61 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-10 h-14" viewBox="0 0 61 50" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_342_31958)">
               <path
                 d="M28.2699 32.8354C27.9588 32.3941 27.6171 31.9752 27.2472 31.5818C27.147 31.4749 27.0445 31.3693 26.9402 31.2665C26.3961 30.7287 25.8012 30.2447 25.1639 29.8211C24.6845 29.5021 24.1828 29.2178 23.6626 28.9704L23.1163 28.0608L23.0847 28.0078L23.0532 28.0608L22.7425 28.5789C22.1703 28.3621 21.5824 28.189 20.984 28.0608C20.9195 28.0466 20.855 28.0329 20.79 28.0201L21.8223 26.3001L21.9413 26.1018L22.8793 24.5394L23.0852 24.1963L23.2911 24.5394L24.2291 26.1018L24.3481 26.3001L25.4046 28.0608L26.4616 29.8215L27.1342 30.9454L27.5176 31.585L28.2699 32.8354Z"
@@ -92,9 +95,9 @@
             </defs>
           </svg>
         </span>
-        <span class="uppercase font-normal text-2xl text-[#F4F6F9]">starnewtech.uz</span>
-      </div>
-      <ul class="text-[#F4F6F9] flex gap-6 [&>li]:inline-block [&>li]:py-3">
+        <span class="uppercase font-normal text-xl text-[#F4F6F9]">starnewtech.uz</span>
+      </RouterLink>
+      <ul class="hidden md:flex text-[#F4F6F9] gap-6 [&>li]:inline-block [&>li]:py-3">
         <li
           class="relative before:duration-300 before:absolute before:bottom-0 before:opacity-0 hover:before:opacity-100 hover:before:bottom-3 before:left-1/2 hover:before:left-0 hover:before: before:w-2 hover:before:w-full before:h-[1px] before:bg-white"
         >
@@ -103,7 +106,7 @@
         <li
           class="relative before:duration-300 before:absolute before:bottom-0 before:opacity-0 hover:before:opacity-100 hover:before:bottom-3 before:left-1/2 hover:before:left-0 hover:before: before:w-2 hover:before:w-full before:h-[1px] before:bg-white"
         >
-          <RouterLink to="/">Магазин</RouterLink>
+          <RouterLink to="/shop">Магазин</RouterLink>
         </li>
         <li
           class="relative before:duration-300 before:absolute before:bottom-0 before:opacity-0 hover:before:opacity-100 hover:before:bottom-3 before:left-1/2 hover:before:left-0 hover:before: before:w-2 hover:before:w-full before:h-[1px] before:bg-white"
@@ -123,7 +126,7 @@
       </ul>
       <div class="text-[#F4F6F9] flex items-center gap-1">
         <span
-          ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          ><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
               fill="#F4F6F9"
@@ -147,16 +150,16 @@
           </svg>
         </span>
         <span>
-          <svg width="1" height="30" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-[1px] h-7" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="0.5" y1="0.5" x2="0.499999" y2="29.5" stroke="#F4F6F9" stroke-linecap="round" />
           </svg>
         </span>
 
-        <div class="flex items-center gap-2" v-if="store.isRegisteration">
+        <div class="flex items-center gap-2" v-if="!store.isRegisteration">
           <RouterLink to="/register">Регистрация</RouterLink>
           <RouterLink class="flex items-center gap-1 border px-3 py-1 rounded-xl border-[#F4F6F9]" to="/login">
             <span>
-              <svg width="25" height="25" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M17.5 4.0102H26.425C27.5808 3.95868 28.7099 4.36705 29.5654 5.14597C30.4208 5.92488 30.9329 7.01091 30.9896 8.16645V26.8331C30.9329 27.9887 30.4208 29.0747 29.5654 29.8536C28.7099 30.6325 27.5808 31.0409 26.425 30.9894H17.5"
                   stroke="#F4F6F9"
@@ -190,10 +193,10 @@
             Вход
           </RouterLink>
         </div>
-        <div class="flex items-center gap-2" v-if="!store.isRegisteration">
+        <div class="flex items-center gap-2" v-if="store.isRegisteration">
           <RouterLink class="flex items-center gap-1 px-3 py-1" to="/login">
             <span>
-              <svg width="25" height="25" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M17.4997 18.5936C12.8768 18.5936 9.11426 14.8311 9.11426 10.2082C9.11426 5.58525 12.8768 1.82275 17.4997 1.82275C22.1226 1.82275 25.8851 5.58525 25.8851 10.2082C25.8851 14.8311 22.1226 18.5936 17.4997 18.5936ZM17.4997 4.01025C14.0872 4.01025 11.3018 6.79567 11.3018 10.2082C11.3018 13.6207 14.0872 16.4061 17.4997 16.4061C20.9122 16.4061 23.6976 13.6207 23.6976 10.2082C23.6976 6.79567 20.9122 4.01025 17.4997 4.01025Z"
                   fill="white"

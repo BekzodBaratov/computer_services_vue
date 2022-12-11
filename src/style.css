@@ -9,6 +9,7 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
   font-family: "Jost", sans-serif;
+  font-size: 100%;
 }
 body {
   background-color: #e7f0fe;
@@ -21,4 +22,90 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: #aecbf4;
+  border-radius: 50%;
+  color: #002e69f2;
+  width: 2.4rem !important;
+  height: 2.4rem !important;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.4rem !important;
+  font-weight: 900;
+}
+.swiper {
+  padding: 0 1rem;
+  padding-bottom: 2.6rem;
+}
+.swiperBigComp .swiper-pagination-bullet {
+  background-color: #00000061;
+  width: 4rem;
+  height: 0.4rem;
+  border-radius: 1rem;
+}
+.swiper-pagination-bullet-active {
+  background-color: black;
+}
+.swiperCardComp .swiper-button-prev {
+  display: none;
+}
+
+@media (min-width: 240px) {
+  html {
+    font-size: 50%;
+  }
+  .container {
+    max-width: 95%;
+  }
+  .swiperBigComp .swiper-pagination-bullet {
+    width: 2rem;
+    height: 0.3rem;
+    border-radius: 0.4rem;
+  }
+}
+@media (min-width: 240px) {
+  html {
+    font-size: 60%;
+  }
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 70%;
+  }
+  .swiperBigComp .swiper-pagination-bullet {
+    width: 4rem;
+    height: 0.4rem;
+    border-radius: 0.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  html {
+    font-size: 80%;
+  }
+  /* .swiperBigComp .swiper-pagination-bullet {
+    width: 2rem;
+    border-radius: 1rem;
+  } */
+}
+@media (min-width: 1280px) {
+  html {
+    font-size: 90%;
+  }
+  /* .swiperBigComp .swiper-pagination-bullet {
+    width: 3rem;
+    border-radius: 1rem;
+  } */
+}
+@media (min-width: 1536px) {
+  html {
+    font-size: 100%;
+  }
+  /* .swiperBigComp .swiper-pagination-bullet {
+    width: 4rem;
+    border-radius: 1rem;
+  } */
 }

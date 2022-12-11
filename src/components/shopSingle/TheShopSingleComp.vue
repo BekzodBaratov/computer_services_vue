@@ -2,7 +2,7 @@
   <swiper
     :loop="true"
     :spaceBetween="10"
-    :navigation="true"
+    :scrollbar="{ draggable: true }"
     :thumbs="{ swiper: thumbsSwiper }"
     :modules="modules"
     class="singleSwiper mb-4 rounded-2xl"
@@ -56,9 +56,9 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import { FreeMode, Thumbs } from "swiper";
 
 const thumbsSwiper = ref(null);
 const setThumbsSwiper = (swiper) => (thumbsSwiper.value = swiper);
-const modules = ref([FreeMode, Navigation, Thumbs]);
+const modules = ref([FreeMode, Thumbs]);
 </script>
