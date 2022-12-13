@@ -4,15 +4,16 @@
       <div class="selectForm">
         <select
           id="countries"
-          class="bg-[#AECBF4] outline-none flex justify-center text-[#002E69] rounded-2xl focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
+          class="bg-[#AECBF4] select outline-none flex justify-center text-[#002E69] rounded-2xl focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
         >
-          <option selected>Каталог</option>
+          <option value="all" selected>Каталог</option>
           <option value="US">United States</option>
           <option value="CA">Canada</option>
           <option value="FR">France</option>
           <option value="DE">Germany</option>
         </select>
       </div>
+
       <div class="SearchForm flex items-center p-0 border border-[#0003] rounded-3xl overflow-hidden">
         <div class="all px-6 py-1 rounded-r-2xl text-[#002E69] font-semibold cursor-pointer bg-[#AECBF4]">Все</div>
         <input
