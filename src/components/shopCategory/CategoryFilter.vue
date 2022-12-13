@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="text-center mt-4 mb-8 md:mb-16">
+  <div class="paginationBar text-center mt-4 mb-8 md:mb-16">
     <nav aria-label="Page navigation example">
       <ul class="inline-flex -space-x-px">
         <li>
@@ -84,6 +84,4 @@
 import { shopStore } from "../../store/shop";
 import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
 const store = shopStore();
-
-console.log(store.cardSwiper[0][1][0]);
 </script>

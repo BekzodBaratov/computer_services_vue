@@ -3,7 +3,7 @@
     <div class="grid grid-cols-5">
       <div class="col-span-3 justify-between">
         <p class="text-[#4F87D3CC] text-xl">Количество</p>
-        <form class="">
+        <form>
           <span class="flex gap-2">
             <button @click.prevent="countFunc(false)" class="text-[#002E69]">
               <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">

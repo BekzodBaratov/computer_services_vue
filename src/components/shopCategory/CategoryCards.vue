@@ -1,6 +1,6 @@
 <template>
-  <form action="filter space-y-1">
-    <div class="rangeSliderComp my-6">
+  <form action="filter" class="space-y-8 mt-4">
+    <div class="rangeSliderComp">
       <div class="titleName">Цена</div>
       <div class="flex items-center text-sm text-gray-500 mb-5 font-bold">
         <span class="border border-[#AECBF4] text-[#002E69] w-20 py-[2px] rounded-md text-center">
@@ -73,7 +73,7 @@
         <option value="DE">Germany</option>
       </select>
     </div>
-    <div class="space-y-1 mt-3">
+    <div class="space-y-1">
       <div class="space-x-2 text-[#002E69]">
         <input type="radio" name="pul" id="naqt" />
         <label for="naqt">В наличии</label>
@@ -83,11 +83,17 @@
         <label for="aksiya">Акция</label>
       </div>
     </div>
+    <span class="flex flex-col items-start gap-3">
+      <ButtonFillVue class="py-2">Применить</ButtonFillVue>
+      <ButtonStrokeVue class="py-2">Сбросить все</ButtonStrokeVue>
+    </span>
   </form>
 </template>
 
 <script setup>
 import { ref, reactive } from "vue";
+import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
+import ButtonFillVue from "../buttons/ButtonFill.vue";
 
 const rangeInput = reactive([0, 10000]); // 0 uzs dan 10000 gacha
 const priceMinMax = reactive({ min: 0, max: 10000 }); // uzgarmas qiymatlar. input bosh va oxirgi qiymatlari

@@ -24,8 +24,8 @@
     </div>
     <p class="text-2xl text-[#4F87D3CC]">Компьютерные комплектующие...</p>
     <div class="grid grid-cols-3">
-      <div class="col-span-1 filter"><CradsVue /></div>
-      <div class="col-span-2 cards"><FilterVue /></div>
+      <div class="hidden md:block col-span-1 filter"><CradsVue /></div>
+      <div class="col-span-3 md:col-span-2 cards"><FilterVue /></div>
     </div>
   </div>
 </template>

@@ -57,6 +57,16 @@ const routes = [
     name: "Services Item",
     component: () => import("../view/ServicesItemView.vue"),
   },
+  {
+    path: "/basket",
+    name: "Basket",
+    component: () => import("../view/BasketView.vue"),
+  },
+  {
+    path: "/favorites",
+    name: "Favorites",
+    component: () => import("../view/Favorites.vue"),
+  },
 ];
 
 const router = createRouter({
