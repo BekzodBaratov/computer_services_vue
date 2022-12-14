@@ -13,5 +13,6 @@ console.log("Hello");
     <p>Продвинутый онлайн-сервис для модификации ПК</p>
     <button>Конфигуратор</button>
   </div>
+  <img src="../assets/img/home/Layer.png" alt="#Layer" />
 </template>
 <style></style>
