@@ -67,10 +67,16 @@ const routes = [
     name: "Favorites",
     component: () => import("../view/Favorites.vue"),
   },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: () => import("../view/ProfileView.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
+
   scrollBehavior() {
     return { top: 0 };
   },

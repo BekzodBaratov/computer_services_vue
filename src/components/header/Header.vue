@@ -285,7 +285,7 @@
           </RouterLink>
         </div>
         <div class="flex items-center gap-2" v-if="store.isRegisteration">
-          <RouterLink class="flex items-center gap-1 px-3 py-1" to="/login">
+          <RouterLink class="flex items-center gap-1 px-3 py-1" to="/profile">
             <span>
               <svg class="w-6 h-6" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

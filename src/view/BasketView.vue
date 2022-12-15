@@ -3,7 +3,7 @@
     <SearchFormCompVue />
     <div class="container mx-auto">
       <h1 class="text-3xl text-[#002E69] my-4">Оформление заказа</h1>
-      <div class="grid grid-cols-2">
+      <div class="flex flex-col-reverse md:flex-row justify-between">
         <div class="space-y-3 mb-6">
           <div class="flex flex-col gap-1">
             <label for="adress "><span class="text-[#4F87D3]">Адрес доставки</span></label>
@@ -48,13 +48,13 @@
             />
           </div>
           <div class="flex flex-col items-start gap-3 pt-3">
-            <ButtonFillVue class="py-2">Выбрать способ оплаты</ButtonFillVue>
+            <ButtonFillVue to="" @click="isOpenModal = true" class="py-2">Выбрать способ оплаты</ButtonFillVue>
             <ButtonFillVue color="#B51136" class="py-2">Оплатить и заказать </ButtonFillVue>
           </div>
         </div>
 
         <div class="mb-6">
-          <div class="bg-[#4F87D30D] mx-28 rounded pt-6">
+          <div class="bg-[#4F87D30D] ml-0 md:ml-28 mr-28 md:mr-0 rounded pt-6">
             <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] min-h-[20rem] overflow-auto">
               <div class="card bg-white rounded-xl grid grid-cols-2 max-h-52 text-sm shadow-[0_0_5px_rgba(0,0,0,0.3)]">
                 <div class="img">
@@ -322,6 +322,70 @@
       </div>
     </div>
   </div>
+
+  <Teleport to="body">
+    <div v-if="isOpenModal" @click="isOpenModal = false" class="fixed z-[99999] inset-0 bg-[#0006] backdrop-blur"></div>
+    <div
+      v-if="isOpenModal"
+      class="PayModal fixed z-[999999] w-[40rem] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white rounded-md px-6 py-8 space-y-10 shadow-lg"
+    >
+      <div class="flex justify-between gap-2 h-12">
+        <p class="text-2xl text-[#002E69] self-end">Выбор способа оплаты</p>
+        <span @click="isOpenModal = false" class="p-2">
+          <i class="fa-solid fa-xmark text-xl text-[#002E69]"></i>
+        </span>
+      </div>
+      <form action="pay">
+        <ul class="space-y-4 text-lg pb-8">
+          <li class="space-x-4 flex items-center">
+            <input type="radio" name="pay" id="card" />
+            <label for="card">
+              <div class="flex items-center gap-2">
+                <p>Онлайн оплата с помощью Humocard / UzCard</p>
+                <img
+                  class="w-7 h-7"
+                  src="../assets/img/magazin/modal/Платежная система HUMO _ Tashkent - png.png"
+                  alt="humo"
+                />
+                <img class="w-7 h-7" src="../assets/img/magazin/modal/Frame 323.png" alt="uzcard" />
+              </div>
+              <p class="text-sm">Комиссия - 0%, быстрая оплата.</p>
+            </label>
+          </li>
+          <li>
+            <ul class="flex gap-6">
+              <li class="flex items-center">
+                <input type="radio" name="pay" id="clickCard" />
+                <label for="clickCard">
+                  <img class="h-16" src="../assets/img/magazin/modal/Frame 27.png" alt="" />
+                </label>
+              </li>
+              <li class="space-x-4 flex items-center">
+                <input type="radio" name="pay" id="PaymeCard" />
+                <label for="PaymeCard">
+                  <img class="h-8" src="../assets/img/magazin/modal/Payme - png.png" alt="" />
+                </label>
+              </li>
+              <li class="space-x-4 flex items-center">
+                <input type="radio" name="pay" id="apelsinCard" />
+                <label for="apelsinCard">
+                  <img class="h-8" src="../assets/img/magazin/modal/Apelsin - png.png" alt="" />
+                </label>
+              </li>
+            </ul>
+          </li>
+          <li class="space-x-4 flex items-center">
+            <input class="" type="radio" name="pay" id="order" />
+            <label for="order">
+              <h3 class="">Оплата наличными после доставке</h3>
+              <p class="text-xs">Оплата полную стоимость товара при получении</p>
+            </label>
+          </li>
+        </ul>
+        <ButtonFillVue @click="" class="py-2">Продолжить</ButtonFillVue>
+      </form>
+    </div>
+  </Teleport>
 </template>
 
 <script setup>
@@ -336,4 +400,14 @@ const countFunc = (val) => {
     val ? count.value++ : count.value--;
   }
 };
+
+const isOpenModal = ref(false);
+console.log(isOpenModal);
 </script>
+
+<style>
+.PayModal input:checked + label {
+  color: #4f87d3;
+  /* width: 10rem; */
+}
+</style>
