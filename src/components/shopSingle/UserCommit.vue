@@ -173,7 +173,6 @@
 </template>
 
 <script setup>
-import { shopStore } from "../../store/shop";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { RouterLink } from "vue-router";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
@@ -184,8 +183,6 @@ import "swiper/css/pagination";
 import "swiper/css/lazy";
 
 import { Lazy, Navigation, Pagination } from "swiper";
-const store = shopStore();
-console.log(store.cardSwiper[0][1][0]);
 </script>
 
 <style>
