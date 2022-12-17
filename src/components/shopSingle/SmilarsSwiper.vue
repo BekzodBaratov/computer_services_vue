@@ -46,7 +46,7 @@
           <div>{{ val.typeOfMoney }}</div>
           <div class="flex justify-between items-center flex-wrap">
             <div class="font-semibold">{{ val.cost }} {{ val.currency }}</div>
-            <ButtonStrokeVue class="py-1" to="">В корзину</ButtonStrokeVue>
+            <ButtonStrokeVue><span class="py-1">В корзину</span> </ButtonStrokeVue>
           </div>
         </div>
       </RouterLink>
