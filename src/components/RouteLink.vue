@@ -1,6 +1,6 @@
 <template>
   <div class="py-2">
-    <span class="font-bold text-xs capitalize" v-for="(val, index) in props.route" :key="index">
+    <span class="capitalize" v-for="(val, index) in props.route" :key="index">
       <span class="text-[#4F87D3CC]" v-if="val.link">
         <RouterLink exact :to="val.link"
           >{{ val.name }}

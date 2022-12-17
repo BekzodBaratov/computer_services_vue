@@ -1,12 +1,12 @@
 <template>
   <div class="w-[95%] mx-auto">
     <div
-      class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-3 flex justify-between items-center shadow-lg text-white"
+      class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-3 gap-4 flex flex-wrap flex-col md:flex-row justify-between items-center shadow-lg text-white"
     >
       <div class="flex gap-3 items-center flex-wrap">
         <span>Следите за нами в соц сетях:</span>
         <div class="flex gap-2 flex-wrap">
-          <svg class="duration-200 hover:-translate-y-1" width="35" height="24" viewBox="0 0 35 24" fill="none">
+          <svg class="duration-200 hover:-translate-y-1 w-6 h-6" viewBox="0 0 35 24" fill="none">
             <path
               d="M33.4675 3.74768C33.0744 2.27245 31.9163 1.11077 30.4455 0.716516C27.7799 0 17.0909 0 17.0909 0C17.0909 0 6.40196 0 3.73629 0.716516C2.26563 1.11077 1.10733 2.27245 0.71427 3.74768C0 6.42141 0 12 0 12C0 12 0 17.5785 0.71427 20.2525C1.10733 21.7275 2.26563 22.8892 3.73629 23.2836C6.40196 24 17.0909 24 17.0909 24C17.0909 24 27.7799 24 30.4455 23.2836C31.9163 22.8892 33.0744 21.7275 33.4675 20.2525C34.1818 17.5785 34.1818 12 34.1818 12C34.1818 12 34.1818 6.42141 33.4675 3.74768Z"
               fill="#ED1D24"
@@ -14,7 +14,7 @@
             <path d="M13.5947 17.0649L22.5286 12.0003L13.5947 6.9351V17.0649Z" fill="white" />
           </svg>
 
-          <svg class="duration-200 hover:-translate-y-1" width="25" height="24" viewBox="0 0 25 24" fill="none">
+          <svg class="duration-200 hover:-translate-y-1 w-6 h-6" viewBox="0 0 25 24" fill="none">
             <rect x="0.181641" width="24" height="24" fill="url(#pattern0)" />
             <defs>
               <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -29,7 +29,7 @@
             </defs>
           </svg>
 
-          <svg class="duration-200 hover:-translate-y-1" width="25" height="24" viewBox="0 0 25 24" fill="none">
+          <svg class="duration-200 hover:-translate-y-1 w-6 h-6" viewBox="0 0 25 24" fill="none">
             <path
               d="M24.1816 11.9998C24.1816 5.37236 18.8091 -0.000217438 12.1816 -0.000217438C5.55422 -0.000217438 0.181641 5.37236 0.181641 11.9998C0.181641 17.9893 4.56987 22.9538 10.3066 23.854V15.4685H7.25977V11.9998H10.3066V9.35603C10.3066 6.34853 12.0982 4.68728 14.8392 4.68728C16.1521 4.68728 17.5254 4.92166 17.5254 4.92166V7.87478H16.0122C14.5215 7.87478 14.0566 8.79979 14.0566 9.74877V11.9998H17.3848L16.8527 15.4685H14.0566V23.854C19.7934 22.9538 24.1816 17.9893 24.1816 11.9998Z"
               fill="#1877F2"
@@ -40,7 +40,7 @@
             />
           </svg>
 
-          <svg class="duration-200 hover:-translate-y-1" width="25" height="24" viewBox="0 0 25 24" fill="none">
+          <svg class="duration-200 hover:-translate-y-1 w-6 h-6" viewBox="0 0 25 24" fill="none">
             <path
               d="M12.1816 24C18.8091 24 24.1816 18.6274 24.1816 12C24.1816 5.37258 18.8091 0 12.1816 0C5.55422 0 0.181641 5.37258 0.181641 12C0.181641 18.6274 5.55422 24 12.1816 24Z"
               fill="url(#paint0_linear_342_32074)"

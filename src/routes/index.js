@@ -18,6 +18,11 @@ const routes = [
     component: () => import("../view/ShopSingleView.vue"),
   },
   {
+    path: "/shop/category",
+    name: "ShopCategory",
+    component: () => import("../view/ShopCategoryView.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     component: () => import("../view/AboutView.vue"),
@@ -52,10 +57,26 @@ const routes = [
     name: "Services Item",
     component: () => import("../view/ServicesItemView.vue"),
   },
+  {
+    path: "/basket",
+    name: "Basket",
+    component: () => import("../view/BasketView.vue"),
+  },
+  {
+    path: "/favorites",
+    name: "Favorites",
+    component: () => import("../view/Favorites.vue"),
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: () => import("../view/ProfileView.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
+
   scrollBehavior() {
     return { top: 0 };
   },

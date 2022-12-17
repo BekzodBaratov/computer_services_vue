@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <div class="grid grid-cols-5">
-      <div class="col-span-3">
+      <div class="col-span-3 justify-between">
         <p class="text-[#4F87D3CC] text-xl">Количество</p>
-        <form class="">
+        <form>
           <span class="flex gap-2">
             <button @click.prevent="countFunc(false)" class="text-[#002E69]">
               <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,28 +33,58 @@
         <div class="bg-[#AECBF4] rounded-xl px-4 py-2 w-56">
           <p class="text-2xl text-[#D52C55] font-semibold text-center pb-2">790 000 сум</p>
           <div class="flex gap-1">
+            <ButtonFill to="" class="salom">Купить</ButtonFill>
             <div
-              class="bg-[#002E69] text-[#F4F6F9] px-4 py-2 rounded-lg flex items-center justify-center cursor-pointer"
+              @click="savedFunc"
+              class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer"
             >
-              Купить
+              <div class="shopcart flex flex-col items-center">
+                <i class="fa-heart text-[2rem] text-[#002E69]" :class="isSaved ? 'fa-regular' : 'fa-solid'"></i>
+              </div>
             </div>
-            <div class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer">
-              <img src="../../assets/img/magazin/Vector.svg" alt="" />
-            </div>
-            <div class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer">
+            <RouterLink
+              to="/shopCart"
+              class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer"
+            >
               <img src="../../assets/img/magazin/shopping-cart.svg" alt="" />
-            </div>
+            </RouterLink>
           </div>
         </div>
       </div>
+    </div>
+    <p class="text-[#4F87D3CC] text-xl mb-3">Характеристики</p>
+    <div v-for="(val, i) in dataProducts" :key="i" class="grid grid-cols-5 text-[#002E69] mb-2">
+      <div class="col-span-3">{{ val.name }}</div>
+      <div class="col-span-2">{{ val.param }}</div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
+import ButtonFill from "../buttons/ButtonFill.vue";
+
 const count = ref(1);
 const countFunc = (val) => {
   val ? count.value++ : count.value--;
+};
+const dataProducts = reactive([
+  { name: "Объем видеопамяти", param: "Lorem ipsum" },
+  { name: "Тим памяти", param: "Lorem ipsum" },
+  { name: "Частота памяти", param: "Lorem ipsum" },
+  { name: "Шина обмена с памятью", param: "Lorem ipsum" },
+  { name: "Частота видеопроцессора", param: "Lorem ipsum" },
+  { name: "Разъемы и интерфейсы", param: "Lorem ipsum" },
+  { name: "Техпроцессор", param: "Lorem ipsum" },
+  { name: "Тип подключения", param: "Lorem ipsum" },
+  { name: "Разъем дополнительного питания", param: "Lorem ipsum" },
+  { name: "Максимальное разрешение", param: "Lorem ipsum" },
+  { name: "TDP", param: "Lorem ipsum" },
+  { name: "Количество поддерживаемых мониторов", param: "Lorem ipsum" },
+]);
+
+const isSaved = ref(false);
+const savedFunc = () => {
+  isSaved.value = !isSaved.value;
 };
 </script>
