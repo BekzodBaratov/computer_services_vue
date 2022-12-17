@@ -66,7 +66,7 @@
         rows="5"
         placeholder="Напишите ваш отзыв"
       ></textarea>
-      <ButtonFillVue class="py-2" to="/" color="#D52C55">Отправить отзыв</ButtonFillVue>
+      <ButtonFillVue color="#D52C55"><span class="py-2">Отправить отзыв</span></ButtonFillVue>
     </form>
 
     <div>

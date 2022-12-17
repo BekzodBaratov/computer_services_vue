@@ -232,7 +232,7 @@
             placeholder="Комментарий к доставке"
           ></textarea>
           <div class="flex justify-center items-center">
-            <ButtonFillVue class="py-2">Добавить адрес доставки</ButtonFillVue>
+            <ButtonFillVue><span class="py-2"> Добавить адрес доставки</span></ButtonFillVue>
           </div>
         </form>
       </div>

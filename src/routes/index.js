@@ -38,16 +38,6 @@ const routes = [
     component: () => import("../view/ContactView.vue"),
   },
   {
-    path: "/login",
-    name: "Login",
-    component: () => import("../view/LoginView.vue"),
-  },
-  {
-    path: "/register",
-    name: "Register",
-    component: () => import("../view/RegisterView.vue"),
-  },
-  {
     path: "/services",
     name: "Services",
     component: () => import("../view/ServicesView.vue"),
@@ -82,5 +72,5 @@ const router = createRouter({
   },
   routes,
 });
-
+console.log(router.currentRoute);
 export default router;

@@ -48,8 +48,8 @@
             />
           </div>
           <div class="flex flex-col items-start gap-3 pt-3">
-            <ButtonFillVue to="" @click="isOpenModal = true" class="py-2">Выбрать способ оплаты</ButtonFillVue>
-            <ButtonFillVue color="#B51136" class="py-2">Оплатить и заказать </ButtonFillVue>
+            <ButtonFillVue @click="isOpenModal = true"><span class="py-2">Выбрать способ оплаты</span></ButtonFillVue>
+            <ButtonFillVue color="#B51136"><span class="py-2">Оплатить и заказать</span> </ButtonFillVue>
           </div>
         </div>
 
@@ -299,8 +299,8 @@
             </div>
             <div class="menu w-full text-[#4F87D3] rounded-t-xl px-8 py-8 space-y-6 h-[1/3] shadow-lg">
               <div class="flex justify-between items-center gap-3">
-                <ButtonStrokeVue :disabled="true" class="py-2">Введите промокод</ButtonStrokeVue>
-                <ButtonStrokeVue to="" class="py-2">Применить</ButtonStrokeVue>
+                <ButtonStrokeVue :disabled="true"><span class="py-2">Введите промокод</span> </ButtonStrokeVue>
+                <ButtonStrokeVue to=""><span class="py-2">Применить</span> </ButtonStrokeVue>
               </div>
               <div class="space-y-1">
                 <div class="flex justify-between items-center">

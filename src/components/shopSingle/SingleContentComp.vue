@@ -33,7 +33,7 @@
         <div class="bg-[#AECBF4] rounded-xl px-4 py-2 w-56">
           <p class="text-2xl text-[#D52C55] font-semibold text-center pb-2">790 000 сум</p>
           <div class="flex gap-1">
-            <ButtonFill to="" class="salom">Купить</ButtonFill>
+            <ButtonFill>Купить</ButtonFill>
             <div
               @click="savedFunc"
               class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer"
@@ -42,12 +42,9 @@
                 <i class="fa-heart text-[2rem] text-[#002E69]" :class="isSaved ? 'fa-regular' : 'fa-solid'"></i>
               </div>
             </div>
-            <RouterLink
-              to="/shopCart"
-              class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer"
-            >
+            <span class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer">
               <img src="../../assets/img/magazin/shopping-cart.svg" alt="" />
-            </RouterLink>
+            </span>
           </div>
         </div>
       </div>

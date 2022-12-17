@@ -5,15 +5,15 @@
         <h1 class="text-[#002e69] text-5xl font-semibold mb-6">STAR NEW TECH</h1>
         <p class="text-3xl mb-2">Полный комплекс сервисного обслуживания компьютерного оборудования.</p>
         <div class="flex justify-start mb-6">
-          <ButtonFillVue class="py-1" to="/services">Сервис</ButtonFillVue>
+          <ButtonFillVue to="/services"><span class="py-1">Сервис</span></ButtonFillVue>
         </div>
         <p class="text-3xl mb-2">Онлайн магазина c широким ассортиментом компьютерных комплектующих и др.</p>
         <div class="flex justify-start mb-6">
-          <ButtonFillVue class="py-1" to="/shop">Магазин</ButtonFillVue>
+          <ButtonFillVue to="/shop"><span class="py-1">Магазин</span></ButtonFillVue>
         </div>
         <p class="text-3xl mb-2">Продвинутый онлайн-сервис для модификации ПК</p>
         <div class="flex justify-start mb-6">
-          <ButtonFillVue class="py-1" to="/configurator">Конфигуратор</ButtonFillVue>
+          <ButtonFillVue to="/configurator"><span class="py-1">Конфигуратор</span></ButtonFillVue>
         </div>
       </div>
       <div class="hidden md:block">
@@ -22,13 +22,13 @@
     </div>
   </div>
 
-  <div class="container mx-auto">
+  <div class="divider container mx-auto">
     <hr class="-translate-y-[4rem] border-2 border-[#AECBF4]" />
   </div>
 
   <div class="homeSteps">
     <div class="container mx-auto">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-start">
         <p class="text-3xl text-[#002E69]">
           Почему мы <br />
           лучше других?
@@ -139,20 +139,137 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-between items-center">
+      <div class="grid grid-cols-2 my-32">
         <p class="text-3xl text-[#002E69]">
           Этапы <br />
           диагностики <br />
           и ремонта
         </p>
-        <div></div>
+        <div>
+          <ol class="relative border-l-2 border-[#002e69bf]">
+            <li class="mb-10 ml-8">
+              <span
+                class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white"
+              >
+                <svg aria-hidden="true" class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Определение неисправности</h3>
+            </li>
+            <li class="mb-10 ml-8">
+              <span
+                class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-3 h-3 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="mb-1 text-lg font-semibold text-gray-900">Согласования стоимости</h3>
+            </li>
+            <li class="mb-10 ml-8">
+              <span
+                class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-3 h-3 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="mb-1 text-lg font-semibold text-gray-900">Ремонт устройства</h3>
+            </li>
+            <li class="mb-10 ml-8">
+              <span
+                class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-3 h-3 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="mb-1 text-lg font-semibold text-gray-900">Уведомление о готовности</h3>
+            </li>
+            <li class="mb-10 ml-8">
+              <span
+                class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-3 h-3 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="mb-1 text-lg font-semibold text-gray-900">Оплата</h3>
+            </li>
+            <li class="ml-8">
+              <span
+                class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-3 h-3 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+              <h3 class="mb-1 text-lg font-semibold text-gray-900">Выдача готового устройства или доставка</h3>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="comment">
     <div class="container mx-auto">
-      <div class="flex justify-between items-center gap-20 md:gap-40 lg:gap-56">
+      <div class="flex justify-between items-start gap-20 md:gap-40 lg:gap-56">
         <p class="relative font-medium text-3xl text-[#002E69]">
           <span class="py-3">Отзывы</span>
           <svg

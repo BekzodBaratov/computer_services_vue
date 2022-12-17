@@ -84,8 +84,8 @@
       </div>
     </div>
     <span class="flex flex-col items-start gap-3">
-      <ButtonFillVue class="py-2">Применить</ButtonFillVue>
-      <ButtonStrokeVue class="py-2">Сбросить все</ButtonStrokeVue>
+      <ButtonFillVue><span class="py-2">Применить</span></ButtonFillVue>
+      <ButtonStrokeVue><span class="py-2">Сбросить все</span> </ButtonStrokeVue>
     </span>
   </form>
 </template>

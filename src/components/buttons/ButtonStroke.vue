@@ -1,8 +1,15 @@
 <template>
+  <span
+    v-if="!isTo"
+    class="buttonStrokeStyle duration-300 hover:bg-transparent border px-4 rounded-lg flex items-center justify-center cursor-pointer"
+  >
+    <slot></slot>
+  </span>
+
   <RouterLink
-    :to="to ? to : ''"
-    :disabled="disabled"
-    class="hover:bg-[#002E69] hover:text-[#F4F6F9] duration-300 bg-transparent text-[#002E69] border border-[#002E69] px-4 rounded-lg flex items-center justify-center cursor-pointer"
+    v-if="isTo"
+    :to="to"
+    class="buttonStrokeStyle duration-300 hover:bg-transparent border px-4 rounded-lg flex items-center justify-center cursor-pointer"
   >
     <slot></slot>
   </RouterLink>
@@ -11,5 +18,19 @@
 <script setup>
 import { defineProps } from "vue";
 
-defineProps({ to: String, disabled: Boolean });
+const props = defineProps({ to: String, color: String });
+const color1 = props.color || "#002E69";
+const isTo = props.to ? true : false;
 </script>
+
+<style scoped>
+.buttonStrokeStyle {
+  background-color: transparent;
+  border-color: v-bind(color1);
+  color: v-bind(color1);
+}
+.buttonStrokeStyle:hover {
+  background-color: v-bind(color1);
+  color: #f4f6f9;
+}
+</style>
