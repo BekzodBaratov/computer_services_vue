@@ -17,10 +17,13 @@
       <div class="grid grid-cols-[2fr,4fr] bg-[#4f87d30d]">
         <div class="px-[20px] py-[10px]">
           <div class="mt-[20px]" v-for="item, index in 10" :key="index">
-            <p class="font-medium text-[32px] leading-[46px] text-[#002e6980]">Процессор</p>
+            <p
+              class="font-medium text-[32px] leading-[46px] text-[#002e6980] cursor-pointer transition-all duration-300 hover:text-[#002E69]">
+              Процессор</p>
           </div>
         </div>
-        <div class="pl-[30px] pr-[50px]  border-l-2 border-black h-[100vh] overflow-y-scroll my-[60px]">
+        <div class="pl-[30px] pr-[50px]  h-[100vh] overflow-y-scroll my-[60px]">
+          <!-- select option 1 -->
           <div class="flex justify-between gap-[15px] items-center mb-[80px]" v-for="item, index in 2" :key="index">
             <p class="text-[#002E69] text-[32px] leading-[46px] font-medium">Материнская плата</p>
             <div class="size w-[230px] h-[62px]">
@@ -35,10 +38,11 @@
               </select>
             </div>
           </div>
-          <div class="mb-[40px]">
+          <!-- input tupy radio -->
+          <div class="mb-[40px] mx-auto">
             <div class="" v-for="item, index in 3" :key="index">
               <div class="flex gap-[20px] items-center mt-2">
-                <input type="radio" id="radio" class="">
+                <input type="radio" id="index" name="index" class="">
                 <div>
                   <p class="text-[#002E69] text-[24px] leading-[35px] font-medium">Intel Box</p>
                   <p class="text-[#D52C55] text-[16px] leading-[23px] font-normal">80 000 сум</p>
@@ -46,6 +50,7 @@
               </div>
             </div>
           </div>
+          <!-- select option 2 -->
           <div class="flex justify-between gap-[15px] items-center mb-[80px]" v-for="item, index in 8" :key="index">
             <p class="text-[#002E69] text-[32px] leading-[46px] font-medium">Материнская плата</p>
             <div class="size w-[230px] h-[62px]">
@@ -54,7 +59,7 @@
                 class="bg-transparent border border-[#002E69] text-[#002e694d] text-[22px] leading-[46px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Size By</option>
                 <option v-for="(item, index) in 6" :key="index">
-                  option
+                  option {{ index + 1 }}
                 </option>
 
               </select>
@@ -94,4 +99,20 @@
 
 <script setup>
 
+
+
+
 </script>
+
+<style scoped>
+input[type="radio"] {
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+}
+</style>
