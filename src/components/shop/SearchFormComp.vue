@@ -67,7 +67,7 @@
         <div @click="open = false" v-if="open" class="modal z-[999999] fixed inset-0 bg-[#0005] backdrop-blur-sm"></div>
         <div
           v-if="open"
-          class="absolute w-[30rem] inset-y-0 z-[999999] right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
+          class="fixed w-[30rem] inset-y-0 z-[999999] right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
         >
           <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
             <p class="text-white text-3xl text-center">Корзина</p>

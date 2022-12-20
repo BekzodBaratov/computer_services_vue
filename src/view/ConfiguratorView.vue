@@ -29,7 +29,7 @@
                   class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer"
                 >
                   <div class="shopcart flex flex-col items-center">
-                    <i class="fa-heart text-[2rem] text-[#002E69]" :class="isSaved ? 'fa-regular' : 'fa-solid'"></i>
+                    <i class="fa-heart text-[2rem] text-[#002E69]" :class="!isSaved ? 'fa-regular' : 'fa-solid'"></i>
                   </div>
                 </div>
                 <span class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer">
@@ -108,7 +108,7 @@
                   class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer"
                 >
                   <div class="shopcart flex flex-col items-center">
-                    <i class="fa-heart text-[2rem] text-[#002E69]" :class="isSaved ? 'fa-regular' : 'fa-solid'"></i>
+                    <i class="fa-heart text-[2rem] text-[#002E69]" :class="!isSaved ? 'fa-regular' : 'fa-solid'"></i>
                   </div>
                 </div>
                 <span class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer">
@@ -124,7 +124,13 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import ButtonFill from "../components/buttons/ButtonFill.vue";
+
+const isSaved = ref(false);
+const savedFunc = () => {
+  isSaved.value = !isSaved.value;
+};
 </script>
 
 <style scoped>
