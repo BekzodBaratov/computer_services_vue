@@ -2,9 +2,9 @@
   <div className="md:w-3/4 w-4/5 mx-auto my-10 space-y-44 md:space-y-32 lg:space-y-24 xl:space-y-12 min-h-screen">
     <div className="flex justify-between  flex-col-reverse md:flex-row gap-6">
       <div className="flex-3  flex flex-col gap-6 md:gap-16">
-        <h2 className="text-[#002E69]  font-bold text-5xl ">{{ descr.title }}</h2>
+        <h2 className="text-primary  font-bold text-5xl ">{{ descr.title }}</h2>
         <div className="grid gap-4 grid-cols-2  h-4 w-full">
-          <div v-for="(offer, i) in descr?.offers" :key="{ i }" className="text[#002E69] w-full flex ">
+          <div v-for="(offer, i) in descr?.offers" :key="{ i }" className="textprimary w-full flex ">
             <p className="text-2xl pr-6 ">{{ offer }}</p>
           </div>
         </div>
@@ -14,9 +14,9 @@
       </div>
     </div>
     <div className="flex flex-col  gap-16">
-      <h2 className="text-[#002E69] font-bold text-5xl w-[20rem]">Мы поможем если у вас –</h2>
+      <h2 className="text-primary font-bold text-5xl w-[20rem]">Мы поможем если у вас –</h2>
       <div className="grid gap-7 grid-cols-2 h-4">
-        <div v-for="(list, i) in descr.desc" :key="i" className="text[#002E69] flex ">
+        <div v-for="(list, i) in descr.desc" :key="i" className="textprimary flex ">
           <p className="text-2xl w-full pr-8">{{ list }}</p>
         </div>
       </div>

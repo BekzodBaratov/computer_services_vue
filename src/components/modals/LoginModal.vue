@@ -55,21 +55,19 @@ const telCode = ref();
 let user;
 
 const formLoginData = () => {
-  console.log(telNumber.value);
-  console.log(telCode.value);
-
   if (telNumber.value.length === 13 && String(telCode.value).length === 6) {
     user = store.users.find((val, i) => val.tel === telNumber.value && val.code === telCode.value);
 
     if (String(user).length) {
       store.user = user.id;
       emit("closeLoginModal");
+      emit("loginBtn");
       store.isRegisteration = true;
     }
   }
 };
 
-const emit = defineEmits(["closeLoginModal", "changeTo"]);
+const emit = defineEmits(["closeLoginModal", "changeTo", "loginBtn"]);
 </script>
 
 <style>

@@ -72,7 +72,7 @@
         <form>
           <div class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden">
             <input type="text" class="searchInp px-3 py-[2px] outline-none bg-transparent" placeholder="Ваш номер" />
-            <div class="all px-6 py-[2px] rounded-l-2xl text-[#002E69] font-semibold cursor-pointer bg-[#AECBF4]">
+            <div class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue">
               Звонок
             </div>
           </div>

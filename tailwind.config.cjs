@@ -4,19 +4,25 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        sx : "320px",
+        sx: "320px",
         xs: "375px",
         sm: "576px",
-        ss : "650px",
+        ss: "650px",
         md: "768px",
         mmd: "800px",
         lg: "992px",
         xl: "1200px",
         xxl: "1536px",
       },
+      colors: {
+        primary: "#002e69",
+        danger: "#D52C55",
+        white: "#f4f4f9",
+        whiteBlue: "#AECBF4",
+        primaryBlue: "#4F87D3",
+        blue100: "#E7F0FE",
+      },
     },
   },
-  plugins: [
-    
-  ],
+  plugins: [],
 };

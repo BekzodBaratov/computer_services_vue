@@ -5,17 +5,17 @@
     <div class="flex justify-between items-center">
       <RouteLinkVue class="mt-6 mb-4" :route="arrFunc" />
       <div class="space-x-6">
-        <RouterLink class="text-[#4F87D3] active:text-[#002E69] hover:text-[#002E69] duration-300" to="#">
+        <RouterLink class="text-primaryBlue active:text-primary hover:text-primary duration-300" to="#">
           <i class="fa-solid fa-arrow-up"> </i>
           <i class="fa-solid fa-arrow-down"></i>
           Рейтинг
         </RouterLink>
-        <RouterLink class="text-[#4F87D3] active:text-[#002E69] hover:text-[#002E69] duration-300" to="#">
+        <RouterLink class="text-primaryBlue active:text-primary hover:text-primary duration-300" to="#">
           <i class="fa-solid fa-arrow-up"> </i>
           <i class="fa-solid fa-arrow-down"></i>
           Новинка
         </RouterLink>
-        <RouterLink class="text-[#4F87D3] active:text-[#002E69] hover:text-[#002E69] duration-300" to="#">
+        <RouterLink class="text-primaryBlue active:text-primary hover:text-primary duration-300" to="#">
           <i class="fa-solid fa-arrow-up"> </i>
           <i class="fa-solid fa-arrow-down"></i>
           Цена

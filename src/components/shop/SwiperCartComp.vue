@@ -1,6 +1,6 @@
 <template>
   <div v-for="(val, key) in store.cardSwiper" :key="key">
-    <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#4F87D3] font-semibold pl-4 pb-4">
+    <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-primaryBlue font-semibold pl-4 pb-4">
       {{ val[0] }}
       <i class="pl-3 translate-y-[2px] fa-sharp fa-solid fa-arrow-right-long"></i>
     </p>
@@ -43,10 +43,10 @@
           </div>
           <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl h-full space-y-2">
             <div class="flex justify-between items-center flex-wrap">
-              <div class="text-[#4F87D3]">{{ val.rating }}</div>
-              <div class="text-[#4F87D3]">{{ val.review }} отзывов</div>
+              <div class="text-primaryBlue">{{ val.rating }}</div>
+              <div class="text-primaryBlue">{{ val.review }} отзывов</div>
             </div>
-            <div class="duration-200 hover:text-[#002e69]">{{ val.name }}</div>
+            <div class="duration-200 hover:text-primary">{{ val.name }}</div>
             <div>{{ val.typeOfMoney }}</div>
             <div class="flex justify-between items-center flex-wrap">
               <div class="font-semibold">{{ val.cost }} {{ val.currency }}</div>

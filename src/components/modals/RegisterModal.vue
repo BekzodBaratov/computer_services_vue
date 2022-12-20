@@ -67,7 +67,7 @@
           </form>
 
           <div v-if="currentScore <= 3" class="timeLine relative">
-            <div class="absolute z-10 left-0 right-0 top-1/2 h-[1px] bg-[#002e69]"></div>
+            <div class="absolute z-10 left-0 right-0 top-1/2 h-[1px] bg-primary"></div>
             <div class="flex items-center justify-between">
               <span v-for="(val, i) in 4" :key="i">
                 <svg v-if="i < currentScore" class="relative z-50" width="1.6rem" height="1.6rem" viewBox="0 0 24 24">
@@ -141,7 +141,7 @@ const emit = defineEmits(["closeRegiterModal"]);
 
 .step {
   @apply w-6 h-6 flex z-10 relative 
-  bg-white flex justify-center items-center rounded-full font-semibold
+  bg-white justify-center items-center rounded-full font-semibold
    text-white text-blue-900;
 }
 .active .step {

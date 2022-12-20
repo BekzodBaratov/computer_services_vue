@@ -3,7 +3,7 @@
     <div class="rangeSliderComp">
       <div class="titleName">Цена</div>
       <div class="flex items-center text-sm text-gray-500 mb-5 font-bold">
-        <span class="border border-[#AECBF4] text-[#002E69] w-20 py-[2px] rounded-md text-center">
+        <span class="border border-whiteBlue text-primary w-20 py-[2px] rounded-md text-center">
           {{ rangeInput[0] }}
         </span>
         <span class="px-2"
@@ -11,7 +11,7 @@
             <line x1="0.5" y1="0.5" x2="10.5" y2="0.5" stroke="#AECBF4" stroke-linecap="round" />
           </svg>
         </span>
-        <span class="border border-[#AECBF4] text-[#002E69] w-20 py-[2px] rounded-md text-center">
+        <span class="border border-whiteBlue text-primary w-20 py-[2px] rounded-md text-center">
           {{ rangeInput[1] }}
         </span>
       </div>
@@ -51,7 +51,7 @@
       <p class="titleName">Модель</p>
       <select
         id="countries"
-        class="bg-transparent border border-[#AECBF4] outline-none flex justify-center text-[#002E69] rounded-lg focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
+        class="bg-transparent border border-whiteBlue outline-none flex justify-center text-primary rounded-lg focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
       >
         <option value="all" selected>Каталог</option>
         <option value="US">United States</option>
@@ -64,7 +64,7 @@
       <p class="titleName">Цвет</p>
       <select
         id="countries"
-        class="bg-[#AECBF4] select outline-none flex justify-center text-[#002E69] rounded-lg focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
+        class="bg-whiteBlue select outline-none flex justify-center text-primary rounded-lg focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
       >
         <option value="all" selected>Каталог</option>
         <option value="US">United States</option>
@@ -74,11 +74,11 @@
       </select>
     </div>
     <div class="space-y-1">
-      <div class="space-x-2 text-[#002E69]">
+      <div class="space-x-2 text-primary">
         <input type="radio" name="pul" id="naqt" />
         <label for="naqt">В наличии</label>
       </div>
-      <div class="space-x-2 text-[#002E69]">
+      <div class="space-x-2 text-primary">
         <input type="radio" name="pul" id="aksiya" />
         <label for="aksiya">Акция</label>
       </div>

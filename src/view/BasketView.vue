@@ -2,13 +2,13 @@
   <div class="min-h-screen">
     <SearchFormCompVue />
     <div class="container mx-auto">
-      <h1 class="text-3xl text-[#002E69] my-4">Оформление заказа</h1>
+      <h1 class="text-3xl text-primary my-4">Оформление заказа</h1>
       <div class="flex flex-col-reverse md:flex-row justify-between">
         <div class="space-y-3 mb-6">
           <div class="flex flex-col gap-1">
-            <label for="adress "><span class="text-[#4F87D3]">Адрес доставки</span></label>
+            <label for="adress "><span class="text-primaryBlue">Адрес доставки</span></label>
             <textarea
-              class="w-80 p-2 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-[#4F87D3] text-[#002E69] outline-none"
+              class="w-80 p-2 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
               placeholder="г. Ташкент, Юнусабадский район, Улица Чарос, дом 30, квартира 7"
               maxlength="1000"
               cols="30"
@@ -18,7 +18,7 @@
             ></textarea>
           </div>
           <textarea
-            class="w-80 p-2 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-[#4F87D3] text-[#002E69] outline-none"
+            class="w-80 p-2 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
             placeholder="Комментарий к доставке"
             maxlength="1000"
             cols="30"
@@ -26,25 +26,25 @@
             id="comment"
           ></textarea>
           <div class="fio space-y-1">
-            <label for="fio" class="block text-[#4F87D3]">ФИО</label>
+            <label for="fio" class="block text-primaryBlue">ФИО</label>
             <input
               type="text"
               id="fio"
               placeholder="Тимур Зафаров"
               maxlength="255"
               minlength="0"
-              class="w-56 p-1 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-[#4F87D3] text-[#002E69] outline-none"
+              class="w-56 p-1 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
             />
           </div>
           <div class="tel">
-            <label for="tel" class="block text-[#4F87D3]">ФИО</label>
+            <label for="tel" class="block text-primaryBlue">ФИО</label>
             <input
               type="number"
               id="tel"
               placeholder="(90) 123 45 67"
               maxlength="255"
               minlength="0"
-              class="w-56 p-1 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-[#4F87D3] text-[#002E69] outline-none"
+              class="w-56 p-1 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
             />
           </div>
           <div class="flex flex-col items-start gap-3 pt-3">
@@ -69,7 +69,7 @@
                     <div class="flex items-center">
                       <svg
                         aria-hidden="true"
-                        class="w-5 h-5 text-[#4F87D3]"
+                        class="w-5 h-5 text-primaryBlue"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -79,18 +79,18 @@
                           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                         ></path>
                       </svg>
-                      <p class="ml-2 text-[#4F87D3]">4.95</p>
+                      <p class="ml-2 text-primaryBlue">4.95</p>
                       <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                      <p class="text-[#4F87D3] underline">50 отзывов</p>
+                      <p class="text-primaryBlue underline">50 отзывов</p>
                     </div>
                   </div>
                   <h3 class="">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
-                  <div class="text-[#4F87D3]">В наличии</div>
+                  <div class="text-primaryBlue">В наличии</div>
                   <div class="flex justify-between items-center">
                     <p class="font-semibold">999 000 сум</p>
                     <form>
                       <span class="flex gap-2">
-                        <button @click.prevent="countFunc(false)" class="text-[#002E69]">
+                        <button @click.prevent="countFunc(false)" class="text-primary">
                           <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.12 2.104H10.136V0.296H0.12V2.104Z" fill="#002E69" />
                           </svg>
@@ -99,7 +99,7 @@
                           :value="count"
                           maxlength="5"
                           minlength="0"
-                          class="border w-10 my-1 py-[2px] text-sm border-[#AECBF4] rounded-lg text-[#002E69] text-center"
+                          class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
                           type="number"
                           id="countProd"
                         />
@@ -129,7 +129,7 @@
                     <div class="flex items-center">
                       <svg
                         aria-hidden="true"
-                        class="w-5 h-5 text-[#4F87D3]"
+                        class="w-5 h-5 text-primaryBlue"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -139,18 +139,18 @@
                           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                         ></path>
                       </svg>
-                      <p class="ml-2 text-[#4F87D3]">4.95</p>
+                      <p class="ml-2 text-primaryBlue">4.95</p>
                       <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                      <p class="text-[#4F87D3] underline">50 отзывов</p>
+                      <p class="text-primaryBlue underline">50 отзывов</p>
                     </div>
                   </div>
                   <h3 class="">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
-                  <div class="text-[#4F87D3]">В наличии</div>
+                  <div class="text-primaryBlue">В наличии</div>
                   <div class="flex justify-between items-center">
                     <p class="font-semibold">999 000 сум</p>
                     <form>
                       <span class="flex gap-2">
-                        <button @click.prevent="countFunc(false)" class="text-[#002E69]">
+                        <button @click.prevent="countFunc(false)" class="text-primary">
                           <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.12 2.104H10.136V0.296H0.12V2.104Z" fill="#002E69" />
                           </svg>
@@ -159,7 +159,7 @@
                           :value="count"
                           maxlength="5"
                           minlength="0"
-                          class="border w-10 my-1 py-[2px] text-sm border-[#AECBF4] rounded-lg text-[#002E69] text-center"
+                          class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
                           type="number"
                           id="countProd"
                         />
@@ -189,7 +189,7 @@
                     <div class="flex items-center">
                       <svg
                         aria-hidden="true"
-                        class="w-5 h-5 text-[#4F87D3]"
+                        class="w-5 h-5 text-primaryBlue"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -199,18 +199,18 @@
                           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                         ></path>
                       </svg>
-                      <p class="ml-2 text-[#4F87D3]">4.95</p>
+                      <p class="ml-2 text-primaryBlue">4.95</p>
                       <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                      <p class="text-[#4F87D3] underline">50 отзывов</p>
+                      <p class="text-primaryBlue underline">50 отзывов</p>
                     </div>
                   </div>
                   <h3 class="">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
-                  <div class="text-[#4F87D3]">В наличии</div>
+                  <div class="text-primaryBlue">В наличии</div>
                   <div class="flex justify-between items-center">
                     <p class="font-semibold">999 000 сум</p>
                     <form>
                       <span class="flex gap-2">
-                        <button @click.prevent="countFunc(false)" class="text-[#002E69]">
+                        <button @click.prevent="countFunc(false)" class="text-primary">
                           <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.12 2.104H10.136V0.296H0.12V2.104Z" fill="#002E69" />
                           </svg>
@@ -219,7 +219,7 @@
                           :value="count"
                           maxlength="5"
                           minlength="0"
-                          class="border w-10 my-1 py-[2px] text-sm border-[#AECBF4] rounded-lg text-[#002E69] text-center"
+                          class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
                           type="number"
                           id="countProd"
                         />
@@ -249,7 +249,7 @@
                     <div class="flex items-center">
                       <svg
                         aria-hidden="true"
-                        class="w-5 h-5 text-[#4F87D3]"
+                        class="w-5 h-5 text-primaryBlue"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -259,18 +259,18 @@
                           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                         ></path>
                       </svg>
-                      <p class="ml-2 text-[#4F87D3]">4.95</p>
+                      <p class="ml-2 text-primaryBlue">4.95</p>
                       <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                      <p class="text-[#4F87D3] underline">50 отзывов</p>
+                      <p class="text-primaryBlue underline">50 отзывов</p>
                     </div>
                   </div>
                   <h3 class="">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
-                  <div class="text-[#4F87D3]">В наличии</div>
+                  <div class="text-primaryBlue">В наличии</div>
                   <div class="flex justify-between items-center">
                     <p class="font-semibold">999 000 сум</p>
                     <form>
                       <span class="flex gap-2">
-                        <button @click.prevent="countFunc(false)" class="text-[#002E69]">
+                        <button @click.prevent="countFunc(false)" class="text-primary">
                           <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.12 2.104H10.136V0.296H0.12V2.104Z" fill="#002E69" />
                           </svg>
@@ -279,7 +279,7 @@
                           :value="count"
                           maxlength="5"
                           minlength="0"
-                          class="border w-10 my-1 py-[2px] text-sm border-[#AECBF4] rounded-lg text-[#002E69] text-center"
+                          class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
                           type="number"
                           id="countProd"
                         />
@@ -297,7 +297,7 @@
                 </div>
               </div>
             </div>
-            <div class="menu w-full text-[#4F87D3] rounded-t-xl px-8 py-8 space-y-6 h-[1/3] shadow-lg">
+            <div class="menu w-full text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 h-[1/3] shadow-lg">
               <div class="flex justify-between items-center gap-3">
                 <ButtonStrokeVue :disabled="true"><span class="py-2">Введите промокод</span> </ButtonStrokeVue>
                 <ButtonStrokeVue to=""><span class="py-2">Применить</span> </ButtonStrokeVue>
@@ -330,9 +330,9 @@
       class="PayModal fixed z-[999999] w-[40rem] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white rounded-md px-6 py-8 space-y-10 shadow-lg"
     >
       <div class="flex justify-between gap-2 h-12">
-        <p class="text-2xl text-[#002E69] self-end">Выбор способа оплаты</p>
+        <p class="text-2xl text-primary self-end">Выбор способа оплаты</p>
         <span @click="isOpenModal = false" class="p-2">
-          <i class="fa-solid fa-xmark text-xl text-[#002E69]"></i>
+          <i class="fa-solid fa-xmark text-xl text-primary"></i>
         </span>
       </div>
       <form action="pay">

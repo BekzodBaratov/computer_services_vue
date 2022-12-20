@@ -1,15 +1,15 @@
 <template>
   <SearchFormCompVue />
   <div class="container mx-auto min-h-screen">
-    <p class="text-5xl text-[#002e69] mb-10">Личный кабинет</p>
+    <p class="text-5xl text-primary mb-10">Личный кабинет</p>
     <div class="flex justify-between flex-wrap gap-6 mb-8">
       <div class="card bg-white shadow-md p-6 rounded-md min-w-[26rem]">
-        <p class="text-[#4F87D3] text-3xl mb-4">Уведомления</p>
-        <p class="text-[#4f87d3] text-lg mb-2">Получать на адрес</p>
+        <p class="text-primaryBlue text-3xl mb-4">Уведомления</p>
+        <p class="text-primaryBlue text-lg mb-2">Получать на адрес</p>
         <form>
-          <div class="border border-[#4F87D3] rounded-md flex gap-2 justify-between px-2 py-1 mb-3 max-w-xs">
+          <div class="border border-primaryBlue rounded-md flex gap-2 justify-between px-2 py-1 mb-3 max-w-xs">
             <input
-              class="outline-none text-[#002e69] w-full"
+              class="outline-none text-primary w-full"
               type="email"
               name="email"
               id="email"
@@ -34,11 +34,11 @@
               </svg>
             </label>
           </div>
-          <div class="text-[#4f87d3] flex gap-3 items-center mb-2">
+          <div class="text-primaryBlue flex gap-3 items-center mb-2">
             <input type="radio" name="editProfile" id="tovar" />
             <label for="tovar">Появившиеся товары</label>
           </div>
-          <div class="text-[#4f87d3] flex gap-3 items-center mb-2">
+          <div class="text-primaryBlue flex gap-3 items-center mb-2">
             <input type="radio" name="editProfile" id="sale" />
             <label for="sale">Появившиеся товары</label>
           </div>
@@ -46,7 +46,7 @@
       </div>
       <div class="card bg-white shadow-md p-6 rounded-md min-w-[30rem]">
         <div class="flex justify-between gap-3">
-          <p class="text-[#4F87D3] text-3xl mb-6">Персональные данные</p>
+          <p class="text-primaryBlue text-3xl mb-6">Персональные данные</p>
           <svg width="1.8rem" height="1.8rem" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M5.40035 24.9881C5.66463 24.9874 5.91788 24.8821 6.10476 24.6953L24.2929 6.5071C24.6834 6.11658 24.6834 5.48341 24.2929 5.09289L20.9071 1.70711C20.5166 1.31658 19.8834 1.31658 19.4929 1.70711L1.30474 19.8952C1.11787 20.0821 1.01257 20.3354 1.01185 20.5997L1.00271 23.9946C1.00121 24.549 1.45101 24.9988 2.0054 24.9973L5.40035 24.9881Z"
@@ -71,7 +71,7 @@
               src="../assets/img/profile/Без названия.jpg"
               alt="profile image"
             /> -->
-            <div class="w-full h-full bg-[#E7F0FE] flex justify-center items-center">
+            <div class="w-full h-full bg-blue100 flex justify-center items-center">
               <svg width="1.6rem" height="1.6rem" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M18.1895 1H21.0046C23.223 1 25.0003 2.79025 25.0003 4.99566V7.68107"
@@ -122,7 +122,7 @@
             <div class="flex flex-col">
               <label class="text-[#4f86d38d]" for="dataEmail">Электронная почта</label>
               <input
-                class="border border-[#4f87d3] rounded-md py-1 px-3 outline-none text-[#002e69] min-w-[16rem]"
+                class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[16rem]"
                 type="email"
                 name="dataEmail"
                 id="dataEmail"
@@ -132,7 +132,7 @@
             <div class="flex flex-col">
               <label class="text-[#4f86d38d]" for="dataEmail">ФИО</label>
               <input
-                class="border border-[#4f87d3] rounded-md py-1 px-3 outline-none text-[#002e69] min-w-[16rem]"
+                class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[16rem]"
                 type="text"
                 name="dataName"
                 id="dataname"
@@ -142,7 +142,7 @@
             <div class="flex flex-col">
               <label class="text-[#4f86d38d]" for="dataEmail">Телефон</label>
               <input
-                class="border border-[#4f87d3] rounded-md py-1 px-3 outline-none text-[#002e69] min-w-[16rem]"
+                class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[16rem]"
                 type="text"
                 name="dataTel"
                 id="dataTel"
@@ -152,7 +152,7 @@
             <div class="flex flex-col">
               <label class="text-[#4f86d38d]" for="dataEmail">Пароль</label>
               <input
-                class="border border-[#4f87d3] rounded-md py-1 px-3 outline-none text-[#002e69] min-w-[16rem]"
+                class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[16rem]"
                 type="password"
                 name="dataPass"
                 id="dataPass"
@@ -163,7 +163,7 @@
       </div>
       <div class="card bg-white shadow-md p-6 rounded-md min-w-[24rem]">
         <div class="flex justify-between gap-3">
-          <p class="text-[#4F87D3] text-3xl mb-6">Адрес доставки</p>
+          <p class="text-primaryBlue text-3xl mb-6">Адрес доставки</p>
           <svg width="1.8rem" height="1.8rem" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M5.40035 24.9881C5.66463 24.9874 5.91788 24.8821 6.10476 24.6953L24.2929 6.5071C24.6834 6.11658 24.6834 5.48341 24.2929 5.09289L20.9071 1.70711C20.5166 1.31658 19.8834 1.31658 19.4929 1.70711L1.30474 19.8952C1.11787 20.0821 1.01257 20.3354 1.01185 20.5997L1.00271 23.9946C1.00121 24.549 1.45101 24.9988 2.0054 24.9973L5.40035 24.9881Z"
@@ -185,7 +185,7 @@
           <div class="flex flex-col mb-4">
             <label class="text-[#4f86d38d]" for="dataStreet">Название улицы</label>
             <input
-              class="border border-[#4f87d3] rounded-md py-1 px-3 outline-none text-[#002e69] min-w-[10rem]"
+              class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[10rem]"
               type="text"
               name="dataStreet"
               id="dataStreet"
@@ -196,7 +196,7 @@
             <div class="flex flex-col">
               <label class="text-[#4f86d38d]" for="home">Дом</label>
               <input
-                class="border border-[#4f87d3] rounded-md text-center py-1 px-3 outline-none text-[#002e69] w-[3rem]"
+                class="border border-primaryBlue rounded-md text-center py-1 px-3 outline-none text-primary w-[3rem]"
                 type="number"
                 name="number"
                 id="home"
@@ -206,7 +206,7 @@
             <div class="flex flex-col">
               <label class="text-[#4f86d38d]" for="kv">Кв.</label>
               <input
-                class="border border-[#4f87d3] text-center rounded-md py-1 px-3 outline-none text-[#002e69] w-[3rem]"
+                class="border border-primaryBlue text-center rounded-md py-1 px-3 outline-none text-primary w-[3rem]"
                 type="number"
                 name="number"
                 id="kv"
@@ -216,7 +216,7 @@
             <div class="flex flex-col">
               <label class="text-[#4f86d38d]" for="pod">Под.</label>
               <input
-                class="border border-[#4f87d3] text-center rounded-md py-1 px-3 outline-none text-[#002e69] w-[3rem]"
+                class="border border-primaryBlue text-center rounded-md py-1 px-3 outline-none text-primary w-[3rem]"
                 type="number"
                 name="number"
                 id="pod"
@@ -225,7 +225,7 @@
             </div>
           </div>
           <textarea
-            class="border border-[#4f87d3] placeholder:text-[#4f87d3] rounded-md my-4 py-1 px-3 outline-none text-[#002e69] w-full"
+            class="border border-primaryBlue placeholder:text-primaryBlue rounded-md my-4 py-1 px-3 outline-none text-primary w-full"
             name="comment"
             id="comment"
             rows="5"

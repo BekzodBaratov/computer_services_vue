@@ -4,7 +4,11 @@
       <span class="md:hidden text-white">
         <i class="fa-solid fa-bars p-3"></i>
       </span>
-      <RouterLink to="/" class="flex items-center gap-1 group">
+      <RouterLink
+        to="/"
+        class="flex items-center gap-1 group"
+        :class="router.currentRoute.value.path === '/' ? 'text-primary' : 'text-white'"
+      >
         <span class="">
           <svg class="w-10 h-14" viewBox="0 0 61 50" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_342_31958)">
@@ -95,9 +99,7 @@
             </defs>
           </svg>
         </span>
-        <span class="uppercase font-normal text-xl text-[#F4F6F9] duration-300 group-hover:text-[#002e69]"
-          >starnewtech.uz</span
-        >
+        <span class="uppercase font-normal text-xl duration-200 group-hover:text-primary">starnewtech.uz</span>
       </RouterLink>
 
       <ul class="hidden md:flex gap-6 [&>li]:inline-block [&>li]:py-3">
@@ -105,7 +107,7 @@
           v-for="(val, i) in routeNav"
           :key="i"
           class="relative before:duration-300 before:absolute before:bottom-0 before:opacity-0 hover:before:opacity-100 hover:before:bottom-3 before:left-1/2 hover:before:left-0 hover:before: before:w-2 hover:before:w-full before:h-[1px] before:bg-white"
-          :class="router.currentRoute.value.path === val.link ? 'text-[#002e69]' : 'text-[#F4F6F9]'"
+          :class="router.currentRoute.value.path === val.link ? 'text-primary' : 'text-[#F4F6F9]'"
         >
           <RouterLink :to="val.link">{{ val.name }}</RouterLink>
         </li>
@@ -115,7 +117,7 @@
         <div class="relative py-3 group">
           <span
             ><svg
-              class="w-6 h-6 duration-200 fill-[#f4f4f9] hover:fill-[#002e69] active:fill-[#002e69]"
+              class="w-6 h-6 duration-200 fill-[#f4f4f9] hover:fill-primary active:fill-primary"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +140,7 @@
             </svg>
           </span>
           <ul
-            class="absolute hidden group-hover:block group-focus-within:block top-full bg-white shadow-lg text-[#002e69] min-w-[6rem] rounded-md overflow-hidden"
+            class="absolute hidden group-hover:block group-focus-within:block top-full bg-white shadow-lg text-primary min-w-[6rem] rounded-md overflow-hidden"
           >
             <li class="flex gap-2 cursor-pointer hover:bg-gray-100 py-2 px-3">
               <span
@@ -231,16 +233,16 @@
         </span>
 
         <div class="flex items-center gap-2" v-if="!store.isRegisteration">
-          <span @click="isRegisterationModal = true" class="duration-200 cursor-pointer hover:text-[#002e69]"
+          <span @click="isRegisterationModal = true" class="duration-200 cursor-pointer hover:text-primary"
             >Регистрация</span
           >
           <span
             @click="isLoginModal = true"
-            class="flex items-center gap-1 cursor-pointer border px-3 py-1 rounded-xl duration-200 border-[#F4F6F9] hover:bg-[#F4F6F9] hover:text-[#002e69] group"
+            class="flex items-center gap-1 cursor-pointer border px-3 py-1 rounded-xl duration-200 border-[#F4F6F9] hover:bg-[#F4F6F9] hover:text-primary group"
           >
             <span>
               <svg
-                class="w-6 h-6 stroke-[#F4F6F9] group-hover:stroke-[#002e69]"
+                class="w-6 h-6 stroke-[#F4F6F9] group-hover:stroke-primary"
                 viewBox="0 0 35 35"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -284,7 +286,9 @@
                 />
               </svg>
             </span>
-            <!-- {{ user.name }} -->
+            <p class="duration-200 hover:text-primary">
+              {{ user.name }}
+            </p>
           </RouterLink>
         </div>
       </div>
@@ -294,8 +298,12 @@
   <div class="h-16"></div>
 
   <RegisterModalVue @closeRegiterModal="isRegisterationModal = false" v-if="isRegisterationModal" />
-
-  <LoginModalVue @changeTo="changeLoginToRegister" @closeLoginModal="isLoginModal = false" v-if="isLoginModal" />
+  <LoginModalVue
+    @loginBtn="loginBtn"
+    @changeTo="changeLoginToRegister"
+    @closeLoginModal="isLoginModal = false"
+    v-if="isLoginModal"
+  />
 </template>
 
 <script setup>
@@ -307,11 +315,11 @@ import LoginModalVue from "../modals/LoginModal.vue";
 
 const store = useUserRegister();
 const router = useRouter();
-const user = store.users[store.user];
-console.log(user);
+const user = ref({ name: "" });
 
-const isRegisterationModal = ref(false);
-const isLoginModal = ref(false);
+const loginBtn = () => {
+  user.value = store.users[store.user];
+};
 
 const routeNav = ref([
   { name: "Сервис", link: "/services" },
@@ -320,6 +328,9 @@ const routeNav = ref([
   { name: "О нас", link: "/about" },
   { name: "Контакты", link: "/contact" },
 ]);
+
+const isLoginModal = ref(false);
+const isRegisterationModal = ref(false);
 
 const changeLoginToRegister = () => {
   isRegisterationModal.value = true;

@@ -5,7 +5,7 @@
         <select
           v-model="selectRef"
           id="countries"
-          class="bg-[#AECBF4] select outline-none flex justify-center text-[#002E69] rounded-2xl focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
+          class="bg-whiteBlue select outline-none flex justify-center text-primary rounded-2xl focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
         >
           <option value="all" selected>Каталог</option>
           <option value="US">United States</option>
@@ -18,7 +18,7 @@
       <div class="SearchForm flex items-center p-0 border border-[#0003] rounded-3xl overflow-hidden">
         <div
           @click.prevent="(e) => searchFrom(e)"
-          class="all px-6 py-1 rounded-r-2xl text-[#002E69] font-semibold cursor-pointer bg-[#AECBF4]"
+          class="all px-6 py-1 rounded-r-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
         >
           Все
         </div>
@@ -36,8 +36,8 @@
 
     <div class="flex items-end gap-4 h-full">
       <RouterLink to="/favorites" @click="savedFunc" class="shopcart flex flex-col items-center cursor-pointer">
-        <i class="fa-heart text-[2rem] text-[#002E69] fa-regular"></i>
-        <i class="hidden fa-heart text-[2rem] text-[#002E69] fa-solid"></i>
+        <i class="fa-heart text-[2rem] text-primary fa-regular"></i>
+        <i class="hidden fa-heart text-[2rem] text-primary fa-solid"></i>
         <div class="text hidden md:block">Избранное</div>
       </RouterLink>
 
@@ -190,7 +190,7 @@
                     <div class="flex items-center">
                       <svg
                         aria-hidden="true"
-                        class="w-5 h-5 text-[#4F87D3]"
+                        class="w-5 h-5 text-primaryBlue"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -200,18 +200,18 @@
                           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                         ></path>
                       </svg>
-                      <p class="ml-2 text-[#4F87D3]">4.95</p>
+                      <p class="ml-2 text-primaryBlue">4.95</p>
                       <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                      <p class="text-[#4F87D3] underline">50 отзывов</p>
+                      <p class="text-primaryBlue underline">50 отзывов</p>
                     </div>
                   </div>
                   <h3 class="">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
-                  <div class="text-[#4F87D3]">В наличии</div>
+                  <div class="text-primaryBlue">В наличии</div>
                   <div class="flex justify-between items-center">
                     <p class="font-semibold">999 000 сум</p>
                     <form>
                       <span class="flex gap-2">
-                        <button @click.prevent="countFunc(false)" class="text-[#002E69]">
+                        <button @click.prevent="countFunc(false)" class="text-primary">
                           <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.12 2.104H10.136V0.296H0.12V2.104Z" fill="#002E69" />
                           </svg>
@@ -220,7 +220,7 @@
                           :value="count"
                           maxlength="5"
                           minlength="0"
-                          class="border w-10 my-1 py-[2px] text-sm border-[#AECBF4] rounded-lg text-[#002E69] text-center"
+                          class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
                           type="number"
                           id="countProd"
                         />
@@ -250,7 +250,7 @@
                     <div class="flex items-center">
                       <svg
                         aria-hidden="true"
-                        class="w-5 h-5 text-[#4F87D3]"
+                        class="w-5 h-5 text-primaryBlue"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -260,18 +260,18 @@
                           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                         ></path>
                       </svg>
-                      <p class="ml-2 text-[#4F87D3]">4.95</p>
+                      <p class="ml-2 text-primaryBlue">4.95</p>
                       <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                      <p class="text-[#4F87D3] underline">50 отзывов</p>
+                      <p class="text-primaryBlue underline">50 отзывов</p>
                     </div>
                   </div>
                   <h3 class="">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
-                  <div class="text-[#4F87D3]">В наличии</div>
+                  <div class="text-primaryBlue">В наличии</div>
                   <div class="flex justify-between items-center">
                     <p class="font-semibold">999 000 сум</p>
                     <form>
                       <span class="flex gap-2">
-                        <button @click.prevent="countFunc(false)" class="text-[#002E69]">
+                        <button @click.prevent="countFunc(false)" class="text-primary">
                           <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.12 2.104H10.136V0.296H0.12V2.104Z" fill="#002E69" />
                           </svg>
@@ -280,7 +280,7 @@
                           :value="count"
                           maxlength="5"
                           minlength="0"
-                          class="border w-10 my-1 py-[2px] text-sm border-[#AECBF4] rounded-lg text-[#002E69] text-center"
+                          class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
                           type="number"
                           id="countProd"
                         />
@@ -299,7 +299,7 @@
               </div>
             </div>
           </div>
-          <div class="menu w-full bg-white text-[#4F87D3] rounded-t-xl px-8 py-8 space-y-6 h-[1/3]">
+          <div class="menu w-full bg-white text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 h-[1/3]">
             <div class="flex justify-between items-center gap-3">
               <ButtonStrokeVue><span class="py-2">Введите промокод</span></ButtonStrokeVue>
               <ButtonStrokeVue><span class="py-2">Применить</span></ButtonStrokeVue>

@@ -8,8 +8,8 @@
         </div>
         <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl space-y-2">
           <div class="flex justify-between items-center flex-wrap">
-            <div class="text-[#4F87D3]">{{ val.rating }}</div>
-            <div class="text-[#4F87D3]">{{ val.review }} отзывов</div>
+            <div class="text-primaryBlue">{{ val.rating }}</div>
+            <div class="text-primaryBlue">{{ val.review }} отзывов</div>
           </div>
           <div>{{ val.name }}</div>
           <div>{{ val.typeOfMoney }}</div>
