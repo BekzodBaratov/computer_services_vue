@@ -1,10 +1,9 @@
 <template>
-  <div class="grid grid-cols-5 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     <div v-for="(val, key) in store.cardSwiper[0][1]" :key="key" class="bg-white h-full rounded-3xl">
       <RouterLink :to="'/shop/' + key">
         <div class="imgCard p-2">
-          <img class="w-full swiper-lazy" src="../../assets/img/magazin/card/Rectangle 64.png" :alt="val.name" />
-          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          <img class="w-full" src="../../assets/img/magazin/card/Rectangle 64.png" :alt="val.name" />
         </div>
         <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl space-y-2">
           <div class="flex justify-between items-center flex-wrap">
@@ -84,4 +83,10 @@
 import { shopStore } from "../../store/shop";
 import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
 const store = shopStore();
+
+const props = defineProps({
+  filterTag: { required: true, type: String },
+});
+
+console.log(props.filterTag);
 </script>

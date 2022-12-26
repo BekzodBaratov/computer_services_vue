@@ -230,7 +230,8 @@
             id="comment"
             rows="5"
             placeholder="Комментарий к доставке"
-          ></textarea>
+          >
+          </textarea>
           <div class="flex justify-center items-center">
             <ButtonFillVue><span class="py-2"> Добавить адрес доставки</span></ButtonFillVue>
           </div>

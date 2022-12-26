@@ -1,6 +1,6 @@
 <template>
   <div className="md:w-3/4 w-4/5 mx-auto my-10 space-y-44 md:space-y-32 lg:space-y-24 xl:space-y-12 min-h-screen">
-    <div className="flex justify-between  flex-col-reverse md:flex-row gap-6">
+    <div className="flex justify-between  flex-col-reverse lg:flex-row gap-6">
       <div className="flex-3  flex flex-col gap-6 md:gap-16">
         <h2 className="text-primary  font-bold text-5xl ">{{ descr.title }}</h2>
         <div className="grid gap-4 grid-cols-2  h-4 w-full">
@@ -13,6 +13,7 @@
         <img src="../assets/img/ServicesImages/noutbook.webp" alt="notebook" className="h-[25rem] float-right" />
       </div>
     </div>
+
     <div className="flex flex-col  gap-16">
       <h2 className="text-primary font-bold text-5xl w-[20rem]">Мы поможем если у вас –</h2>
       <div className="grid gap-7 grid-cols-2 h-4">
@@ -21,6 +22,7 @@
         </div>
       </div>
     </div>
+
     <div class="flex items-center justify-center pt-20 md:pt-40">
       <ButtonFillVue color="#28A745">
         <a class="py-2 px-4 text-2xl" href="tel:944455537">Заказать звонок</a>
