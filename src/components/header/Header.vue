@@ -11,7 +11,7 @@
         :class="router.currentRoute.value.path === '/' ? 'text-primary' : 'text-white'"
       >
         <span class="">
-          <svg class="w-10 h-14" viewBox="0 0 61 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-10 h-14" viewBox="0 0 61 50" fill="none">
             <g clip-path="url(#clip0_342_31958)">
               <path
                 d="M28.2699 32.8354C27.9588 32.3941 27.6171 31.9752 27.2472 31.5818C27.147 31.4749 27.0445 31.3693 26.9402 31.2665C26.3961 30.7287 25.8012 30.2447 25.1639 29.8211C24.6845 29.5021 24.1828 29.2178 23.6626 28.9704L23.1163 28.0608L23.0847 28.0078L23.0532 28.0608L22.7425 28.5789C22.1703 28.3621 21.5824 28.189 20.984 28.0608C20.9195 28.0466 20.855 28.0329 20.79 28.0201L21.8223 26.3001L21.9413 26.1018L22.8793 24.5394L23.0852 24.1963L23.2911 24.5394L24.2291 26.1018L24.3481 26.3001L25.4046 28.0608L26.4616 29.8215L27.1342 30.9454L27.5176 31.585L28.2699 32.8354Z"
@@ -164,21 +164,19 @@
         </div>
 
         <div class="flex items-center gap-2" v-if="store.isRegisteration">
-          <RouterLink class="flex items-center gap-1 px-3 py-1" to="/profile">
+          <RouterLink class="flex items-center gap-1 px-3 py-1 group" to="/profile">
             <span>
-              <svg class="w-6 h-6" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-6 h-6 fill-white group-hover:fill-primary duration-200" viewBox="0 0 35 35" fill="none">
                 <path
                   d="M17.4997 18.5936C12.8768 18.5936 9.11426 14.8311 9.11426 10.2082C9.11426 5.58525 12.8768 1.82275 17.4997 1.82275C22.1226 1.82275 25.8851 5.58525 25.8851 10.2082C25.8851 14.8311 22.1226 18.5936 17.4997 18.5936ZM17.4997 4.01025C14.0872 4.01025 11.3018 6.79567 11.3018 10.2082C11.3018 13.6207 14.0872 16.4061 17.4997 16.4061C20.9122 16.4061 23.6976 13.6207 23.6976 10.2082C23.6976 6.79567 20.9122 4.01025 17.4997 4.01025Z"
-                  fill="white"
                 />
                 <path
                   d="M30.0268 33.1771C29.4289 33.1771 28.9331 32.6812 28.9331 32.0833C28.9331 27.0521 23.7997 22.9687 17.4997 22.9687C11.1997 22.9687 6.06641 27.0521 6.06641 32.0833C6.06641 32.6812 5.57057 33.1771 4.97266 33.1771C4.37474 33.1771 3.87891 32.6812 3.87891 32.0833C3.87891 25.8562 9.98932 20.7812 17.4997 20.7812C25.0101 20.7812 31.1206 25.8562 31.1206 32.0833C31.1206 32.6812 30.6247 33.1771 30.0268 33.1771Z"
-                  fill="white"
                 />
               </svg>
             </span>
-            <p class="duration-200 hover:text-primary">
-              {{ user.name }}
+            <p class="duration-200 group-hover:text-primary">
+              {{ store.user?.username }}
             </p>
           </RouterLink>
         </div>
@@ -189,12 +187,7 @@
   <div class="h-16"></div>
 
   <RegisterModalVue @closeRegiterModal="isRegisterationModal = false" v-if="isRegisterationModal" />
-  <LoginModalVue
-    @loginBtn="loginBtn"
-    @changeTo="changeLoginToRegister"
-    @closeLoginModal="isLoginModal = false"
-    v-if="isLoginModal"
-  />
+  <LoginModalVue @changeTo="changeLoginToRegister" @closeLoginModal="isLoginModal = false" v-if="isLoginModal" />
 </template>
 
 <script setup>
@@ -207,11 +200,6 @@ import LangCompVue from "./LangComp.vue";
 
 const store = useUserRegister();
 const router = useRouter();
-const user = ref({ name: "" });
-
-const loginBtn = () => {
-  user.value = store.users[store.user];
-};
 
 const routeNav = ref([
   { name: "Сервис", link: "/services" },
