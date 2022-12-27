@@ -1,7 +1,12 @@
 <template>
   <SearchFormCompVue />
   <div class="container mx-auto min-h-screen">
-    <p class="text-5xl text-primary mb-10">Личный кабинет</p>
+    <div class="flex justify-between items-center">
+      <p class="text-5xl text-primary mb-10">Личный кабинет</p>
+      <button @click="handleLogout">
+        <ButtonFillVue color="#f00"><span class="py-2">Log out</span></ButtonFillVue>
+      </button>
+    </div>
     <div class="flex justify-between flex-wrap gap-6 pb-16">
       <div class="card bg-white shadow-md p-6 rounded-md min-w-[26rem]">
         <p class="text-primaryBlue text-3xl mb-4">Уведомления</p>
@@ -267,7 +272,8 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
+import axios from "axios";
 import { required, email, minLength, helpers, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 
@@ -327,4 +333,42 @@ const handlePresonalData = () => {
 const handleAdress = () => {
   console.log(stateAdress);
 };
+const handleLogout = () => {
+  console.log("ss");
+  logoutApi();
+};
+const logoutApi = () => {
+  axios({
+    method: "get",
+    url: "https://orca-app-nn67b.ondigitalocean.app/api/v1/users/logout",
+    headers: {},
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .finally(function () {
+      console.log("tugadi");
+    });
+};
+const exampleApi = (data) => {
+  axios({
+    method: "get",
+    url: "https://orca-app-nn67b.ondigitalocean.app/api/v1/users/self",
+    headers: {},
+    // data: data,
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .finally(function () {
+      console.log("tugadi");
+    });
+};
+// exampleApi({});
 </script>

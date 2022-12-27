@@ -137,8 +137,7 @@ const fetchApi = (data) => {
     data: data,
   })
     .then(function (response) {
-      store.isRegisteration = true;
-      store.user = response.data.data.user;
+      store.user.value = response.data.data.user;
       emit("closeRegiterModal");
       alert(response.data.message);
     })

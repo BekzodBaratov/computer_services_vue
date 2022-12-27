@@ -41,9 +41,9 @@
         </div>
       </div>
 
-      <div class="grid divide-y-reverse grid-cols-1 md:grid-cols-[2fr,4fr] bg-[#4f87d30d]">
-        <div class="hidden md:block px-5 py-2">
-          <div class="mt-2 text-base" v-for="(item, index) in 10" :key="index">
+      <div class="grid divide-y-reverse grid-cols-1 md:grid-cols-[2fr,4fr] md:divide-x md:divide-slate-300">
+        <div class="hidden md:block px-5 py-2 md:max-h-[100vh] overflow-y-scroll bg-[#4f87d30d]">
+          <div class="mt-2 text-base" v-for="(item, index) in 18" :key="index">
             <p
               class="font-medium leading-[2rem] text-[#002e6980] cursor-pointer transition-all duration-300 hover:text-primary"
             >
@@ -51,7 +51,8 @@
             </p>
           </div>
         </div>
-        <div class="pl-8 pr-12 md:max-h-[100vh] overflow-y-scroll my-14">
+
+        <div class="pl-8 pr-12 md:max-h-[100vh] overflow-y-scroll py-14 bg-[#4f87d30d]">
           <!-- select option 1 -->
           <div class="flex justify-between gap-4 items-center mb-8" v-for="(item, index) in 2" :key="index">
             <p class="text-primary text-base leading-[3rem] font-medium">Материнская плата</p>
