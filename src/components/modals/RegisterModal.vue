@@ -62,7 +62,6 @@
             <div class="flex justify-center mt-3">
               <ButtonFillVue aria-disabled="isFetch">
                 <button @click.prevent="handleRegister" class="py-1 px-4">Далее</button>
-                <img v-if="loading" src="../../assets/login/Pulse-0.6s-31px.gif" alt="loading_img" />
               </ButtonFillVue>
             </div>
           </form>
@@ -70,17 +69,18 @@
       </div>
     </div>
   </Teleport>
+  <LoadingModalVue v-if="loading" />
 </template>
 
 <script setup>
 import { computed, defineEmits, reactive, ref } from "vue";
 import axios from "axios";
 import { useVuelidate } from "@vuelidate/core";
-// import { useToast } from "vue-toastification";
 import { required, email, sameAs, minLength, helpers, maxLength } from "@vuelidate/validators";
 
 import { useUserRegister } from "../../store/UserRegister";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
+import LoadingModalVue from "../modals/LoadingModal.vue";
 
 const store = useUserRegister();
 

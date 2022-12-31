@@ -38,12 +38,6 @@
               <button type="submit" @click.prevent="formLoginData">
                 <ButtonFillVue>
                   <span class="py-1 px-4">Вход</span>
-                  <img
-                    v-if="loading && !v$.$error"
-                    class="h-full"
-                    src="../../assets/login/Pulse-0.6s-31px.gif"
-                    alt=""
-                  />
                 </ButtonFillVue>
               </button>
             </div>
@@ -60,6 +54,7 @@
       </div>
     </div>
   </Teleport>
+  <LoadingModalVue v-if="loading" />
 </template>
 
 <script setup>
@@ -70,7 +65,7 @@ import axios from "axios";
 
 import ButtonFillVue from "../buttons/ButtonFill.vue";
 import { useUserRegister } from "../../store/UserRegister";
-// import { useToast } from "vue-toastification";
+import LoadingModalVue from "./LoadingModal.vue";
 
 const store = useUserRegister();
 
