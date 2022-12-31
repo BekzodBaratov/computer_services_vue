@@ -116,12 +116,15 @@ const formLoginData = () => {
 const fetchApi = (data) => {
   axios({
     method: "post",
-    url: "https://orca-app-nn67b.ondigitalocean.app/api/v1/users/signin",
-    headers: {},
+    url: "users/signin",
+    headers: {
+      withCreditinals: true,
+    },
     data: data,
   })
     .then(function (response) {
       store.user = response.data.data.user;
+      console.log(response);
       emit("closeLoginModal");
       alert(response.data.message);
     })

@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import "./plugins/axios";
 // import Toast from "vue-toastification";
 
 // import "vue-toastification/dist/index.css";

@@ -1,14 +1,14 @@
 <template>
   <SearchFormCompVue />
   <div class="container mx-auto min-h-screen">
-    <div class="flex justify-between items-center">
-      <p class="text-5xl text-primary mb-10">Личный кабинет</p>
+    <div class="flex justify-between items-center my-6">
+      <p class="text-5xl text-primary">Личный кабинет</p>
       <button @click="handleLogout">
-        <ButtonFillVue color="#f00"><span class="py-2">Log out</span></ButtonFillVue>
+        <ButtonFillVue color="rgb(239,68,68)"><span class="py-2">Log out</span></ButtonFillVue>
       </button>
     </div>
     <div class="flex justify-between flex-wrap gap-6 pb-16">
-      <div class="card bg-white shadow-md p-6 rounded-md min-w-[26rem]">
+      <div class="card bg-white shadow-md p-6 rounded-md text-red-500 min-w-[26rem]">
         <p class="text-primaryBlue text-3xl mb-4">Уведомления</p>
         <p class="text-primaryBlue text-lg mb-2">Получать на адрес</p>
         <form>

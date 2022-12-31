@@ -60,7 +60,7 @@
             </div>
 
             <div class="flex justify-center mt-3">
-              <ButtonFillVue>
+              <ButtonFillVue aria-disabled="isFetch">
                 <button @click.prevent="handleRegister" class="py-1 px-4">Далее</button>
                 <img v-if="loading" src="../../assets/login/Pulse-0.6s-31px.gif" alt="loading_img" />
               </ButtonFillVue>
@@ -81,7 +81,6 @@ import { required, email, sameAs, minLength, helpers, maxLength } from "@vuelida
 
 import { useUserRegister } from "../../store/UserRegister";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
-import LoginModal from "./LoginModal.vue";
 
 const store = useUserRegister();
 
@@ -120,10 +119,12 @@ const rules = computed(() => {
 });
 
 const v$ = useVuelidate(rules, userData);
+const isFetch = ref(true);
 
 const handleRegister = () => {
   v$.value.$validate();
   if (!v$.value.$error) {
+    isFetch.value = false;
     fetchApi(userData);
     loading.value = true;
   }
@@ -132,17 +133,21 @@ const handleRegister = () => {
 const fetchApi = (data) => {
   axios({
     method: "post",
-    url: "https://orca-app-nn67b.ondigitalocean.app/api/v1/users/signup",
+    url: "users/signup",
     headers: {},
+    withCreditinals: true,
     data: data,
   })
     .then(function (response) {
-      store.user.value = response.data.data.user;
+      store.user = response.data.data.user;
+      console.log(response);
       emit("closeRegiterModal");
       alert(response.data.message);
     })
     .catch(function (error) {
       alert(error.message + ", Please try again");
+
+      isFetch.value = true;
 
       userData.username = "";
       userData.email = "";

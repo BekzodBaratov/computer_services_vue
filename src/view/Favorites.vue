@@ -49,6 +49,7 @@
 <script setup>
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import ButtonStrokeVue from "../components/buttons/ButtonStroke.vue";
+import LoadingModalVue from "../components/modals/LoadingModal.vue";
 
 import { shopStore } from "../store/shop";
 const store = shopStore();
