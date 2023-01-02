@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const shopStore = defineStore("alerts", {
   state: () => {
     return {
+      search: "",
       shortNav: [
         "intel i3 10е поколение",
         "geforce3050ti",

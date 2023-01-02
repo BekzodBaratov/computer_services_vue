@@ -112,9 +112,8 @@ const fetchApi = (data) => {
   axios({
     method: "post",
     url: "users/signin",
-    headers: {
-      withCreditinals: true,
-    },
+    headers: {},
+    withCreditinals: true,
     data: data,
   })
     .then(function (response) {

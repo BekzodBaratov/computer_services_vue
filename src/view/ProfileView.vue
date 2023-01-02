@@ -4,7 +4,7 @@
     <div class="flex justify-between items-center my-6">
       <p class="text-5xl text-primary">Личный кабинет</p>
       <button @click="handleLogout">
-        <ButtonFillVue color="rgb(239,68,68)"><span class="py-2">Log out</span></ButtonFillVue>
+        <ButtonFillVue color="#D52C55"><span class="py-2">Log out</span></ButtonFillVue>
       </button>
     </div>
     <div class="flex justify-between flex-wrap gap-6 pb-16">
@@ -334,14 +334,15 @@ const handleAdress = () => {
   console.log(stateAdress);
 };
 const handleLogout = () => {
-  console.log("ss");
   logoutApi();
+  console.log("ss");
 };
 const logoutApi = () => {
   axios({
     method: "get",
-    url: "https://orca-app-nn67b.ondigitalocean.app/api/v1/users/logout",
+    url: "users/logout",
     headers: {},
+    withCredentials: true,
   })
     .then(function (response) {
       console.log(response);
