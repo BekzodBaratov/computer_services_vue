@@ -24,7 +24,7 @@
         </div>
         <input
           type="text"
-          v-model="inputRef"
+          v-model="store.search"
           class="searchInp w-32 md:w-40 lg:w-56 px-3 py-1 outline-none bg-transparent"
           placeholder="Поиск..."
         />
@@ -171,9 +171,9 @@
               <p class="titleName text-2xl">Ваша корзина пуста</p>
               <p class="titleName text-sm">Перейдите на страницу магазина и начните покупки сейчас</p>
               <p class="titleName text-sm">Желаем приятных покупок!</p>
-              <button-fill-vue @click="open = false" color="#D52C55" class="py-2 self-start" to="/shop"
-                >Перейти в каталог</button-fill-vue
-              >
+              <button-fill-vue @click="open = false" color="#D52C55" to="/shop">
+                <span class="py-2 self-start">Перейти в каталог</span>
+              </button-fill-vue>
             </div>
             <!-- empty component end -->
             <div class="flex flex-col gap-3 px-4">
@@ -332,18 +332,16 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { shopStore } from "../../store/shop";
 import SearchIcon from "../../assets/img/magazin/search-normal.svg";
 import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
 const router = useRouter();
+const store = shopStore();
 
 const selectRef = ref("all");
-const inputRef = ref("");
 const searchFrom = () => {
   router.push("/shop/category");
-
-  console.log(selectRef.value);
-  console.log(inputRef.value);
 };
 
 const count = ref(1);
