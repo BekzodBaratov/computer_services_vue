@@ -1,5 +1,5 @@
 <template>
-  <p class="text-[#002E69] mb-6">
+  <p class="text-primary mb-6">
     Lorem ipsum dolor sit amet consectetur. Non pulvinar egestas amet urna id magna porttitor in. Cras ut non erat in
     egestas. A non nisi ullamcorper arcu sit diam. Eget faucibus aliquet nisi elementum egestas porttitor. Quisque sit
     at at egestas. Lorem odio ullamcorper fringilla id magna. In nunc in non nullam. Sollicitudin volutpat consectetur

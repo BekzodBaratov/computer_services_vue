@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[95%] mx-auto">
+  <footer id="footer" class="w-[95%] mx-auto">
     <div
       class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-3 gap-4 flex flex-wrap flex-col md:flex-row justify-between items-center shadow-lg text-white"
     >
@@ -72,7 +72,7 @@
         <form>
           <div class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden">
             <input type="text" class="searchInp px-3 py-[2px] outline-none bg-transparent" placeholder="Ваш номер" />
-            <div class="all px-6 py-[2px] rounded-l-2xl text-[#002E69] font-semibold cursor-pointer bg-[#AECBF4]">
+            <div class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue">
               Звонок
             </div>
           </div>
@@ -81,13 +81,6 @@
 
       <div class="text-[#F4F6F9] text-lg font-light">2022. All rights reserved.</div>
     </div>
-  </div>
+  </footer>
   <!-- <div class="h-16"></div> -->
 </template>
-
-<script setup>
-import { RouterLink } from "vue-router";
-import { useUserRegister } from "../../store/UserRegister";
-import SearchIcon from "../../assets/img/magazin/search-normal.svg";
-const store = useUserRegister();
-</script>

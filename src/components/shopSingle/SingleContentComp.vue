@@ -5,7 +5,7 @@
         <p class="text-[#4F87D3CC] text-xl">Количество</p>
         <form>
           <span class="flex gap-2">
-            <button @click.prevent="countFunc(false)" class="text-[#002E69]">
+            <button @click.prevent="countFunc(false)" class="text-primary">
               <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.12 2.104H10.136V0.296H0.12V2.104Z" fill="#002E69" />
               </svg>
@@ -14,7 +14,7 @@
               :value="count"
               maxlength="5"
               minlength="0"
-              class="border w-10 my-1 py-[2px] text-sm border-[#AECBF4] rounded-lg text-[#002E69] text-center"
+              class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
               type="number"
               id="countProd"
             />
@@ -30,19 +30,19 @@
         </form>
       </div>
       <div class="col-span-2">
-        <div class="bg-[#AECBF4] rounded-xl px-4 py-2 w-56">
-          <p class="text-2xl text-[#D52C55] font-semibold text-center pb-2">790 000 сум</p>
+        <div class="bg-whiteBlue rounded-xl px-4 py-2 w-56">
+          <p class="text-2xl text-danger font-semibold text-center pb-2">790 000 сум</p>
           <div class="flex gap-1">
             <ButtonFill>Купить</ButtonFill>
             <div
               @click="savedFunc"
-              class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer"
+              class="p-2 rounded-lg border border-primary flex items-center justify-center cursor-pointer"
             >
               <div class="shopcart flex flex-col items-center">
-                <i class="fa-heart text-[2rem] text-[#002E69]" :class="isSaved ? 'fa-regular' : 'fa-solid'"></i>
+                <i class="fa-heart text-[2rem] text-primary" :class="!isSaved ? 'fa-regular' : 'fa-solid'"></i>
               </div>
             </div>
-            <span class="p-2 rounded-lg border border-[#002E69] flex items-center justify-center cursor-pointer">
+            <span class="p-2 rounded-lg border border-primary flex items-center justify-center cursor-pointer">
               <img src="../../assets/img/magazin/shopping-cart.svg" alt="" />
             </span>
           </div>
@@ -50,7 +50,7 @@
       </div>
     </div>
     <p class="text-[#4F87D3CC] text-xl mb-3">Характеристики</p>
-    <div v-for="(val, i) in dataProducts" :key="i" class="grid grid-cols-5 text-[#002E69] mb-2">
+    <div v-for="(val, i) in dataProducts" :key="i" class="grid grid-cols-5 text-primary mb-2">
       <div class="col-span-3">{{ val.name }}</div>
       <div class="col-span-2">{{ val.param }}</div>
     </div>

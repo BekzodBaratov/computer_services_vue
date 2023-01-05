@@ -1,11 +1,11 @@
 <template>
   <swiper
     :loop="true"
-    :spaceBetween="10"
+    :spaceBetween="15"
     :scrollbar="{ draggable: true }"
     :thumbs="{ swiper: thumbsSwiper }"
     :modules="modules"
-    class="singleSwiper mb-4 rounded-2xl"
+    class="singleSwiper rounded-3xl"
   >
     <swiper-slide
       ><img class="rounded-xl w-full" src="../../assets/img/magazin/single-swiper/Rectangle 91.png"
@@ -62,3 +62,13 @@ const thumbsSwiper = ref(null);
 const setThumbsSwiper = (swiper) => (thumbsSwiper.value = swiper);
 const modules = ref([FreeMode, Thumbs]);
 </script>
+
+<style scoped>
+.singleSwiper {
+  padding: 0;
+  padding-bottom: 1rem;
+}
+.singleThumbSwiper {
+  padding: 0;
+}
+</style>

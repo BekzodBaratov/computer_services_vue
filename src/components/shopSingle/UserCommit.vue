@@ -33,7 +33,7 @@
   >
     <SwiperSlide v-for="(val, key) in 8" :key="key" class="rounded-4xl pb-12">
       <RouterLink to="#">
-        <div class="bg-[#AECBF4] w-full rounded-xl p-4 px-8">
+        <div class="bg-whiteBlue w-full rounded-xl p-4 px-8">
           <div class="flex gap-2 items-center pb-2 md:pb-6 lg:pb-8">
             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -59,9 +59,9 @@
 
   <div class="md:w-4/5 grid grid-cols-2">
     <form class="flex flex-col items-start gap-4">
-      <h3 class="title text-2xl text-[#4F87D3] pb-3">Поделитесь впечатлением о товаре</h3>
+      <h3 class="title text-2xl text-primaryBlue pb-3">Поделитесь впечатлением о товаре</h3>
       <textarea
-        class="bg-transparent outline-none text-[#4F87D3] rounded-lg p-3 border border-[#4F87D3]"
+        class="bg-transparent outline-none text-primaryBlue rounded-lg p-3 border border-primaryBlue"
         cols="40"
         rows="5"
         placeholder="Напишите ваш отзыв"
@@ -71,10 +71,10 @@
 
     <div>
       <div class="flex items-center mb-3">
-        <p class="mr-3 text-2xl text-[#4F87D3]">Оцените покупку</p>
+        <p class="mr-3 text-2xl text-primaryBlue">Оцените покупку</p>
         <svg
           aria-hidden="true"
-          class="w-6 h-6 text-[#4F87D3]"
+          class="w-6 h-6 text-primaryBlue"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@
         </svg>
         <svg
           aria-hidden="true"
-          class="w-6 h-6 text-[#4F87D3]"
+          class="w-6 h-6 text-primaryBlue"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@
         </svg>
         <svg
           aria-hidden="true"
-          class="w-6 h-6 text-[#4F87D3]"
+          class="w-6 h-6 text-primaryBlue"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@
         </svg>
         <svg
           aria-hidden="true"
-          class="w-6 h-6 text-[#4F87D3]"
+          class="w-6 h-6 text-primaryBlue"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -136,35 +136,35 @@
       <div class="flex items-center mt-4">
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">5 star</span>
         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div class="h-5 bg-[#4F87D3] rounded" style="width: 70%"></div>
+          <div class="h-5 bg-primaryBlue rounded" style="width: 70%"></div>
         </div>
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">70%</span>
       </div>
       <div class="flex items-center mt-4">
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4 star</span>
         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div class="h-5 bg-[#4F87D3] rounded" style="width: 17%"></div>
+          <div class="h-5 bg-primaryBlue rounded" style="width: 17%"></div>
         </div>
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">17%</span>
       </div>
       <div class="flex items-center mt-4">
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">3 star</span>
         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div class="h-5 bg-[#4F87D3] rounded" style="width: 8%"></div>
+          <div class="h-5 bg-primaryBlue rounded" style="width: 8%"></div>
         </div>
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">8%</span>
       </div>
       <div class="flex items-center mt-4">
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">2 star</span>
         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div class="h-5 bg-[#4F87D3] rounded" style="width: 4%"></div>
+          <div class="h-5 bg-primaryBlue rounded" style="width: 4%"></div>
         </div>
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4%</span>
       </div>
       <div class="flex items-center mt-4">
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1 star</span>
         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-          <div class="h-5 bg-[#4F87D3] rounded" style="width: 1%"></div>
+          <div class="h-5 bg-primaryBlue rounded" style="width: 1%"></div>
         </div>
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1%</span>
       </div>

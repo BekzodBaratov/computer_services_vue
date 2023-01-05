@@ -62,6 +62,11 @@ const routes = [
     name: "Profile",
     component: () => import("../view/ProfileView.vue"),
   },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "PageNotFound",
+    component: () => import("../view/404.vue"),
+  },
 ];
 
 const router = createRouter({

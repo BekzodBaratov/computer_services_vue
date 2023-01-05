@@ -2,7 +2,7 @@
   <div class="homeHero">
     <div class="container mx-auto py-12 flex">
       <div class="w-full md:w-[45%]">
-        <h1 class="text-[#002e69] text-5xl font-semibold mb-6">STAR NEW TECH</h1>
+        <h1 class="text-primary text-5xl font-semibold mb-6">STAR NEW TECH</h1>
         <p class="text-3xl mb-2">Полный комплекс сервисного обслуживания компьютерного оборудования.</p>
         <div class="flex justify-start mb-6">
           <ButtonFillVue to="/services"><span class="py-1">Сервис</span></ButtonFillVue>
@@ -23,13 +23,13 @@
   </div>
 
   <div class="divider container mx-auto">
-    <hr class="-translate-y-[4rem] border-2 border-[#AECBF4]" />
+    <hr class="-translate-y-[4rem] border-2 border-whiteBlue" />
   </div>
 
   <div class="homeSteps">
     <div class="container mx-auto">
       <div class="flex justify-between items-start">
-        <p class="text-3xl text-[#002E69]">
+        <p class="text-3xl text-primary">
           Почему мы <br />
           лучше других?
         </p>
@@ -49,7 +49,7 @@
               Специалисты с <br />
               многолетним опытом
             </p>
-            <p class="absolute -bottom-5 text-4xl text-[#002E69] font-black opacity-50">1</p>
+            <p class="absolute -bottom-5 text-4xl text-primary font-black opacity-50">1</p>
           </div>
           <div class="card relative self-end bg-white px-6 py-10 rounded shadow-xl flex flex-col items-center gap-8">
             <svg width="5rem" height="4.4rem" viewBox="0 0 118 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +63,7 @@
               Всё в указанное время – не <br />
               заставляя вас ждать
             </p>
-            <p class="absolute -top-5 text-4xl text-[#002E69] font-black opacity-50">2</p>
+            <p class="absolute -top-5 text-4xl text-primary font-black opacity-50">2</p>
           </div>
           <div
             class="card relative hidden md:flex self-start bg-white px-6 py-10 rounded shadow-xl flex-col items-center gap-8"
@@ -135,12 +135,12 @@
               Гарантия и качество – <br />
               оригинальный детали
             </p>
-            <p class="absolute -bottom-5 text-4xl text-[#002E69] font-black opacity-50">3</p>
+            <p class="absolute -bottom-5 text-4xl text-primary font-black opacity-50">3</p>
           </div>
         </div>
       </div>
       <div class="grid grid-cols-2 my-32">
-        <p class="text-3xl text-[#002E69]">
+        <p class="text-3xl text-primary">
           Этапы <br />
           диагностики <br />
           и ремонта
@@ -270,7 +270,7 @@
   <div class="comment">
     <div class="container mx-auto">
       <div class="flex justify-between items-start gap-20 md:gap-40 lg:gap-56">
-        <p class="relative font-medium text-3xl text-[#002E69]">
+        <p class="relative font-medium text-3xl text-primary">
           <span class="py-3">Отзывы</span>
           <svg
             class="absolute left-full bottom-full"
@@ -317,7 +317,7 @@
         >
           <SwiperSlide v-for="(val, key) in 8" :key="key" class="rounded-4xl pb-1">
             <RouterLink to="#">
-              <div class="bg-[#AECBF4] w-full rounded-xl p-4 px-8">
+              <div class="bg-whiteBlue w-full rounded-xl p-4 px-8">
                 <div class="flex gap-2 items-center pb-2 md:pb-6 lg:pb-8">
                   <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
