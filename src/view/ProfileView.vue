@@ -7,7 +7,7 @@
         <ButtonFillVue color="#D52C55"><span class="py-2">Log out</span></ButtonFillVue>
       </button>
     </div>
-    <div class="flex justify-between flex-wrap gap-6 pb-16">
+    <div class="flex justify-between flex-wrap gap-6 pb-2">
       <div class="card bg-white shadow-md p-6 rounded-md text-red-500 min-w-[26rem]">
         <p class="text-primaryBlue text-3xl mb-4">Уведомления</p>
         <p class="text-primaryBlue text-lg mb-2">Получать на адрес</p>
@@ -51,26 +51,26 @@
       </div>
 
       <div class="card bg-white shadow-md p-6 rounded-md min-w-[30rem]">
-        <div class="flex justify-between gap-3">
-          <p class="text-primaryBlue text-3xl mb-6">Персональные данные</p>
-          <svg width="1.8rem" height="1.8rem" viewBox="0 0 26 26" fill="none">
-            <path
-              d="M5.40035 24.9881C5.66463 24.9874 5.91788 24.8821 6.10476 24.6953L24.2929 6.5071C24.6834 6.11658 24.6834 5.48341 24.2929 5.09289L20.9071 1.70711C20.5166 1.31658 19.8834 1.31658 19.4929 1.70711L1.30474 19.8952C1.11787 20.0821 1.01257 20.3354 1.01185 20.5997L1.00271 23.9946C1.00121 24.549 1.45101 24.9988 2.0054 24.9973L5.40035 24.9881Z"
-              stroke="#4F87D3"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M17.3457 5.38477L20.6149 8.65394"
-              stroke="#4F87D3"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
-        <form action="personalData">
+        <form action="personalData" class="">
+          <div class="flex justify-between gap-3">
+            <p class="text-primaryBlue text-3xl mb-6">Персональные данные</p>
+            <svg width="1.8rem" height="1.8rem" viewBox="0 0 26 26" fill="none">
+              <path
+                d="M5.40035 24.9881C5.66463 24.9874 5.91788 24.8821 6.10476 24.6953L24.2929 6.5071C24.6834 6.11658 24.6834 5.48341 24.2929 5.09289L20.9071 1.70711C20.5166 1.31658 19.8834 1.31658 19.4929 1.70711L1.30474 19.8952C1.11787 20.0821 1.01257 20.3354 1.01185 20.5997L1.00271 23.9946C1.00121 24.549 1.45101 24.9988 2.0054 24.9973L5.40035 24.9881Z"
+                stroke="#4F87D3"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M17.3457 5.38477L20.6149 8.65394"
+                stroke="#4F87D3"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
           <div class="flex gap-8">
             <label for="fileInp">
               <div class="w-24 h-24 rounded-full overflow-hidden cursor-pointer">
@@ -156,30 +156,13 @@
                 <input
                   class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[16rem]"
                   type="number"
-                  v-model="state.tel"
+                  v-model.trim="state.tel"
                   name="dataTel"
                   id="dataTel"
                   placeholder="+998 90 123 45 67"
                 />
               </div>
-              <div class="flex flex-col">
-                <label class="text-[#4f86d38d]" for="dataPass">Пароль</label>
-                <input
-                  class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[16rem]"
-                  type="password"
-                  v-model="state.password"
-                  name="dataPass"
-                  id="dataPass"
-                />
-              </div>
             </div>
-          </div>
-          <div class="flex items-center justify-center mt-6">
-            <button @click.prevent="handlePresonalData">
-              <ButtonFillVue>
-                <span class="py-2">Добавить Персональные данные</span>
-              </ButtonFillVue>
-            </button>
           </div>
         </form>
       </div>
@@ -268,20 +251,35 @@
         </form>
       </div>
     </div>
+    <div class="pb-12">
+      <div class="flex items-center justify-center mt-6">
+        <button @click.prevent="handlePresonalData">
+          <ButtonFillVue>
+            <span class="py-2">Добавить Персональные данные</span>
+          </ButtonFillVue>
+        </button>
+      </div>
+    </div>
   </div>
+  <LoadingVue v-if="isLoading" />
 </template>
 
 <script setup>
-import { reactive, computed } from "vue";
+import { reactive, computed, ref } from "vue";
 import axios from "axios";
 import { required, email, minLength, helpers, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import { useRouter } from "vue-router";
 
 import { useUserRegister } from "../store/UserRegister";
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
+import LoadingVue from "../components/modals/LoadingModal.vue";
+
+const isLoading = ref(false);
 
 const store = useUserRegister();
+const router = useRouter();
 
 const state = reactive({
   email: store.user?.email || "",
@@ -301,22 +299,6 @@ const stateAdress = reactive({
 const rules = computed(() => {
   return {
     email: { required, email, maxLength: maxLength(84) },
-    password: {
-      minLength: minLength(8),
-      maxLength: maxLength(32),
-      containsUppercase: helpers.withMessage("The password requires an uppercase character", function (value) {
-        return /[A-Z]/.test(value);
-      }),
-      containsLowercase: helpers.withMessage("The password requires an lowercase character", function (value) {
-        return /[a-z]/.test(value);
-      }),
-      containsNumber: helpers.withMessage("The password requires an number character", function (value) {
-        return /[0-9]/.test(value);
-      }),
-      containsSpecial: helpers.withMessage("The password requires an special character", function (value) {
-        return /[#?!_@$%^&*-]/.test(value);
-      }),
-    },
     username: { required, minLength: minLength(3), maxLength: maxLength(84) },
     tel: { minLength: minLength(9) },
   };
@@ -325,17 +307,40 @@ const v$ = useVuelidate(rules, state);
 
 const handlePresonalData = () => {
   v$.value.$validate();
+  console.log(v$.value.$errors);
   if (v$.value.$error) {
     console.log(state);
-    // store.user = {...store.user, ...state}
+    // ProfileApi(state);
+    // isLoading.value = true;
   }
 };
+
 const handleAdress = () => {
   console.log(stateAdress);
 };
+const ProfileApi = (data) => {
+  axios({
+    method: "post",
+    url: "users/location",
+    headers: {},
+    withCredentials: true,
+    data: data,
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .finally(function () {
+      console.log("tugadi");
+      isLoading.value = false;
+    });
+};
+
 const handleLogout = () => {
+  isLoading.value = true;
   logoutApi();
-  console.log("ss");
 };
 const logoutApi = () => {
   axios({
@@ -346,30 +351,32 @@ const logoutApi = () => {
   })
     .then(function (response) {
       console.log(response);
+      store.user = { name: "" };
+      router.push("/");
     })
     .catch(function (error) {
-      console.log(error);
+      alert(error.message);
     })
     .finally(function () {
-      console.log("tugadi");
+      isLoading.value = false;
     });
 };
-const exampleApi = (data) => {
-  axios({
-    method: "get",
-    url: "https://orca-app-nn67b.ondigitalocean.app/api/v1/users/self",
-    headers: {},
-    // data: data,
-  })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-    .finally(function () {
-      console.log("tugadi");
-    });
-};
+// const exampleApi = (data) => {
+//   axios({
+//     method: "get",
+//     url: "https://orca-app-nn67b.ondigitalocean.app/api/v1/users/self",
+//     headers: {},
+//     // data: data,
+//   })
+//     .then(function (response) {
+//       console.log(response);
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     })
+//     .finally(function () {
+//       console.log("tugadi");
+//     });
+// };
 // exampleApi({});
 </script>
