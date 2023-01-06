@@ -84,9 +84,5 @@ import { shopStore } from "../../store/shop";
 import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
 const store = shopStore();
 
-const props = defineProps({
-  filterTag: { required: true, type: String },
-});
-
-console.log(props.filterTag);
+const props = defineProps({ filterTag: { required: true, type: String } });
 </script>
