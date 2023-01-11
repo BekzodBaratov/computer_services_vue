@@ -64,8 +64,8 @@ import { useVuelidate } from "@vuelidate/core";
 import axios from "axios";
 
 import ButtonFillVue from "../buttons/ButtonFill.vue";
-import { useUserRegister } from "../../store/UserRegister";
 import LoadingModalVue from "./LoadingModal.vue";
+import { useUserRegister } from "../../store/UserRegister";
 
 const store = useUserRegister();
 
