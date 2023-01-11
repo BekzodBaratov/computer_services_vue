@@ -7,16 +7,17 @@
         <ButtonFillVue color="#D52C55"><span class="py-2">Log out</span></ButtonFillVue>
       </button>
     </div>
-    <div class="flex justify-between flex-wrap gap-6 pb-2">
-      <div class="card bg-white shadow-md p-6 rounded-md text-red-500 min-w-[26rem]">
+    <div class="flex flex-wrap gap-6 pb-2">
+      <!-- <div class="card bg-white shadow-md p-6 rounded-md text-red-500 min-w-[26rem]">
         <p class="text-primaryBlue text-3xl mb-4">Уведомления</p>
         <p class="text-primaryBlue text-lg mb-2">Получать на адрес</p>
         <form>
-          <div class="border border-primaryBlue rounded-md flex gap-2 justify-between px-2 py-1 mb-3 max-w-xs">
+          <div class="border border-primaryBlue rounded-md flex gap-2 justify-between px-2 py-1 max-w-xs">
             <input
               class="outline-none text-primary w-full"
               type="email"
               name="email"
+              v-model="state.notificationEmail"
               id="email"
               placeholder="timur96@gmail.com"
             />
@@ -39,16 +40,25 @@
               </svg>
             </label>
           </div>
+          <p class="mb-3 text-sm font-semibold">
+            <span v-if="v$.notificationEmail.$error">{{ v$.notificationEmail.$errors[0].$message }}</span>
+          </p>
           <div class="text-primaryBlue flex gap-3 items-center mb-2">
-            <input type="radio" name="editProfile" id="tovar" />
+            <input
+              v-model="state.notificationType"
+              value="Появившиеся товары"
+              type="radio"
+              name="editProfile"
+              id="tovar"
+            />
             <label for="tovar">Появившиеся товары</label>
           </div>
           <div class="text-primaryBlue flex gap-3 items-center mb-2">
-            <input type="radio" name="editProfile" id="sale" />
-            <label for="sale">Появившиеся товары</label>
+            <input v-model="state.notificationType" value="Новый товары" type="radio" name="editProfile" id="sale" />
+            <label for="sale">Новый товары</label>
           </div>
         </form>
-      </div>
+      </div> -->
 
       <div class="card bg-white shadow-md p-6 rounded-md min-w-[30rem]">
         <form action="personalData" class="">
@@ -139,6 +149,9 @@
                   id="dataEmail"
                   placeholder="timur96@gmail.com"
                 />
+                <p class="text-sm font-semibold text-red-500">
+                  <span v-if="v$.email.$error">{{ v$.email.$errors[0].$message }}</span>
+                </p>
               </div>
               <div class="flex flex-col">
                 <label class="text-[#4f86d38d]" for="dataname">Имя</label>
@@ -150,17 +163,23 @@
                   id="dataname"
                   placeholder="Тимур"
                 />
+                <p class="text-sm font-semibold text-red-500">
+                  <span v-if="v$.username.$error">{{ v$.username.$errors[0].$message }}</span>
+                </p>
               </div>
               <div class="flex flex-col">
                 <label class="text-[#4f86d38d]" for="dataTel">Телефон</label>
                 <input
                   class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[16rem]"
-                  type="number"
+                  type="tel"
                   v-model.trim="state.tel"
                   name="dataTel"
                   id="dataTel"
                   placeholder="+998 90 123 45 67"
                 />
+                <p class="text-sm font-semibold text-red-500">
+                  <span v-if="v$.tel.$error">{{ v$.tel.$errors[0].$message }}</span>
+                </p>
               </div>
             </div>
           </div>
@@ -189,11 +208,22 @@
         </div>
         <form>
           <div class="flex flex-col mb-4">
+            <label class="text-[#4f86d38d]" for="dataCity">Название город или район</label>
+            <input
+              class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[10rem]"
+              type="text"
+              v-model="state.location.city"
+              name="dataCity"
+              id="dataCity"
+              placeholder="Город Ташкент"
+            />
+          </div>
+          <div class="flex flex-col mb-4">
             <label class="text-[#4f86d38d]" for="dataStreet">Название улицы</label>
             <input
               class="border border-primaryBlue rounded-md py-1 px-3 outline-none text-primary min-w-[10rem]"
               type="text"
-              v-model="stateAdress.street"
+              v-model="state.location.street"
               name="dataStreet"
               id="dataStreet"
               placeholder="Улица Чарос"
@@ -205,7 +235,7 @@
               <input
                 class="border border-primaryBlue rounded-md text-center py-1 px-3 outline-none text-primary w-[3rem]"
                 type="number"
-                v-model="stateAdress.house"
+                v-model="state.location.home_number"
                 name="number"
                 id="home"
                 placeholder="1"
@@ -216,20 +246,20 @@
               <input
                 class="border border-primaryBlue text-center rounded-md py-1 px-3 outline-none text-primary w-[3rem]"
                 type="number"
-                v-model="stateAdress.kvartal"
+                v-model="state.location.section_number"
                 name="number"
                 id="kv"
                 placeholder="1"
               />
             </div>
             <div class="flex flex-col">
-              <label class="text-[#4f86d38d]" for="pod">Под.</label>
+              <label class="text-[#4f86d38d]" for="entrance_number">Под.</label>
               <input
                 class="border border-primaryBlue text-center rounded-md py-1 px-3 outline-none text-primary w-[3rem]"
                 type="number"
-                v-model="stateAdress.pod"
+                v-model="state.location.entrance_number"
                 name="number"
-                id="pod"
+                id="entrance_number"
                 placeholder="1"
               />
             </div>
@@ -237,17 +267,12 @@
           <textarea
             class="border border-primaryBlue placeholder:text-primaryBlue rounded-md my-4 py-1 px-3 outline-none text-primary w-full"
             name="comment"
-            v-model="stateAdress.adressDesc"
+            v-model="state.location.comment"
             id="comment"
             rows="5"
             placeholder="Комментарий к доставке"
           >
           </textarea>
-          <div class="flex justify-center items-center">
-            <button @click.prevent="handleAdress">
-              <ButtonFillVue><span class="py-2">Добавить адрес доставки</span></ButtonFillVue>
-            </button>
-          </div>
         </form>
       </div>
     </div>
@@ -281,43 +306,65 @@ const isLoading = ref(false);
 const store = useUserRegister();
 const router = useRouter();
 
-const state = reactive({
+let state = reactive({
+  notificationEmail: store.user?.location?.notificationEmail || "",
+  notificationType: store.user?.location?.notificationType || "",
+
+  img: store.user?.img || "",
   email: store.user?.email || "",
   username: store.user?.username || "",
   tel: store.user?.tel || "",
-  password: store.user?.password || "",
-});
 
-const stateAdress = reactive({
-  street: store.user?.street || "",
-  kvartal: store.user?.kvartal || "",
-  house: store.user?.house || "",
-  pod: store.user?.pod || "",
-  adressDesc: store.user?.adress || "",
+  location: {
+    street: store.user?.location?.street || "",
+    section_number: store.user?.location?.section_number || "",
+    home_number: store.user?.location?.home_number || "",
+    entrance_number: store.user?.location?.entrance_number || "",
+    comment: store.user?.location?.comment || "",
+    city: store.user?.location?.city || "",
+  },
 });
+console.log(state.location.city);
 
 const rules = computed(() => {
   return {
-    email: { required, email, maxLength: maxLength(84) },
-    username: { required, minLength: minLength(3), maxLength: maxLength(84) },
-    tel: { minLength: minLength(9) },
+    notificationEmail: { email, maxLength: maxLength(255) },
+
+    email: { required, email, maxLength: maxLength(255) },
+    username: { required, minLength: minLength(3), maxLength: maxLength(255) },
+    tel: {
+      dev: helpers.withMessage("This field should be + character", function (value) {
+        if (/[+]/.test(value) || value.length === 0) {
+          return true;
+        }
+      }),
+      dev2: helpers.withMessage("This field should be 13 characters long", function (value) {
+        if (value.length === 13 || value.length === 0) {
+          return true;
+        }
+      }),
+    },
   };
 });
 const v$ = useVuelidate(rules, state);
 
 const handlePresonalData = () => {
   v$.value.$validate();
-  console.log(v$.value.$errors);
-  if (v$.value.$error) {
+
+  if (!v$.value.$error) {
     console.log(state);
-    // ProfileApi(state);
-    // isLoading.value = true;
+    ProfileApi({
+      city: state.location.city,
+      street: state.location.street,
+      home_number: state.location.home_number,
+      section_number: state.location.section_number,
+      entrance_number: state.location.entrance_number,
+      comment: state.location.comment,
+    });
+    isLoading.value = true;
   }
 };
 
-const handleAdress = () => {
-  console.log(stateAdress);
-};
 const ProfileApi = (data) => {
   axios({
     method: "post",
@@ -327,14 +374,34 @@ const ProfileApi = (data) => {
     data: data,
   })
     .then(function (response) {
-      console.log(response);
+      console.log(response.data.message);
+      alert(response.data.message);
+      store.user.location = state.location;
     })
     .catch(function (error) {
       console.log(error);
+      alert(error.response.data.message);
     })
     .finally(function () {
-      console.log("tugadi");
       isLoading.value = false;
+      state = {
+        notificationEmail: store.user?.location?.notificationEmail || "",
+        notificationType: store.user?.location?.notificationType || "",
+
+        img: store.user?.img || "",
+        email: store.user?.email || "",
+        username: store.user?.username || "",
+        tel: store.user?.tel || "",
+
+        location: {
+          street: store.user?.location?.street || "",
+          section_number: store.user?.location?.section_number || "",
+          home_number: store.user?.location?.home_number || "",
+          entrance_number: store.user?.location?.entrance_number || "",
+          comment: store.user?.location?.comment || "",
+          city: store.user?.location?.city || "",
+        },
+      };
     });
 };
 

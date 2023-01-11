@@ -171,8 +171,8 @@
               <p class="titleName text-2xl">Ваша корзина пуста</p>
               <p class="titleName text-sm">Перейдите на страницу магазина и начните покупки сейчас</p>
               <p class="titleName text-sm">Желаем приятных покупок!</p>
-              <button-fill-vue @click="open = false" color="#D52C55" to="/shop">
-                <span class="py-2 self-start">Перейти в каталог</span>
+              <button-fill-vue color="#D52C55" to="/shop">
+                <span @click="open = false" class="py-2 self-start">Перейти в каталог</span>
               </button-fill-vue>
             </div>
             <!-- empty component end -->

@@ -1,19 +1,10 @@
 <template>
   <Teleport to="body">
-    <div
-      @click="emit('closeRegiterModal')"
-      class="fixed z-[999999] bg-[#0006] inset-0 backdrop-blur-sm"
-    ></div>
-    <div
-      class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg"
-    >
+    <div @click="emit('closeRegiterModal')" class="fixed z-[999999] bg-[#0006] inset-0 backdrop-blur-sm"></div>
+    <div class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg">
       <div class="loginModalbg px-16 py-4 text-[#F4F6F9] text-lg">
         <div class="flex flex-col gap-6">
-          <img
-            class="w-28 self-center mb-1"
-            src="../../assets/login/logo.png"
-            alt="logo_img"
-          />
+          <img class="w-28 self-center mb-1" src="../../assets/login/logo.png" alt="logo_img" />
           <form class="flex flex-col gap-2 mb-8">
             <div class="name flex flex-col gap-0">
               <label for="username text-sm">Your Name:</label>
@@ -25,10 +16,7 @@
                 id="username"
                 placeholder="John"
               />
-              <p
-                v-if="v$.username.$error"
-                class="text-sm text-end text-red-600"
-              >
+              <p v-if="v$.username.$error" class="text-sm text-end text-red-600">
                 {{ v$.username.$errors[0].$message }}*
               </p>
             </div>
@@ -42,9 +30,7 @@
                 id="email"
                 placeholder="john@gmail.com"
               />
-              <p v-if="v$.email.$error" class="text-sm text-end text-red-600">
-                {{ v$.email.$errors[0].$message }}*
-              </p>
+              <p v-if="v$.email.$error" class="text-sm text-end text-red-600">{{ v$.email.$errors[0].$message }}*</p>
             </div>
             <div class="password flex flex-col gap-0">
               <label for="password">Your Password:</label>
@@ -55,10 +41,7 @@
                 name="password"
                 id="password"
               />
-              <p
-                v-if="v$.password.$error"
-                class="text-sm text-end text-red-600"
-              >
+              <p v-if="v$.password.$error" class="text-sm text-end text-red-600">
                 {{ v$.password.$errors[0].$message }}*
               </p>
             </div>
@@ -71,19 +54,14 @@
                 name="passwordConfirm"
                 id="passwordConfirm"
               />
-              <p
-                v-if="v$.passwordConfirm.$error"
-                class="text-sm text-end text-red-600"
-              >
+              <p v-if="v$.passwordConfirm.$error" class="text-sm text-end text-red-600">
                 {{ v$.passwordConfirm.$errors[0].$message }}*
               </p>
             </div>
 
             <div class="flex justify-center mt-3">
               <ButtonFillVue aria-disabled="isFetch">
-                <button @click.prevent="handleRegister" class="py-1 px-4">
-                  Далее
-                </button>
+                <button @click.prevent="handleRegister" class="py-1 px-4">Далее</button>
               </ButtonFillVue>
             </div>
           </form>
@@ -95,17 +73,10 @@
 </template>
 
 <script setup>
-import { computed, defineEmits, reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import axios from "axios";
 import { useVuelidate } from "@vuelidate/core";
-import {
-  required,
-  email,
-  sameAs,
-  minLength,
-  helpers,
-  maxLength,
-} from "@vuelidate/validators";
+import { required, email, sameAs, minLength, helpers, maxLength } from "@vuelidate/validators";
 
 import { useUserRegister } from "../../store/UserRegister";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
@@ -130,30 +101,18 @@ const rules = computed(() => {
       required,
       minLength: minLength(8),
       maxLength: maxLength(32),
-      containsUppercase: helpers.withMessage(
-        "The password requires an uppercase character",
-        function (value) {
-          return /[A-Z]/.test(value);
-        }
-      ),
-      containsLowercase: helpers.withMessage(
-        "The password requires an lowercase character",
-        function (value) {
-          return /[a-z]/.test(value);
-        }
-      ),
-      containsNumber: helpers.withMessage(
-        "The password requires an number character",
-        function (value) {
-          return /[0-9]/.test(value);
-        }
-      ),
-      containsSpecial: helpers.withMessage(
-        "The password requires an special character",
-        function (value) {
-          return /[#?!_@$%^&*-]/.test(value);
-        }
-      ),
+      containsUppercase: helpers.withMessage("The password requires an uppercase character", function (value) {
+        return /[A-Z]/.test(value);
+      }),
+      containsLowercase: helpers.withMessage("The password requires an lowercase character", function (value) {
+        return /[a-z]/.test(value);
+      }),
+      containsNumber: helpers.withMessage("The password requires an number character", function (value) {
+        return /[0-9]/.test(value);
+      }),
+      containsSpecial: helpers.withMessage("The password requires an special character", function (value) {
+        return /[#?!_@$%^&*-]/.test(value);
+      }),
     },
     passwordConfirm: { required, sameAs: sameAs(userData.password) },
   };
@@ -180,7 +139,6 @@ const fetchApi = (data) => {
   })
     .then(function (response) {
       store.user = response.data.data.user;
-      console.log(response);
       emit("closeRegiterModal");
       alert(response.data.message);
     })
@@ -204,11 +162,7 @@ const emit = defineEmits(["closeRegiterModal"]);
 
 <style>
 .loginModalbg {
-  background: linear-gradient(
-    180deg,
-    rgba(79, 135, 211, 0.95) 0%,
-    rgba(32, 95, 184, 0.95) 100%
-  );
+  background: linear-gradient(180deg, rgba(79, 135, 211, 0.95) 0%, rgba(32, 95, 184, 0.95) 100%);
   border: 3px solid #f4f6f9;
   border-radius: 33px;
 }
