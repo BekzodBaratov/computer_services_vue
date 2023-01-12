@@ -2,8 +2,8 @@
   <p>{{ $t("hi") }}</p>
   <div class="w-[95%] fixed z-[99999] top-0 left-1/2 -translate-x-1/2">
     <div class="px-4 bg-[#444444BF] drop-shadow-lg rounded-b-2xl flex justify-between items-center shadow-lg">
-      <span class="md:hidden text-white">
-        <i class="fa-solid fa-bars p-3"></i>
+      <span @click="isOpenSidebar = true" class="md:hidden text-white">
+        <i class="fa-solid fa-bars p-3 text-xl"></i>
       </span>
       <RouterLink
         to="/"
@@ -188,6 +188,7 @@
 
   <RegisterModalVue @closeRegiterModal="isRegisterationModal = false" v-if="isRegisterationModal" />
   <LoginModalVue @changeTo="changeLoginToRegister" @closeLoginModal="isLoginModal = false" v-if="isLoginModal" />
+  <SideBar @openSidebar="openSidebar" :isOpenSidebar="isOpenSidebar" />
 </template>
 
 <script setup>
@@ -197,6 +198,7 @@ import { useUserRegister } from "../../store/UserRegister";
 import RegisterModalVue from "../modals/RegisterModal.vue";
 import LoginModalVue from "../modals/LoginModal.vue";
 import LangCompVue from "./LangComp.vue";
+import SideBar from "../sideBar/SideBar.vue";
 
 const store = useUserRegister();
 const router = useRouter();
@@ -211,9 +213,14 @@ const routeNav = ref([
 
 const isLoginModal = ref(false);
 const isRegisterationModal = ref(false);
+const isOpenSidebar = ref(false);
 
 const changeLoginToRegister = () => {
   isRegisterationModal.value = true;
   isLoginModal.value = false;
 };
+
+function openSidebar() {
+  isOpenSidebar.value = false;
+}
 </script>

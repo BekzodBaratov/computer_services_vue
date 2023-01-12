@@ -13,6 +13,7 @@ html {
 }
 body {
   background-color: #e7f0fe;
+  overflow-x: hidden;
 }
 
 /* scroll */

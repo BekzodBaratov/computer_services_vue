@@ -6,6 +6,7 @@
           <div
             class="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale group-hover:grayscale-0"
           >
+          
             <img
               src="../assets/img/ServicesImages/img.png"
               :alt="product.imageAlt"

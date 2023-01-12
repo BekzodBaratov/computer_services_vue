@@ -7,7 +7,9 @@
         @click="() => handleClick(val)"
         :key="index"
       >
-        {{ val }}
+        <RouterLink to="shop/category">
+          {{ val }}
+        </RouterLink>
       </li>
     </ul>
   </div>
