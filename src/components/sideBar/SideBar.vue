@@ -18,7 +18,7 @@
             <div>
               <img
                 class="h-20 aspect-square rounded-full object-cover object-center"
-                src="../../assets/img/static/man face.jpg"
+                src="/src/assets/img/static/manface.jpg"
                 alt=""
               />
             </div>

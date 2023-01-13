@@ -13,7 +13,7 @@
   >
     <swiper-slide v-for="(val, i) in store.arr" :key="i">
       <RouterLink :to="val.link">
-        <img class="w-full" src="../../assets/img/magazin/Group 2.png" alt="val" />
+        <img class="w-full" src="../../assets/img/magazin/Group2.png" alt="val" />
       </RouterLink>
     </swiper-slide>
   </swiper>

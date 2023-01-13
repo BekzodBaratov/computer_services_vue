@@ -60,7 +60,7 @@
                 <div class="img">
                   <img
                     class="object-contain object-center"
-                    src="../assets/img/magazin/card/Rectangle 64.png"
+                    src="/src/assets/img/magazin/card/Rectangle64.png"
                     alt="cardImg"
                   />
                 </div>
@@ -120,7 +120,7 @@
                 <div class="img">
                   <img
                     class="object-contain object-center"
-                    src="../assets/img/magazin/card/Rectangle 64.png"
+                    src="/src/assets/img/magazin/card/Rectangle64.png"
                     alt="cardImg"
                   />
                 </div>
@@ -180,7 +180,7 @@
                 <div class="img">
                   <img
                     class="object-contain object-center"
-                    src="../assets/img/magazin/card/Rectangle 64.png"
+                    src="/src/assets/img/magazin/card/Rectangle64.png"
                     alt="cardImg"
                   />
                 </div>
@@ -240,7 +240,7 @@
                 <div class="img">
                   <img
                     class="object-contain object-center"
-                    src="../assets/img/magazin/card/Rectangle 64.png"
+                    src="/src/assets/img/magazin/card/Rectangle64.png"
                     alt="cardImg"
                   />
                 </div>
@@ -344,10 +344,10 @@
                 <p>Онлайн оплата с помощью Humocard / UzCard</p>
                 <img
                   class="w-7 h-7"
-                  src="../assets/img/magazin/modal/Платежная система HUMO _ Tashkent - png.png"
+                  src="/src/assets/img/magazin/modal/toshkent.png"
                   alt="humo"
                 />
-                <img class="w-7 h-7" src="../assets/img/magazin/modal/Frame 323.png" alt="uzcard" />
+                <img class="w-7 h-7" src="/src/assets/img/magazin/modal/Frame323.png" alt="uzcard" />
               </div>
               <p class="text-sm">Комиссия - 0%, быстрая оплата.</p>
             </label>
@@ -357,19 +357,19 @@
               <li class="flex items-center">
                 <input type="radio" name="pay" id="clickCard" />
                 <label for="clickCard">
-                  <img class="h-16" src="../assets/img/magazin/modal/Frame 27.png" alt="" />
+                  <img class="h-16" src="/src/assets/img/magazin/modal/Frame27.png" alt="" />
                 </label>
               </li>
               <li class="space-x-4 flex items-center">
                 <input type="radio" name="pay" id="PaymeCard" />
                 <label for="PaymeCard">
-                  <img class="h-8" src="../assets/img/magazin/modal/Payme - png.png" alt="" />
+                  <img class="h-8" src="/src/assets/img/magazin/modal/payme.png" alt="" />
                 </label>
               </li>
               <li class="space-x-4 flex items-center">
                 <input type="radio" name="pay" id="apelsinCard" />
                 <label for="apelsinCard">
-                  <img class="h-8" src="../assets/img/magazin/modal/Apelsin - png.png" alt="" />
+                  <img class="h-8" src="/src/assets/img/magazin/modal/apelsin.png" alt="" />
                 </label>
               </li>
             </ul>

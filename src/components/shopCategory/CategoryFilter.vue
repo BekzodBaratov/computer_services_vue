@@ -3,7 +3,7 @@
     <div v-for="(val, key) in store.cardSwiper[0][1]" :key="key" class="bg-white h-full rounded-3xl">
       <RouterLink :to="'/shop/' + key">
         <div class="imgCard p-2">
-          <img class="w-full" src="../../assets/img/magazin/card/Rectangle 64.png" :alt="val.name" />
+          <img class="w-full" src="/src/assets/img/magazin/card/Rectangle64.png" :alt="val.name" />
         </div>
         <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl space-y-2">
           <div class="flex justify-between items-center flex-wrap">

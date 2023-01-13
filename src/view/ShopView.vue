@@ -13,9 +13,9 @@ import ShortNavCompVue from "../components/shop/ShortNavComp.vue";
 import SwiperBigCompVue from "../components/shop/SwiperBigComp.vue";
 import SwiperCartCompVue from "../components/shop/SwiperCartComp.vue";
 
-import rasm from "../assets/img/magazin/Group 2.png";
+import rasm from "/src/assets/img/magazin/Group2.png";
 
-import cardImg1 from "../assets/img/magazin/card/Rectangle 64.png";
-import cardImg2 from "../assets/img/magazin/card/Rectangle 65.png";
-import cardImg3 from "../assets/img/magazin/card/Rectangle 66.png";
+import cardImg1 from "/src/assets/img/magazin/card/Rectangle64.png";
+import cardImg2 from "/src/assets/img/magazin/card/Rectangle65.png";
+import cardImg3 from "/src/assets/img/magazin/card/Rectangle66.png";
 </script>
