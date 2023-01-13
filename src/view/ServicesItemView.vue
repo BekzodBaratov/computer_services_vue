@@ -13,7 +13,7 @@
         </div>
       </div>
       <div className="flex-1 self-center justify-self-end">
-        <img src="../assets/img/service/computer service.png" alt="notebook" className="h-[25rem] float-right" />
+        <img src="/src/assets/img/service/computerservice.png" alt="notebook" className="h-[25rem] float-right" />
       </div>
     </div>
 

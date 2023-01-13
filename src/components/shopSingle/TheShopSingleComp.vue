@@ -8,16 +8,16 @@
     class="singleSwiper rounded-3xl"
   >
     <swiper-slide
-      ><img class="rounded-xl w-full" src="../../assets/img/magazin/single-swiper/Rectangle 91.png"
+      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle91.png"
     /></swiper-slide>
     <swiper-slide
-      ><img class="rounded-xl w-full" src="../../assets/img/magazin/single-swiper/Rectangle 90.png"
+      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle90.png"
     /></swiper-slide>
     <swiper-slide
-      ><img class="rounded-xl w-full" src="../../assets/img/magazin/single-swiper/Rectangle 91.png"
+      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle91.png"
     /></swiper-slide>
     <swiper-slide
-      ><img class="rounded-xl w-full" src="../../assets/img/magazin/single-swiper/Rectangle 92.png"
+      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle92.png"
     /></swiper-slide>
   </swiper>
 
@@ -32,16 +32,16 @@
     class="singleThumbSwiper"
   >
     <swiper-slide
-      ><img class="rounded-xl" src="../../assets/img/magazin/single-swiper/Rectangle 89.png"
+      ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle89.png"
     /></swiper-slide>
     <swiper-slide
-      ><img class="rounded-xl" src="../../assets/img/magazin/single-swiper/Rectangle 90.png"
+      ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle90.png"
     /></swiper-slide>
     <swiper-slide
-      ><img class="rounded-xl" src="../../assets/img/magazin/single-swiper/Rectangle 91.png"
+      ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle91.png"
     /></swiper-slide>
     <swiper-slide
-      ><img class="rounded-xl" src="../../assets/img/magazin/single-swiper/Rectangle 92.png"
+      ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle92.png"
     /></swiper-slide>
   </swiper>
 </template>

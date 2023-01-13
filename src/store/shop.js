@@ -18,12 +18,12 @@ export const shopStore = defineStore("alerts", {
         "ssd nvme 512gb",
       ],
       arr: [
-        { img: "../../assets/img/magazin/Group 2.png", link: "/" },
-        { img: "../../assets/img/magazin/Group 2.png", link: "/" },
-        { img: "../../assets/img/magazin/Group 2.png", link: "/" },
-        { img: "../../assets/img/magazin/Group 2.png", link: "/" },
-        { img: "../../assets/img/magazin/Group 2.png", link: "/" },
-        { img: "../../assets/img/magazin/Group 2.png", link: "/" },
+        { img: "/src/assets/img/magazin/Group2.png", link: "/" },
+        { img: "/src/assets/img/magazin/Group2.png", link: "/" },
+        { img: "/src/assets/img/magazin/Group2.png", link: "/" },
+        { img: "/src/assets/img/magazin/Group2.png", link: "/" },
+        { img: "/src/assets/img/magazin/Group2.png", link: "/" },
+        { img: "/src/assets/img/magazin/Group2.png", link: "/" },
       ],
       cardSwiper: [
         [

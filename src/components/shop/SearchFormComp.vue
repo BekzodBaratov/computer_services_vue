@@ -181,7 +181,7 @@
                 <div class="img">
                   <img
                     class="object-contain object-center"
-                    src="../../assets/img/magazin/card/Rectangle 64.png"
+                    src="/src/assets/img/magazin/card/Rectangle64.png"
                     alt="cardImg"
                   />
                 </div>
@@ -241,7 +241,7 @@
                 <div class="img">
                   <img
                     class="object-contain object-center"
-                    src="../../assets/img/magazin/card/Rectangle 64.png"
+                    src="/src/assets/img/magazin/card/Rectangle64.png"
                     alt="cardImg"
                   />
                 </div>
