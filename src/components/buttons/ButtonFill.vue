@@ -16,8 +16,6 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from "vue";
-
 const props = defineProps({ to: String, color: String });
 const color1 = props.color || "#002E69";
 const isTo = props.to ? true : false;
