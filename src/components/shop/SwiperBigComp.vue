@@ -1,10 +1,22 @@
 <template>
   <swiper
-    :slidesPerView="1.3"
     :centeredSlides="true"
     :loop="true"
     :navigation="true"
-    :spaceBetween="30"
+    :breakpoints="{
+      240: {
+        slidesPerView: 1.1,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 1.3,
+        spaceBetween: 30,
+      },
+    }"
     :pagination="{
       clickable: true,
     }"
@@ -32,7 +44,10 @@ import { Pagination, Navigation } from "swiper";
 const store = shopStore();
 </script>
 
-<style></style>
+<style>
+.mySwiper.swiperBigComp {
+}
+</style>
 
 <!-- :breakpoints="{
   240: {

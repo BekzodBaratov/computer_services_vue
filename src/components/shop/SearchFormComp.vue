@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto mt-4 flex justify-between items-center w-4/5 mb-6">
+  <div class="container mx-auto mt-4 flex justify-between items-center md:w-4/5 mb-6">
     <form @submit.prevent="searchFrom" class="form items-center flex gap-4">
       <div class="selectForm">
         <select
