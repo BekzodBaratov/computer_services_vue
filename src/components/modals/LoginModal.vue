@@ -92,7 +92,7 @@ const rules = computed(() => {
         return /[0-9]/.test(value);
       }),
       containsSpecial: helpers.withMessage("The password requires an special character", function (value) {
-        return /[#?!_@$%^&*-]/.test(value);
+        return /[#?!_@$%^&*.-]/.test(value);
       }),
     },
   };

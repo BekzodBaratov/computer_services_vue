@@ -417,7 +417,6 @@ const logoutApi = () => {
     withCredentials: true,
   })
     .then(function (response) {
-      console.log(response);
       store.user = { name: "" };
       router.push("/");
     })

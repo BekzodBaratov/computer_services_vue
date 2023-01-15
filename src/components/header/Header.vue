@@ -100,7 +100,9 @@
             </defs>
           </svg>
         </span>
-        <span class="uppercase font-normal text-xl duration-200 group-hover:text-primary">starnewtech.uz</span>
+        <span class="uppercase font-normal text-lg md:text-xl duration-200 group-hover:text-primary"
+          >starnewtech.uz</span
+        >
       </RouterLink>
 
       <ul class="hidden md:flex gap-6 [&>li]:inline-block [&>li]:py-3">
@@ -117,13 +119,13 @@
       <div class="text-[#F4F6F9] flex items-center gap-1">
         <LangCompVue />
 
-        <span>
+        <span class="hidden md:inline">
           <svg class="w-[1px] h-7" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="0.5" y1="0.5" x2="0.499999" y2="29.5" stroke="#F4F6F9" stroke-linecap="round" />
           </svg>
         </span>
 
-        <div class="flex items-center gap-2" v-if="!store.isRegisteration">
+        <div class="hidden md:flex items-center gap-2" v-if="!store.isRegisteration">
           <span @click="isRegisterationModal = true" class="duration-200 cursor-pointer hover:text-primary"
             >Регистрация</span
           >
@@ -163,7 +165,7 @@
           </span>
         </div>
 
-        <div class="flex items-center gap-2" v-if="store.isRegisteration">
+        <div class="hidden md:flex items-center gap-2" v-if="store.isRegisteration">
           <RouterLink class="flex items-center gap-1 px-3 py-1 group" to="/profile">
             <span>
               <svg class="w-6 h-6 fill-white group-hover:fill-primary duration-200" viewBox="0 0 35 35" fill="none">
