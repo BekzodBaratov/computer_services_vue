@@ -5,7 +5,7 @@
         <select
           v-model="selectRef"
           id="countries"
-          class="bg-whiteBlue select outline-none flex justify-center text-primary rounded-2xl focus:ring-blue-500 focus:border-blue-500 px-2 py-1"
+          class="bg-whiteBlue outline-none text-primary rounded-full focus:ring-blue-500 py-1 pl-2"
         >
           <option value="all" selected>Каталог</option>
           <option value="US">United States</option>
@@ -18,19 +18,20 @@
       <div class="SearchForm flex items-center p-0 border border-[#0003] rounded-3xl overflow-hidden">
         <div
           @click.prevent="(e) => searchFrom(e)"
-          class="all px-6 py-1 rounded-r-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
+          class="all px-3 md:px-6 py-1 rounded-r-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
         >
           Все
         </div>
         <input
           type="text"
+          id="search-input"
           v-model="store.search"
-          class="searchInp w-32 md:w-40 lg:w-56 px-3 py-1 outline-none bg-transparent"
+          class="searchInp w-28 md:w-40 lg:w-56 px-2 py-1 outline-none bg-transparent"
           placeholder="Поиск..."
         />
-        <div class="searchIcon pr-4 cursor-pointer">
+        <label for="search-input" class="searchIcon pr-4 cursor-pointer">
           <img :src="SearchIcon" class="h-6 md:h-7" alt="searchIcon" />
-        </div>
+        </label>
       </div>
     </form>
 

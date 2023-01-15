@@ -6,7 +6,7 @@
         <div className="grid gap-4 grid-cols-2  h-4 w-full">
           <div v-for="(offer, i) in descr?.offers" :key="{ i }" className="text-primary w-full flex ">
             <p className="text-2xl pr-6 ">
-              <i class="fa-solid fa-check"></i>
+              <i class="fa-solid fa-check text-green-500"></i>
               {{ offer }}
             </p>
           </div>
@@ -25,7 +25,7 @@
       <div className="grid gap-7 grid-cols-2 h-4">
         <div v-for="(list, i) in descr.desc" :key="i" className="text-primary flex ">
           <p className="text-2xl w-full pr-8">
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark text-danger"></i>
             {{ list }}
           </p>
         </div>
@@ -34,7 +34,7 @@
 
     <div class="flex items-center justify-center pt-20 md:pt-40">
       <ButtonFillVue color="#28A745">
-        <a class="py-2 px-4 text-2xl" href="tel:944455537">Заказать звонок</a>
+        <a class="py-2 px-4 text-2xl" href="tel:+998944455537">Заказать звонок</a>
       </ButtonFillVue>
     </div>
   </div>

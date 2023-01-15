@@ -7,7 +7,7 @@
         <ButtonFillVue color="#D52C55"><span class="py-2">Log out</span></ButtonFillVue>
       </button>
     </div>
-    <div class="flex flex-wrap gap-6 pb-2">
+    <div class="grid md:grid-cols-2 gap-6 pb-2">
       <!-- <div class="card bg-white shadow-md p-6 rounded-md text-red-500 min-w-[26rem]">
         <p class="text-primaryBlue text-3xl mb-4">Уведомления</p>
         <p class="text-primaryBlue text-lg mb-2">Получать на адрес</p>
@@ -60,7 +60,7 @@
         </form>
       </div> -->
 
-      <div class="card bg-white shadow-md p-6 rounded-md min-w-[30rem]">
+      <div class="card bg-white shadow-md p-6 pb-12 rounded-md min-w-[30rem]">
         <form action="personalData" class="">
           <div class="flex justify-between gap-3">
             <p class="text-primaryBlue text-3xl mb-6">Персональные данные</p>
@@ -276,7 +276,7 @@
         </form>
       </div>
     </div>
-    <div class="pb-12">
+    <div class="pb-4 md:pb-12">
       <div class="flex items-center justify-center mt-6">
         <button @click.prevent="handlePresonalData">
           <ButtonFillVue>
@@ -324,7 +324,6 @@ let state = reactive({
     city: store.user?.location?.city || "",
   },
 });
-console.log(state.location.city);
 
 const rules = computed(() => {
   return {
