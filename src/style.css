@@ -80,12 +80,12 @@ input[type="number"] {
 }
 @media (min-width: 240px) {
   html {
-    font-size: 60%;
+    font-size: 70%;
   }
 }
 @media (min-width: 768px) {
   html {
-    font-size: 70%;
+    font-size: 80%;
   }
   .swiperBigComp .swiper-pagination-bullet {
     width: 4rem;
@@ -95,7 +95,7 @@ input[type="number"] {
 }
 @media (min-width: 1024px) {
   html {
-    font-size: 80%;
+    font-size: 90%;
   }
   /* .swiperBigComp .swiper-pagination-bullet {
     width: 2rem;
@@ -104,7 +104,7 @@ input[type="number"] {
 }
 @media (min-width: 1280px) {
   html {
-    font-size: 90%;
+    font-size: 100%;
   }
   /* .swiperBigComp .swiper-pagination-bullet {
     width: 3rem;
@@ -113,7 +113,7 @@ input[type="number"] {
 }
 @media (min-width: 1536px) {
   html {
-    font-size: 100%;
+    font-size: 110%;
   }
   /* .swiperBigComp .swiper-pagination-bullet {
     width: 4rem;
