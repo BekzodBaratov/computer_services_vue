@@ -50,6 +50,9 @@
               Забыли пароль?
             </div>
           </div>
+          <div>
+            <p>sall</p>
+          </div>
         </div>
       </div>
     </div>
@@ -97,9 +100,7 @@ const rules = computed(() => {
     },
   };
 });
-
 const v$ = useVuelidate(rules, state);
-
 const formLoginData = () => {
   v$.value.$validate();
   if (!v$.value.$error) {
@@ -107,7 +108,6 @@ const formLoginData = () => {
     fetchApi(state);
   }
 };
-
 const fetchApi = (data) => {
   axios({
     method: "post",
@@ -130,7 +130,6 @@ const fetchApi = (data) => {
       loading.value = false;
     });
 };
-
 const emit = defineEmits(["closeLoginModal", "changeTo"]);
 </script>
 
