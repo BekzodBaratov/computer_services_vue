@@ -1,34 +1,30 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import "./plugins/axios";
-// import Toast from "vue-toastification";
+import GAuth from "vue-google-oauth2";
+import dotenv from "dotenv";
 
-// import "vue-toastification/dist/index.css";
 import App from "./App.vue";
 import i18n from "./plugins/i18n";
 import router from "./routes";
 import "./style.css";
 
 const pinia = createPinia();
+const app = createApp(App);
+dotenv.config();
 
-// pinia.use((context) => {
-//   const storeId = context.store.$id;
+const gauthOption = {
+  clientId: "736839198215-famfbf5fibh3a2fnut8544gnvh85vpvb.apps.googleusercontent.com",
+  scope: "profile email",
+  prompt: "consent",
+  fetch_basic_profile: true,
+};
 
-//   const serilizer = {
-//     serialize: JSON.stringify,
-//     deserialize: JSON.parse,
-//   };
+app.use(router);
+app.use(i18n);
+app.use(pinia);
 
-//   const fromStorage = serilizer.deserialize(window.localStorage.getItem(storeId));
+app.mount("#app");
 
-//   if (fromStorage) {
-//     context.store.$patch(fromStorage);
-//   }
-
-//   // listen for changes and update locastroage
-//   context.store.$subscribe((mutation, state) => {
-//     window.localStorage.setItem(storeId, serilizer.serialize(state));
-//   });
-// });
-
-createApp(App).use(router).use(i18n).use(pinia).mount("#app");
+// app.use(GAuth, gauthOption);
+// createApp(App).use(router).use(GAuth, gauthOption).use(i18n).use(pinia).mount("#app");

@@ -1,6 +1,6 @@
 <template>
-  <div className="w-[98%] mx-auto">
-    <ul className="text-primary line-clamp-2 space-x-4">
+  <div className="mx-auto">
+    <ul className="text-primary line-clamp-2 md:line-clamp-1 space-x-4">
       <li
         className="border-b inline border-primary active:border-dashed cursor-pointer"
         v-for="(val, index) in store.shortNav"

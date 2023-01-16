@@ -5,7 +5,7 @@
         <select
           v-model="selectRef"
           id="countries"
-          class="bg-whiteBlue outline-none text-primary rounded-full focus:ring-blue-500 py-1 pl-2"
+          class="bg-whiteBlue outline-none text-primary rounded-full py-1 border-x-4 border-whiteBlue"
         >
           <option value="all" selected>Каталог</option>
           <option value="US">United States</option>
@@ -64,11 +64,11 @@
         <div class="text hidden md:block">Корзина</div>
       </div>
 
-      <Teleport to="body">
-        <div @click="open = false" v-if="open" class="modal z-[999999] fixed inset-0 bg-[#0005] backdrop-blur-sm"></div>
+      <Teleport class="basket" to="body">
+        <div @click="open = false" v-if="open" class="modal fixed z-[999999] inset-0 bg-[#0005] backdrop-blur-sm"></div>
         <div
-          v-if="open"
-          class="fixed w-[30rem] inset-y-0 z-[999999] right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
+          :class="open ? 'translate-x-0' : 'translate-x-full'"
+          class="fixed w-[30rem] inset-y-0 z-[999999] duration-300 right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
         >
           <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
             <p class="text-white text-3xl text-center">Корзина</p>
@@ -178,7 +178,7 @@
             </div>
             <!-- empty component end -->
             <div class="flex flex-col gap-3 px-4">
-              <div class="card bg-white rounded-xl grid grid-cols-2 max-h-48 overflow-hidden">
+              <div v-for="i in 3" :key="i" class="card bg-white rounded-xl grid grid-cols-2 max-h-48 overflow-hidden">
                 <div class="img">
                   <img
                     class="object-contain object-center"
@@ -206,69 +206,9 @@
                       <p class="text-primaryBlue underline">50 отзывов</p>
                     </div>
                   </div>
-                  <h3 class="">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
+                  <h3 class="s line-clamp-2">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
                   <div class="text-primaryBlue">В наличии</div>
-                  <div class="flex justify-between items-center">
-                    <p class="font-semibold">999 000 сум</p>
-                    <form>
-                      <span class="flex gap-2">
-                        <button @click.prevent="countFunc(false)" class="text-primary">
-                          <svg width="11" height="3" viewBox="0 0 11 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.12 2.104H10.136V0.296H0.12V2.104Z" fill="#002E69" />
-                          </svg>
-                        </button>
-                        <input
-                          :value="count"
-                          maxlength="5"
-                          minlength="0"
-                          class="border w-10 my-1 py-[2px] text-sm border-whiteBlue rounded-lg text-primary text-center"
-                          type="number"
-                          id="countProd"
-                        />
-                        <button @click.prevent="countFunc(true)">
-                          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                              d="M0.0400001 5.768H8.456V3.768H0.0400001V5.768ZM3.176 0.552V8.984H5.32V0.552H3.176Z"
-                              fill="#002E69"
-                            />
-                          </svg>
-                        </button>
-                      </span>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="card bg-white rounded-xl grid grid-cols-2 max-h-48 overflow-hidden">
-                <div class="img">
-                  <img
-                    class="object-contain object-center"
-                    src="/src/assets/img/magazin/card/Rectangle64.png"
-                    alt="cardImg"
-                  />
-                </div>
-                <div class="img rounded-xl bg-[#F4F6F9] flex flex-col gap-3 p-2">
-                  <div class="flex justify-between">
-                    <div class="flex items-center">
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5 text-primaryBlue"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <title>Rating star</title>
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        ></path>
-                      </svg>
-                      <p class="ml-2 text-primaryBlue">4.95</p>
-                      <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                      <p class="text-primaryBlue underline">50 отзывов</p>
-                    </div>
-                  </div>
-                  <h3 class="">Intel CORE i3 10100 CPU Socket LGA 1200 3.60G...</h3>
-                  <div class="text-primaryBlue">В наличии</div>
-                  <div class="flex justify-between items-center">
+                  <div class="flex justify-between items-center flex-wrap">
                     <p class="font-semibold">999 000 сум</p>
                     <form>
                       <span class="flex gap-2">
@@ -301,7 +241,7 @@
             </div>
           </div>
           <div class="menu w-full bg-white text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 h-[1/3]">
-            <div class="flex justify-between items-center gap-3">
+            <div class="hidden flex justify-between items-center gap-3">
               <ButtonStrokeVue><span class="py-2">Введите промокод</span></ButtonStrokeVue>
               <ButtonStrokeVue><span class="py-2">Применить</span></ButtonStrokeVue>
             </div>

@@ -1,88 +1,189 @@
 <template>
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <div v-for="(val, key) in store.cardSwiper[0][1]" :key="key" class="bg-white h-full rounded-3xl">
-      <RouterLink :to="'/shop/' + key">
-        <div class="imgCard p-2">
-          <img class="w-full" src="/src/assets/img/magazin/card/Rectangle64.png" :alt="val.name" />
+  <form action="filter">
+    <div class="space-y-8 mt-4 mb-8">
+      <div class="rangeSliderComp">
+        <div class="titleName">Цена</div>
+        <div class="flex items-center text-sm text-gray-500 mb-5 font-bold">
+          <span class="border border-whiteBlue text-primary w-20 py-[2px] rounded-md text-center">
+            {{ rangeInput[0] }}
+          </span>
+          <span class="px-2"
+            ><svg width="11" height="1" viewBox="0 0 11 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0.5" y1="0.5" x2="10.5" y2="0.5" stroke="#AECBF4" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="border border-whiteBlue text-primary w-20 py-[2px] rounded-md text-center">
+            {{ rangeInput[1] }}
+          </span>
         </div>
-        <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl space-y-2">
-          <div class="flex justify-between items-center flex-wrap">
-            <div class="text-primaryBlue">{{ val.rating }}</div>
-            <div class="text-primaryBlue">{{ val.review }} отзывов</div>
+        <div class="rangeInp w-60 md:w-40 lg:w-60">
+          <div class="slider">
+            <div
+              class="progress"
+              :style="{
+                left: rangeMinVal[0] + '%',
+                right: rangeMinVal[1] + '%',
+              }"
+            ></div>
           </div>
-          <div>{{ val.name }}</div>
-          <div>{{ val.typeOfMoney }}</div>
-          <div class="flex justify-between items-center flex-wrap">
-            <div class="font-semibold">{{ val.cost }} {{ val.currency }}</div>
-            <ButtonStrokeVue><span class="py-1">В корзину</span> </ButtonStrokeVue>
+          <div class="range-input">
+            <input
+              type="range"
+              id="range-min"
+              :min="priceMinMax.min"
+              :max="priceMinMax.max"
+              step="100"
+              v-model.number="rangeInput[0]"
+              @input="setChangeSlider"
+            />
+            <input
+              type="range"
+              class="range-max"
+              :min="priceMinMax.min"
+              :max="priceMinMax.max"
+              step="100"
+              v-model.number="rangeInput[1]"
+              @input="setChangeSlider"
+            />
           </div>
         </div>
-      </RouterLink>
+      </div>
+      <div>
+        <p class="titleName">Модель</p>
+        <select
+          id="countries"
+          class="bg-transparent border border-whiteBlue outline-none text-primary rounded-lg px-2 py-1"
+        >
+          <option value="all" selected>Каталог</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+        </select>
+      </div>
+      <div>
+        <p class="titleName">Цвет</p>
+        <select
+          id="countries"
+          class="bg-whiteBlue border-x-4 border-x-whiteBlue outline-none text-primary rounded-lg px-2 py-1"
+        >
+          <option value="all" selected>Каталог</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+        </select>
+      </div>
+      <div class="space-y-1">
+        <div class="space-x-2 text-primary">
+          <input type="radio" name="pul" id="naqt" />
+          <label for="naqt">В наличии</label>
+        </div>
+        <div class="space-x-2 text-primary">
+          <input type="radio" name="pul" id="aksiya" />
+          <label for="aksiya">Акция</label>
+        </div>
+      </div>
+      <span class="flex md:flex-col items-start gap-3">
+        <span @click="handleFilter">
+          <ButtonFillVue><span class="py-2">Применить</span></ButtonFillVue>
+        </span>
+        <span @click="handleReset">
+          <ButtonStrokeVue><span class="py-2">Сбросить все</span> </ButtonStrokeVue>
+        </span>
+      </span>
     </div>
-  </div>
-
-  <div class="paginationBar text-center mt-4 mb-8 md:mb-16">
-    <nav aria-label="Page navigation example">
-      <ul class="inline-flex -space-x-px">
-        <li>
-          <a
-            href="#"
-            class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700"
-            >Previous</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
-            >1</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
-            >2</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            aria-current="page"
-            class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700"
-            >3</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
-            >4</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
-            >5</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700"
-            >Next</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
+  </form>
 </template>
 
 <script setup>
-import { shopStore } from "../../store/shop";
+import { ref, reactive } from "vue";
 import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
-const store = shopStore();
+import ButtonFillVue from "../buttons/ButtonFill.vue";
 
-const props = defineProps({ filterTag: { required: true, type: String } });
+const data = ref({
+  range: {},
+  model: "",
+  color: "",
+  typeMoney: "",
+});
+
+const rangeInput = reactive([0, 10000]); // 0 uzs dan 10000 gacha
+const priceMinMax = reactive({ min: 0, max: 10000 }); // uzgarmas qiymatlar. input bosh va oxirgi qiymatlari
+const rangeMinVal = reactive([0, 0]); // left:0% Right:0%
+const priceTMP = ref(0);
+
+const setChangeSlider = () => {
+  if (rangeInput[0] > rangeInput[1]) {
+    priceTMP.value = rangeInput[1];
+    rangeInput[1] = rangeInput[0];
+    rangeInput[0] = priceTMP.value;
+  }
+
+  rangeMinVal[0] = (rangeInput[0] / priceMinMax.max) * 100;
+  rangeMinVal[1] = 100 - (rangeInput[1] / priceMinMax.max) * 100;
+};
+const handleFilter = () => {};
+const handleReset = () => {
+  data.value = {
+    range: {},
+    model: "",
+    color: "",
+    typeMoney: "",
+  };
+};
 </script>
+
+<style scoped>
+.titleName {
+  color: #4f87d3cc;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-bottom: 0.3rem;
+}
+.slider {
+  height: 5px;
+  position: relative;
+  background: #002e6980;
+  border-radius: 5px;
+}
+.slider .progress {
+  height: 100%;
+  position: absolute;
+  border-radius: 5px;
+  background: #002e69;
+}
+.range-input {
+  position: relative;
+}
+.range-input input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #aecbf4;
+  border: 1px solid #002e69;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+input[type="range"]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17a2b8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+</style>

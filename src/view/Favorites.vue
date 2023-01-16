@@ -3,23 +3,7 @@
   <div class="container mx-auto">
     <div class="flex justify-between items-center">
       <h3 class="text-3xl my-3 font-medium text-primary">Избранные</h3>
-      <div class="space-x-6 text-end">
-        <RouterLink class="text-primaryBlue active:text-primary hover:text-primary duration-300" to="#">
-          <i class="fa-solid fa-arrow-up"> </i>
-          <i class="fa-solid fa-arrow-down"></i>
-          Рейтинг
-        </RouterLink>
-        <RouterLink class="text-primaryBlue active:text-primary hover:text-primary duration-300" to="#">
-          <i class="fa-solid fa-arrow-up"> </i>
-          <i class="fa-solid fa-arrow-down"></i>
-          Новинка
-        </RouterLink>
-        <RouterLink class="text-primaryBlue active:text-primary hover:text-primary duration-300" to="#">
-          <i class="fa-solid fa-arrow-up"> </i>
-          <i class="fa-solid fa-arrow-down"></i>
-          Цена
-        </RouterLink>
-      </div>
+      <SortVue />
     </div>
 
     <div class="cards mb-6 grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
@@ -49,6 +33,7 @@
 <script setup>
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import ButtonStrokeVue from "../components/buttons/ButtonStroke.vue";
+import SortVue from "../components/shop/Sort.vue";
 import LoadingModalVue from "../components/modals/LoadingModal.vue";
 
 import { shopStore } from "../store/shop";

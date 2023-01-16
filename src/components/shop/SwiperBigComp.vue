@@ -44,11 +44,6 @@ import { Pagination, Navigation } from "swiper";
 const store = shopStore();
 </script>
 
-<style>
-.mySwiper.swiperBigComp {
-}
-</style>
-
 <!-- :breakpoints="{
   240: {
     slidesPerView: 1.2,
