@@ -1,7 +1,7 @@
 <template>
   <HeaderVue />
-  <GoogleLogin :callback="callback" />
   <RouterView />
+  <!-- <Example /> -->
   <FooterVue />
 </template>
 
@@ -9,9 +9,5 @@
 import { RouterView } from "vue-router";
 import HeaderVue from "./components/header/Header.vue";
 import FooterVue from "./components/footer/Footer.vue";
-
-const callback = (response) => {
-  console.log("hi");
-  console.log("Handle the response", response);
-};
+// import Example from "./view/Example.vue";
 </script>
