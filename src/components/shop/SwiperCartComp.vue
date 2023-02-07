@@ -83,6 +83,7 @@
 </template>
 
 <script setup>
+import axios from "axios";
 import { shopStore } from "../../store/shop";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { RouterLink } from "vue-router";
@@ -98,4 +99,19 @@ const store = shopStore();
 const handleCategoryName = (val) => {
   store.search = val;
 };
+
+async function fetchApi() {
+  try {
+    const res = await axios({
+      method: "get",
+      url: "products",
+      headers: {},
+      withCredentials: true,
+    });
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
+}
+fetchApi();
 </script>

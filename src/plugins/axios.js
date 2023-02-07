@@ -1,8 +1,7 @@
 import axios from "axios";
 import i18n from "./i18n";
 
-axios.defaults.baseURL = "https://orca-app-nn67b.ondigitalocean.app/api/v1/";
-
+axios.defaults.baseURL = "https://plankton-app-vomkh.ondigitalocean.app/api/v1/";
 
 axios.interceptors.request.use(
   (config) => {
@@ -14,4 +13,4 @@ axios.interceptors.request.use(
   }
 );
 
-export default axios
+export default axios;
