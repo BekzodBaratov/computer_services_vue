@@ -11,10 +11,12 @@
               :alt="product.imageAlt"
               class="h-full w-full object-cover object-center"
             />
-            <div class="absolute bottom-7 text-left mx-10 text-white">
-              <h2 class="text-xl font-medium">{{ product.name }}</h2>
-              <h3 class="transition-all duration-300 overflow-hidden h-0 group-hover:h-20">
-                {{ product.price }}
+            <div class="absolute bottom-1 md:bottom-7 text-left mx-2 md:mx-10 text-white">
+              <h2 class="text-lg leading-none md:text-xl font-medium pb-2">{{ product.name }}</h2>
+              <h3 class="transition-all duration-300 overflow-hidden h-0 group-hover:h-14">
+                <span class="line-clamp-2 leading-xs text-sm md:text-[1rem] font-normal">
+                  {{ product.price }}
+                </span>
               </h3>
             </div>
           </div>
@@ -25,7 +27,7 @@
 </template>
 
 <script setup>
-import axios from "axios";
+// import axios from "axios";
 import { RouterLink } from "vue-router";
 import { useServices } from "../store/services";
 const store = useServices();

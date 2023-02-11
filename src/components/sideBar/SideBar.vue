@@ -94,6 +94,15 @@
           </li>
         </ul>
       </div>
+      <div
+        :class="isOpenSidebar ? 'block' : 'hidden'"
+        @click="emit('openSidebar')"
+        class="absolute bg-blue100 text-2xl text-gray-600 rounded-r-md font-semibold left-full top-10 z-50"
+      >
+        <div class="p-2 px-3">
+          <i class="fas fa-xmark"></i>
+        </div>
+      </div>
     </div>
   </Teleport>
   <RegisterModal @closeRegiterModal="isRegisterationModal = false" v-if="isRegisterationModal" />
