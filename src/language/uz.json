@@ -1,3 +1,57 @@
 {
-  "hi": "salom"
+  "header": {
+    "service": "Xizmatlar",
+    "magazin": "Market",
+    "fix": "configurator",
+    "about": "Biz haqimizda",
+    "contact": "Malumot"
+  },
+  "home": {
+    "hero": {
+      "1": "Kompyuter uskunalariga xizmat ko'rsatishning to'liq kompleksi.",
+      "2": "Kompyuter komponentlarining keng assortimentiga ega onlayn-do'kon va boshqalar.",
+      "3": "Kengaytirilgan onlayn kompyuterni o'zgartirish xizmati"
+    },
+    "service": {
+      "title": "Nega biz boshqalardan ustunmiz?",
+      "ans": {
+        "1": "Ko'p yillik tajribaga ega mutaxassislar",
+        "2": "Hamma narsa belgilangan vaqtda - sizni kutmasdan",
+        "3": "Kafolat va sifat - original qismlar"
+      }
+    },
+    "steps": {
+      "title": "Diagnostika va ta'mirlash bosqichlari",
+      "step": {
+        "1": "Xato ta'rifi",
+        "2": "Xarajat bo'yicha muzokaralar",
+        "3": "Qurilmani ta'mirlash",
+        "4": "Tayyorligi haqida bildirishnoma",
+        "5": "To'lov",
+        "6": "Tayyor qurilmani chiqarish yoki yetkazib berish"
+      }
+    },
+    "review": "Sharhlar"
+  },
+  "footer": {
+    "social": "Bizni ijtimoiy tarmoqlarda kuzatib boring",
+    "call": "qo'ng'iroq"
+  },
+  "service": {
+    "help": "Agar sizga yordam bera olamiz -",
+    "btn": "Qo'ng'iroq qilish"
+  },
+  "market": {
+    "hero": {
+      "all": "Barchasi",
+      "search": "Qidirish...",
+      "favorite": "Sevimlilar",
+      "shop": "Saqlanganlar"
+    }
+  },
+  "configure": {
+    "title": "KOMPYUTER KONFIGURATORI",
+    "desc": "Siz orzu qilgan kompyuterni yarating. Siz saytda taqdim etilgan yig'ilishlarning konfiguratsiyasini o'zgartirishingiz, onlayn narxni bilib olishingiz, xususiyatlarni taqqoslashingiz mumkin. Buyurtma bering va tayyor sumkani oling.",
+    "btnPay": "Xarid"
+  }
 }

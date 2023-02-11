@@ -1,8 +1,8 @@
 <template>
   <div className="mx-auto">
-    <ul className="text-primary line-clamp-2 md:line-clamp-1 space-x-4">
+    <ul className="text-primary line-clamp-1 md:line-clamp-1 space-x-4">
       <li
-        className="border-b inline border-primary active:border-dashed cursor-pointer"
+        className="border-b inline px-2 border-primary active:border-dashed cursor-pointer"
         v-for="(val, index) in store.shortNav"
         @click="() => handleClick(val)"
         :key="index"

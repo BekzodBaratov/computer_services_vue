@@ -4,7 +4,7 @@
       class="px-4 bg-[#444444BF] drop-shadow-lg rounded-t-2xl py-3 gap-4 flex flex-wrap flex-col md:flex-row justify-between items-center shadow-lg text-white"
     >
       <div class="flex gap-3 items-center flex-wrap">
-        <span>Следите за нами в соц сетях:</span>
+        <span>{{ t("footer.social") }}:</span>
         <div class="flex gap-2 flex-wrap">
           <svg class="duration-200 hover:-translate-y-1 w-6 h-6" viewBox="0 0 35 24" fill="none">
             <path
@@ -73,7 +73,7 @@
           <div class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden">
             <input type="text" class="searchInp px-3 py-[2px] outline-none bg-transparent" placeholder="Ваш номер" />
             <div class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue">
-              Звонок
+              {{ t("footer.call") }}
             </div>
           </div>
         </form>
@@ -84,3 +84,8 @@
   </footer>
   <!-- <div class="h-16"></div> -->
 </template>
+
+<script setup>
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+</script>

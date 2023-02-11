@@ -18,9 +18,8 @@
     </div>
 
     <div className="flex flex-col  gap-16">
-      <h2 className="text-primary font-bold text-5xl ">
-        Мы поможем <br />
-        если у вас –
+      <h2 className="text-primary font-bold text-5xl  max-w-md">
+        {{ t("service.help") }}
       </h2>
       <div className="grid gap-7 grid-cols-2 h-4">
         <div v-for="(list, i) in descr.desc" :key="i" className="text-primary flex ">
@@ -34,7 +33,7 @@
 
     <div class="flex items-center justify-center pt-20 md:pt-40">
       <ButtonFillVue color="#28A745">
-        <a class="py-2 px-4 text-2xl" href="tel:+998944455537">Заказать звонок</a>
+        <a class="py-2 px-4 text-2xl" href="tel:+998944455537">{{ t("service.btn") }}</a>
       </ButtonFillVue>
     </div>
   </div>
@@ -43,13 +42,12 @@
 <script setup>
 import { useRoute } from "vue-router";
 import { useServices } from "../store/services";
+import { useI18n } from "vue-i18n";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 
 const store = useServices();
 const route = useRoute();
+const { t } = useI18n();
 const id = route.params.id;
 const descr = store.products[id].description;
-
-console.log(route.params.id);
-console.log(store.products[id].description);
 </script>

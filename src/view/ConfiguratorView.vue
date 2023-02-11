@@ -2,11 +2,8 @@
   <div class="container mx-auto">
     <div class="header grid grid-cols-1 md:grid-cols-2 gap-6 justify-between items-center pt-10">
       <div class="">
-        <h2 class="text-primary text-5xl font-semibold">КОНФИГУРАТОР ПК</h2>
-        <p class="text-3xl font-normal text-primary mt-8">
-          Сборка компьютера, о котором вы мечтали. Вы можете изменить комплектацию представ-ленных на сайте сборок,
-          узнать цену онлайн, сравнить характеристики. Оформите заказ и получите готовый Кейс.
-        </p>
+        <h2 class="text-primary text-5xl font-semibold">{{ t("configure.title") }}</h2>
+        <p class="text-3xl font-normal text-primary mt-8">{{ t("configure.desc") }}</p>
       </div>
       <div class="hidden md:block mx-auto">
         <img src="/src/assets/img/static/Group.svg" class="h-[36rem] float-right" />
@@ -23,7 +20,7 @@
             <div class="bg-whiteBlue rounded-xl px-4 py-2 w-56">
               <p class="text-2xl text-danger font-semibold text-center pb-2">790 000 сум</p>
               <div class="flex gap-1">
-                <ButtonFill>Купить</ButtonFill>
+                <ButtonFill>{{ t("configure.btnPay") }}</ButtonFill>
                 <div
                   @click="savedFunc"
                   class="p-2 rounded-lg border border-primary flex items-center justify-center cursor-pointer"
@@ -127,7 +124,8 @@
 <script setup>
 import { ref } from "vue";
 import ButtonFill from "../components/buttons/ButtonFill.vue";
-
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const isSaved = ref(false);
 const savedFunc = () => {
   isSaved.value = !isSaved.value;

@@ -50,9 +50,6 @@
               Забыли пароль?
             </div>
           </div>
-          <div>
-            <p>sall</p>
-          </div>
         </div>
       </div>
     </div>

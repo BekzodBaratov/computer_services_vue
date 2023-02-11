@@ -41,6 +41,7 @@
 
           <!-- if has not been user -->
           <div
+            @click="handleProfile"
             v-else
             class="border rounded-lg block border-gray-700 mb-8 hover:bg-[#d8e0ef] active:bg-[#d8e0ef] duration-200"
           >
@@ -113,6 +114,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 import { useUserRegister } from "../../store/UserRegister";
 
 import RegisterModal from "../modals/RegisterModal.vue";
@@ -120,6 +122,7 @@ import LoginModal from "../modals/LoginModal.vue";
 
 const store = useUserRegister();
 const router = useRouter();
+const { t } = useI18n();
 
 const isLoginModal = ref(false);
 const isRegisterationModal = ref(false);
@@ -133,13 +136,17 @@ const emit = defineEmits(["openSidebar"]);
 const props = defineProps(["isOpenSidebar"]);
 
 const routeNav = ref([
-  { id: 1, name: "Сервис", link: "/services", class: "fa-solid fa-toolbox pr-4" },
-  { id: 2, name: "Магазин", link: "/shop", class: "fa-solid fa-shop pr-4" },
-  { id: 3, name: "Конфигуратор", link: "/configurator", class: "fa-solid fa-computer pr-4" },
-  { id: 4, name: "О нас", link: "/about", class: "fa-solid fa-address-card pr-4" },
-  { id: 5, name: "Контакты", link: "/contact", class: "fa-solid fa-address-book pr-4" },
+  { id: 1, name: t("header.service"), link: "/services", class: "fa-solid fa-toolbox pr-4" },
+  { id: 2, name: t("header.magazin"), link: "/shop", class: "fa-solid fa-shop pr-4" },
+  { id: 3, name: t("header.fix"), link: "/configurator", class: "fa-solid fa-computer pr-4" },
+  { id: 4, name: t("header.about"), link: "/about", class: "fa-solid fa-address-card pr-4" },
+  { id: 5, name: t("header.contact"), link: "/contact", class: "fa-solid fa-address-book pr-4" },
 ]);
 
+const handleProfile = () => {
+  emit("openSidebar");
+  isLoginModal.value = true;
+};
 const handleLogin = () => {
   emit("openSidebar");
   isLoginModal.value = true;
