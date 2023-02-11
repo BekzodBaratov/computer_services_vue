@@ -104,13 +104,10 @@ async function fetchApi() {
   try {
     const res = await axios({
       method: "get",
-      url: "/products/",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      url: "products",
       withCredentials: true,
     });
-    console.log(res);
+    console.log(res.data.data.products);
   } catch (e) {
     console.log(e);
   }

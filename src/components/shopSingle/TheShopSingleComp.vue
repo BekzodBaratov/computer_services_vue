@@ -7,8 +7,8 @@
     :modules="modules"
     class="singleSwiper rounded-3xl"
   >
-    <swiper-slide
-      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle91.png"
+    <swiper-slide v-for="i in 4"
+      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle90.png"
     /></swiper-slide>
     <swiper-slide
       ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle90.png"
@@ -31,16 +31,7 @@
     :modules="modules"
     class="singleThumbSwiper"
   >
-    <swiper-slide
-      ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle89.png"
-    /></swiper-slide>
-    <swiper-slide
-      ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle90.png"
-    /></swiper-slide>
-    <swiper-slide
-      ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle91.png"
-    /></swiper-slide>
-    <swiper-slide
+    <swiper-slide v-for="i in 4"
       ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle92.png"
     /></swiper-slide>
   </swiper>
@@ -48,6 +39,7 @@
 
 <script setup>
 import { ref } from "vue";
+import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 import "swiper/css";
@@ -61,6 +53,19 @@ import { FreeMode, Thumbs } from "swiper";
 const thumbsSwiper = ref(null);
 const setThumbsSwiper = (swiper) => (thumbsSwiper.value = swiper);
 const modules = ref([FreeMode, Thumbs]);
+
+const fetchApi = async () => {
+  try {
+    const res = await axios.get("products/" + 17);
+    console.log(res.data.data.product);
+    console.log(res.data.data.product.product_detail.images);
+    console.log(res.data.data.product.image_main);
+    img.value = res.data.data.product.image_main;
+  } catch (error) {
+    console.log(error);
+  }
+};
+fetchApi();
 </script>
 
 <style scoped>

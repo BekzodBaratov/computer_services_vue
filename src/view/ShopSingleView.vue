@@ -75,6 +75,7 @@ import Comment from "../components/shopSingle/Comment.vue";
 import Info from "../components/shopSingle/Info.vue";
 import UserCommit from "../components/shopSingle/UserCommit.vue";
 import SmilarsCompVue from "../components/shopSingle/SmilarsSwiper.vue";
+import axios from "axios";
 
 const store = shopStore();
 const router = useRoute();
@@ -87,6 +88,5 @@ const routeLink = [
 
 const id = ref(router.params.id);
 const singleObj = store.cardSwiper[0][1][id.value];
-
 const infomations = ref(0);
 </script>
