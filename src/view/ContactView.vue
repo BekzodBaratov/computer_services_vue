@@ -1,17 +1,14 @@
 <template>
   <div class="flex items-center justify-center pb-8">
     <div
-      class="card min-w-[44rem] grid grid-cols-1 md:grid-cols-2 shadow-md rounded-sm bg-[#fffa] mx-2 py-12 px-16 md:px-0 gap-12 md:gap-0"
+      class="card min-w-[38rem] md:min-w-[44rem] grid grid-cols-1 md:grid-cols-2 shadow-md rounded-sm bg-[#fffa] mx-2 py-12 px-16 md:px-0 gap-12 md:gap-0"
     >
       <div class="left_card bg-danger shadow-md rounded-md py-12 px-8 text-white md:-translate-x-36 space-y-12">
-        <h2 class="text-start text-3xl font-semibold">Contact Us</h2>
+        <h2 class="text-start text-3xl font-semibold">{{ t("contact.contactUs") }}</h2>
         <div class="grid grid-cols-2 md:grid-cols-1 gap-6">
-          <div class="flex gap-5 items-center">
+          <div class="flex gap-5 items-center max-w-xs">
             <i class="fa-solid fa-location-dot text-xl"></i>
-            <p>
-              32, Avenue ve New York <br />
-              321994 Newyork
-            </p>
+            <p>{{ t("contact.address") }}</p>
           </div>
           <div class="flex gap-5 items-center">
             <i class="fa-regular fa-envelope text-xl"></i>
@@ -27,30 +24,31 @@
           </div>
         </div>
       </div>
+
       <div class="right_card md:-translate-x-16 text-primary">
-        <h2 class="text-start text-3xl font-semibold pb-1">Get in Touch</h2>
-        <p class="pb-8">Feel free to dropus a line below!</p>
+        <h2 class="text-start text-3xl font-semibold pb-1">{{ t("contact.title") }}</h2>
+        <p class="pb-8">{{ t("contact.desc") }}</p>
         <form class="flex flex-col gap-6">
           <div class="grid grid-cols-2 md:grid-cols-1 gap-2">
             <div class="mb-4 flex flex-col">
               <input
-                class="bg-transparent border min-w-[16rem] border-primary rounded-xl py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
+                class="bg-transparent border min-w-[8rem] md:min-w-[16rem] border-primary rounded-xl py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
                 type="text"
                 v-model="state.name"
                 name="name"
                 id="name"
-                placeholder="Your Name"
+                :placeholder="t('contact.name')"
               />
               <span class="text-sm text-end text-red-600" v-if="v$.name.$error">{{ v$.name.$errors[0].$message }}</span>
             </div>
             <div class="mb-4 flex flex-col">
               <input
-                class="bg-transparent border min-w-[16rem] border-primary rounded-xl py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
+                class="bg-transparent border min-w-[8rem] md:min-w-[16rem] border-primary rounded-xl py-1 px-3 text-primary outline-none placeholder:text-[#002e6977]"
                 type="email"
                 v-model="state.email"
                 name="email"
                 id="email"
-                placeholder="Your Email"
+                :placeholder="t('contact.email')"
               />
               <span class="text-sm text-end text-red-600" v-if="v$.email.$error">{{
                 v$.email.$errors[0].$message
@@ -63,7 +61,7 @@
                 id=""
                 cols="30"
                 rows="10"
-                placeholder="Your Comment"
+                :placeholder="t('contact.message')"
               ></textarea>
               <span class="text-sm text-end text-red-600" v-if="v$.email.$error">{{
                 v$.email.$errors[0].$message
@@ -73,7 +71,7 @@
           <div class="flex justify-center">
             <button type="submit" @click.prevent="formLoginData">
               <ButtonFillVue>
-                <span class="py-1 px-4">Вход</span>
+                <span class="py-1 px-4">{{ t("contact.btn") }}</span>
               </ButtonFillVue>
             </button>
           </div>
@@ -91,17 +89,20 @@
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
   </div>
+  <LoadingModalVue v-if="loading" />
 </template>
 
 <script setup>
 import { ref, reactive, computed } from "vue";
 import { required, email, minLength, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import { useI18n } from "vue-i18n";
 
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import LoadingModalVue from "../components/modals/LoadingModal.vue";
 
 const loading = ref(false);
+const { t } = useI18n();
 
 const rules = computed(() => {
   return {

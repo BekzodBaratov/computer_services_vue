@@ -4,7 +4,7 @@
     "magazin": "Market",
     "fix": "configurator",
     "about": "Biz haqimizda",
-    "contact": "Malumot"
+    "contact": "Kontakt"
   },
   "home": {
     "hero": {
@@ -53,5 +53,22 @@
     "title": "KOMPYUTER KONFIGURATORI",
     "desc": "Siz orzu qilgan kompyuterni yarating. Siz saytda taqdim etilgan yig'ilishlarning konfiguratsiyasini o'zgartirishingiz, onlayn narxni bilib olishingiz, xususiyatlarni taqqoslashingiz mumkin. Buyurtma bering va tayyor sumkani oling.",
     "btnPay": "Xarid"
+  },
+  "about": {
+    "title": "Bizning vazifamiz",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis a blanditiis aspernatur perspiciatis commodi quisquam distinctio animi atque obcaecati rerum incidunt, illum, nostrum minima dolorem, amet dolores eius corporis expedita quidem natus architecto mollitia! Rerum quos ea harum sit vel.",
+    "leaders": "Leaderlarimiz bilan tanishing",
+    "leadersDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    "leadersBtn": "Boshqa leaderlarni ko'rish"
+  },
+  "contact": {
+    "title": "Aloqa qiling",
+    "desc": "Bizga xabar qoldiring, biz uni albatta ko'rib chiqamiz!",
+    "name": "Sizning Ismingiz",
+    "email": "Sizning Emailingiz",
+    "message": "Xabar",
+    "btn": "Jo`natish",
+    "contactUs": "Bizning Kontakt",
+    "address": "Universam savdo markazi, Toshkent 100037, Oʻzbekiston"
   }
 }

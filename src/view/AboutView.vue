@@ -1,12 +1,8 @@
 <template>
   <div class="container mx-auto grid md:grid-cols-2 gap-12 my-12 items-center">
-    <div class="left">
-      <h3 class="text-3xl pb-2 font-semibold">Our Mission</h3>
-      <p class="pr-48">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis a blanditiis aspernatur perspiciatis commodi
-        quisquam distinctio animi atque obcaecati rerum incidunt, illum, nostrum minima dolorem, amet dolores eius
-        corporis expedita quidem natus architecto mollitia! Rerum quos ea harum sit vel.
-      </p>
+    <div class="left font-semibold">
+      <h3 class="text-5xl pb-2 font-semibold text-gray-800">{{ t("about.title") }}</h3>
+      <p class="pr-24 text-xl text-gray-500">{{ t("about.desc") }}</p>
     </div>
     <div class="right grid grid-cols-2 gap-3 h-[24rem] md:mx-16">
       <div class="bg-gray-300">
@@ -21,8 +17,8 @@
     </div>
   </div>
   <div class="container mx-auto text-center bg-slate-300 rounded-md ring ring-offset-4 ring-slate-300 my-16 py-16">
-    <h2 class="text-3xl font-semibold mb-3">Meet Our Leaders</h2>
-    <p class="pb-4 md:pb-16">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+    <h2 class="text-5xl text-gray-800 font-semibold mb-3">{{ t("about.leaders") }}</h2>
+    <p class="pb-4 md:pb-16 text-gray-500">{{ t("about.leadersDesc") }}</p>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center my-12 px-16 md:px-52">
       <div v-for="i in 4" :key="i" class="cardLeads flex flex-col">
         <div class="overflow-hidden rounded-full flex justify-center mb-2 group">
@@ -39,12 +35,14 @@
     </div>
     <div class="flex justify-center my-3">
       <ButtonFill>
-        <span class="py-2 px-3">View other Leaders</span>
+        <span class="py-2 px-3">{{ t("about.leadersBtn") }}</span>
       </ButtonFill>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
 import ButtonFill from "../components/buttons/ButtonFill.vue";
+const { t } = useI18n();
 </script>
