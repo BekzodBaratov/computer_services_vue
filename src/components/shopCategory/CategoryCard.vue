@@ -1,57 +1,57 @@
 <template>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 gap-4">
-    <div v-for="(val, key) in store.cardSwiper[0][1]" :key="key" class="bg-white h-full rounded-3xl">
-      <RouterLink :to="'/shop/' + key">
-        <div class="imgCard p-2">
-          <img class="w-full" src="../../assets/img/magazin/card/Rectangle64.png" :alt="val.name" />
+  <p v-if="!categoryStore.products.length" class="text-center text-2xl text-gray-500 font-semibold mt-12">
+    {{ categoryStore.error }}
+  </p>
+  <div
+    v-if="categoryStore.products.length"
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 gap-4"
+  >
+    <div
+      v-for="val in categoryStore?.products"
+      :key="val?.id"
+      class="card bg-[#f9fafd] shadow-sm h-full rounded-xl overflow-hidden"
+    >
+      <div>
+        <div class="imgCard max-h-60 overflow-hidden">
+          <img class="w-full object-cover object-center" :src="val?.image_url" alt="image" />
         </div>
-        <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl space-y-2">
+        <div class="context px-2 py-4 h-full rounded-b-xl space-y-2">
           <div class="flex justify-between items-center flex-wrap">
-            <div class="text-primaryBlue">{{ val.rating }}</div>
-            <div class="text-primaryBlue">{{ val.review }} отзывов</div>
+            <div class="text-primaryBlue">{{ 4.69 }} <i class="fas fa-star"></i></div>
+            <div class="text-primaryBlue">{{ 34 }} отзывов</div>
           </div>
-          <div>{{ val.name }}</div>
-          <div>{{ val.typeOfMoney }}</div>
+          <RouterLink
+            :to="'/shop/' + val.product_detail?.productId"
+            class="hover:text-blue-500 duration-150 text-lg font-semibold"
+          >
+            {{ val.name }}
+          </RouterLink>
+          <div>{{ val.product_detail?.condition }}</div>
           <div class="flex justify-between items-center flex-wrap">
-            <div class="font-semibold">{{ val.cost }} {{ val.currency }}</div>
+            <div class="font-semibold">{{ numberWithSpaces(val?.product_detail?.price) }} sum</div>
             <ButtonStrokeVue><span class="py-1">В корзину</span> </ButtonStrokeVue>
           </div>
         </div>
-      </RouterLink>
+      </div>
     </div>
   </div>
 
-  <div class="paginationBar text-center mt-4 mb-8 md:mb-16">
-    <nav aria-label="Page navigation example">
-      <ul class="inline-flex -space-x-px">
-        <li v-for="(page, index) in pagination" :key="index">
-          <a
-            href="#"
-            class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
-            >{{ page }}</a
-          >
-        </li>
-      </ul>
-    </nav>
+  <div v-if="categoryStore.products.length" class="flex justify-center py-6">
+    <Paginate />
   </div>
+  <LoadingModal v-if="categoryStore.loading" />
 </template>
 
 <script setup>
-import { reactive } from "vue";
-import { shopStore } from "../../store/shop";
+import { useCategoryProduct } from "../../store/categoryProduct";
 import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
-const store = shopStore();
-const pagination = reactive([
-  { id: 0, text: "Previous" },
-  { id: 1, current: true, text: "1" },
-  { id: 2, text: "2" },
-  { id: 3, text: "" },
-  { id: 4, text: "2" },
-  { id: 5, text: "2Next" },
-]);
-</script>
+import numberWithSpaces from "../../helpers/numberFormat";
+import LoadingModal from "../modals/LoadingModal.vue";
+import Paginate from "./Paginate.vue";
 
-<!-- client id -->
-<!-- 736839198215-famfbf5fibh3a2fnut8544gnvh85vpvb.apps.googleusercontent.com -->
-<!-- client secret -->
-<!-- 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 -->
+const categoryStore = useCategoryProduct();
+if (categoryStore.products.length) {
+  console.log(categoryStore.products);
+}
+categoryStore.getProducts();
+</script>

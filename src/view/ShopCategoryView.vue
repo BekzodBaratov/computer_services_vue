@@ -1,10 +1,10 @@
 <template>
   <div class="container mx-auto">
     <SearchFormCompVue />
-    <!-- <RouteLinkVue :route="arrFunc" /> -->
+    <RouteLinkVue :route="arrFunc" />
     <ShortNavCompVue />
     <div class="flex items-center justify-between gap-1 pb-2 pt-8 space-x-2">
-      <p class="text-xl font-semibold text-[#4F87D3CC] line-clamp-1">Компьютерные комплектующие</p>
+      <p class="text-xl font-semibold text-[#4F87D3CC] line-clamp-1">All Products</p>
       <SortVue />
     </div>
     <div
@@ -33,7 +33,7 @@ import SortVue from "../components/shop/Sort.vue";
 const arrFunc = reactive([
   { name: "Магазин", link: "/shop" },
   { name: "Каталог", link: "/shop/category" },
-  { name: "Компьютерные комплек..." },
+  { name: "all" },
 ]);
 const openFilter = ref(true);
 </script>
