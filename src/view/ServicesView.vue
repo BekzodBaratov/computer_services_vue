@@ -6,14 +6,14 @@
           <div
             class="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale group-hover:grayscale-0"
           >
-            <img :src="product.image_url" :alt="product.image" class="h-full w-full object-cover object-center" />
+            <img :src="product.image_url" :alt="product.image" class="h-60 w-full object-cover object-center" />
             <div class="absolute bottom-1 md:bottom-7 text-left mx-2 md:mx-10 text-white">
               <h2 class="text-lg leading-none md:text-xl font-medium pb-2">{{ product.name }}</h2>
-              <h3 class="transition-all duration-300 overflow-hidden h-0 group-hover:h-14">
+              <!-- <h3 class="transition-all duration-300 overflow-hidden h-0 group-hover:h-14">
                 <span class="line-clamp-2 leading-xs text-sm md:text-[1rem] font-normal">
                   {{ product.price }}
                 </span>
-              </h3>
+              </h3> -->
             </div>
           </div>
         </RouterLink>
@@ -26,5 +26,5 @@
 import { useServices } from "../store/services";
 const store = useServices();
 
-store.fetchApi();
+if (!store.products.length) store.getAllProducts();
 </script>
