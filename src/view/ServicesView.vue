@@ -6,11 +6,7 @@
           <div
             class="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale group-hover:grayscale-0"
           >
-            <img
-              src="../assets/img/ServicesImages/img.png"
-              :alt="product.imageAlt"
-              class="h-full w-full object-cover object-center"
-            />
+            <img :src="product.image_url" :alt="product.image" class="h-full w-full object-cover object-center" />
             <div class="absolute bottom-1 md:bottom-7 text-left mx-2 md:mx-10 text-white">
               <h2 class="text-lg leading-none md:text-xl font-medium pb-2">{{ product.name }}</h2>
               <h3 class="transition-all duration-300 overflow-hidden h-0 group-hover:h-14">
@@ -27,23 +23,8 @@
 </template>
 
 <script setup>
-// import axios from "axios";
-import { RouterLink } from "vue-router";
 import { useServices } from "../store/services";
 const store = useServices();
 
-// async function fetchApi() {
-//   try {
-//     const res = await axios({
-//       method: "get",
-//       url: "categories",
-//       headers: {},
-//       withCredentials: true,
-//     });
-//     console.log(res);
-//   } catch (e) {
-//     console.log(e);
-//   }
-// }
-// fetchApi();
+store.fetchApi();
 </script>
