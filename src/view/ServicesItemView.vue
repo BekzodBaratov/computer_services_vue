@@ -59,34 +59,3 @@ const id = route.params.id;
 
 if (store.product.id != id) store.getOneProduct(id);
 </script>
-
-<!-- 
-{
-  id: 1,
-  name: "Ремонт принтеров",
-  href: "#",
-  price: "Ремонт офисных и портативных принтеров фирмы Canon, Epson, Hp, Samsung и другие...",
-  imageAlt: "Ремонт принтеров",
-  description: {
-    title: "Ремонт ноутбуков",
-    offers: ["Бесплатная диагностика", "Опытные мастера", "Выездной ремонт", "Качественный ремонт"],
-    desc: [
-      "Ноутбук не включается",
-      "Полоса на экране",
-      "Не заряжается",
-      "Не работает тачпад",
-      "Не работает клавиатура",
-      "Перегрев",
-    ],
-  },
-},
--->
-
-<!-- 
-createdAt:"2023-02-27T07:00:07.176Z" 
-features:['yaxshi ishlamasa', "qayta o'rnatish kerak bolsa", "joyini o'zgartirish", "yaxshi ko'rsatilmaganda"] 
-id : 3 
-image : "b0f1e545-77b2-47f2-a612-ce827f60cb06" 
-image_url :"https://service-files.fra1.digitaloceanspaces.com/b0f1e545-77b2-47f2-a612-ce827f60cb06?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=DO00GUC343KYK3XHNL3N%2F20230227%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230227T070007Z&X-Amz-Expires=86400&X-Amz-Signature=26835291ea6e04b495290eb373298550619b153ba3cd80c23b3221dd579b27c4&X-Amz-SignedHeaders=host&x-id=GetObject"
-name : "Видео наблюдения" 
-resolve_problems : ["a'lo darajadagi xizmat", 'narxning arzonligi', 'xizmat kafolatlanishi', "O'zbekistonda barcha hududlarida"]-->

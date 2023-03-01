@@ -21,7 +21,6 @@ export const useCategoryProduct = defineStore("categoryProduct", {
         this.loading = true;
         const res = await axios.get("/products");
         this.products = res.data.data.products;
-        console.log(res.data.data);
       } catch (error) {
         toast.error(error.message);
         this.error = error.message;

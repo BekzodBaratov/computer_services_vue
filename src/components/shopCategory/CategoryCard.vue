@@ -50,8 +50,6 @@ import LoadingModal from "../modals/LoadingModal.vue";
 import Paginate from "./Paginate.vue";
 
 const categoryStore = useCategoryProduct();
-if (categoryStore.products.length) {
-  console.log(categoryStore.products);
-}
-categoryStore.getProducts();
+
+if (!categoryStore.products.length) categoryStore.getProducts();
 </script>
