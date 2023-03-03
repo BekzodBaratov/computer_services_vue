@@ -4,16 +4,18 @@ import { useToast } from "vue-toastification";
 import { useLoadingStore } from "./loading";
 const toast = useToast();
 
-export const useMainProducts = defineStore("mainProducts", {
-  state: () => ({ categories: [] }),
-
+export const useProductDetailStore = defineStore("ProductDetail", {
+  state: () => ({
+    product: [],
+  }),
   actions: {
-    async getAllProductsByCategory() {
+    async getOneProduct(id) {
       const loadingStore = useLoadingStore();
       loadingStore.loading = true;
       try {
-        const res = await axios.get("/categories");
-        this.categories = res.data.data.categories;
+        const data = await axios.get(`/products/${id}`);
+        console.log(data.data);
+        this.product = data.data;
       } catch (error) {
         toast.error(error.message);
       } finally {

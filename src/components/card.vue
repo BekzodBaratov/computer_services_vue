@@ -9,10 +9,7 @@
           <div class="text-primaryBlue">{{ 4.69 }} <i class="fas fa-star"></i></div>
           <div class="text-primaryBlue">{{ 34 }} отзывов</div>
         </div>
-        <RouterLink
-          :to="'/shop/' + product.product_detail.productId"
-          class="hover:text-blue-500 duration-150 text-lg font-semibold"
-        >
+        <RouterLink :to="'/shop/' + product.id" class="hover:text-blue-500 duration-150 text-lg font-semibold">
           {{ product.name }}
         </RouterLink>
         <div>{{ product.product_detail.condition }}</div>

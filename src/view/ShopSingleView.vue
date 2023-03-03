@@ -3,7 +3,7 @@
   <div class="container mx-auto">
     <RouteLink class="mb-3 text-base" :route="routeLink" />
     <h2 class="hidden lg:block text-xl mb-2 text-[#4F87D3CC]">Компьютерные комплектующие...</h2>
-    <h1 class="text-2xl mb-3 text-primary">{{ singleObj.name }}</h1>
+    <!-- <h1 class="text-2xl mb-3 text-primary">{{ singleObj.name }}</h1> -->
     <div class="flex items-center">
       <svg
         aria-hidden="true"
@@ -63,21 +63,18 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
-import { RouterLink } from "vue-router";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { shopStore } from "../store/shop";
+// import {}
 import RouteLink from "../components/RouteLink.vue";
 import SearchFormComp from "../components/shop/SearchFormComp.vue";
 import TheShopSingleComp from "../components/shopSingle/TheShopSingleComp.vue";
 import SingleContentComp from "../components/shopSingle/SingleContentComp.vue";
 import Comment from "../components/shopSingle/Comment.vue";
-import Info from "../components/shopSingle/Info.vue";
+// import Info from "../components/shopSingle/Info.vue";
 import UserCommit from "../components/shopSingle/UserCommit.vue";
 import SmilarsCompVue from "../components/shopSingle/SmilarsSwiper.vue";
-import axios from "axios";
 
-const store = shopStore();
 const router = useRoute();
 
 const routeLink = [
@@ -87,6 +84,5 @@ const routeLink = [
 ];
 
 const id = ref(router.params.id);
-const singleObj = store.cardSwiper[0][1][id.value];
 const infomations = ref(0);
 </script>

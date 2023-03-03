@@ -53,19 +53,6 @@ import { FreeMode, Thumbs } from "swiper";
 const thumbsSwiper = ref(null);
 const setThumbsSwiper = (swiper) => (thumbsSwiper.value = swiper);
 const modules = ref([FreeMode, Thumbs]);
-
-const fetchApi = async () => {
-  try {
-    const res = await axios.get("products/" + 17);
-    console.log(res.data.data.product);
-    console.log(res.data.data.product.product_detail.images);
-    console.log(res.data.data.product.image_main);
-    img.value = res.data.data.product.image_main;
-  } catch (error) {
-    console.log(error);
-  }
-};
-fetchApi();
 </script>
 
 <style scoped>
