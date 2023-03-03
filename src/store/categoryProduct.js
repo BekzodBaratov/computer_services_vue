@@ -1,14 +1,12 @@
 import axios from "axios";
 import { defineStore } from "pinia";
-import { useToast } from "vue-toastification";
-const toast = useToast();
+import { useLoadingStore } from "./loading";
 
 export const useCategoryProduct = defineStore("categoryProduct", {
   state: () => ({
     limit: 12,
     products: [],
     error: "",
-    loading: false,
   }),
   getters: {
     pageCount() {
@@ -17,16 +15,15 @@ export const useCategoryProduct = defineStore("categoryProduct", {
   },
   actions: {
     async getProducts() {
+      const store = useLoadingStore();
       try {
-        this.loading = true;
+        store.loading = true;
         const res = await axios.get("/products");
         this.products = res.data.data.products;
-        console.log(res.data.data);
       } catch (error) {
-        toast.error(error.message);
         this.error = error.message;
       } finally {
-        this.loading = false;
+        store.loading = false;
       }
     },
   },

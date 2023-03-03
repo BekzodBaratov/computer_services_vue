@@ -40,7 +40,7 @@
 
     <div class="flex items-center justify-center pt-20 md:pt-40">
       <ButtonFillVue color="#28A745">
-        <a class="py-2 px-4 text-2xl" href="tel:+998944455537">{{ t("service.btn") }}</a>
+        <a class="py-2 px-4 text-2xl" :href="'tel:' + store.product.phone">{{ t("service.btn") }}</a>
       </ButtonFillVue>
     </div>
   </div>
