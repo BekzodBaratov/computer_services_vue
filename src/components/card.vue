@@ -9,7 +9,7 @@
           <div class="text-primaryBlue">{{ 4.69 }} <i class="fas fa-star"></i></div>
           <div class="text-primaryBlue">{{ 34 }} отзывов</div>
         </div>
-        <RouterLink :to="'/shop/' + product.id" class="hover:text-blue-500 duration-150 text-lg font-semibold">
+        <RouterLink :to="'/shop/' + product.id" class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1">
           {{ product.name }}
         </RouterLink>
         <div>{{ product.product_detail.condition }}</div>
@@ -23,9 +23,9 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import ButtonStrokeVue from "./buttons/ButtonStroke.vue";
 import numberWithSpaces from "../helpers/numberFormat";
-import { computed } from "vue";
 
 const props = defineProps(["product"]);
 const product = computed(() => props.product);

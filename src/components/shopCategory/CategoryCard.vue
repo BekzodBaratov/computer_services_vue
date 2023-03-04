@@ -1,6 +1,9 @@
 <template>
-  <p v-if="!hasProduct" class="text-center text-2xl text-gray-500 font-semibold mt-12">
+  <p v-if="!hasProduct && categoryStore.error" class="text-center text-2xl text-gray-500 font-semibold mt-12">
     {{ categoryStore.error }}
+  </p>
+  <p v-if="!hasProduct && !categoryStore.error" class="text-center text-2xl text-gray-500 font-semibold mt-12 my-12">
+    Siz izlayotgan mahsulot yoki jihoz ma`lumotlar bazasidan topilmadi!
   </p>
 
   <ul v-if="hasProduct" class="cardContainer">
@@ -21,7 +24,7 @@ import Card from "../card.vue";
 import { computed } from "vue";
 
 const categoryStore = useCategoryProduct();
-if (!categoryStore.products.length) categoryStore.getProducts();
+categoryStore.getProducts();
 
 const hasProduct = computed(() => categoryStore.products.length);
 </script>
