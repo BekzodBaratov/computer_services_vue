@@ -6,8 +6,8 @@
     <div class="context px-2 py-4 rounded-b-xl space-y-2 flex flex-col justify-between">
       <div>
         <div class="flex justify-between items-center flex-wrap">
-          <div class="text-primaryBlue">{{ 4.69 }} <i class="fas fa-star"></i></div>
-          <div class="text-primaryBlue">{{ 34 }} отзывов</div>
+          <div class="text-primaryBlue">{{ product.avg_rating }} <i class="fas fa-star"></i></div>
+          <div class="text-primaryBlue">{{ product.reviews.length }} отзывов</div>
         </div>
         <RouterLink :to="'/shop/' + product.id" class="hover:text-blue-500 duration-150 text-md font-bold line-clamp-1">
           {{ product.name }}

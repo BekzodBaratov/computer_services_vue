@@ -1,6 +1,6 @@
 <template>
   <div v-for="data in categories" v-if="categories" :key="data.id">
-    <RouterLink :to="`/shop/category/?category=${data.name}`" class="category-title group">
+    <RouterLink :to="`/shop/category/?search=${data.name}`" class="category-title group">
       {{ data.name }}
       <i class="fa-sharp fa-solid fa-arrow-right-long category-icon"></i>
     </RouterLink>

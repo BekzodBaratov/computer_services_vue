@@ -57,5 +57,5 @@ const route = useRoute();
 const { t } = useI18n();
 const id = route.params.id;
 
-if (store.product.id != id) store.getOneProduct(id);
+if (store.product.id != id) store.getOneService(id);
 </script>

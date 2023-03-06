@@ -25,7 +25,7 @@ export const useServices = defineStore("servis", {
         this.loading = false;
       }
     },
-    async getOneProduct(id) {
+    async getOneService(id) {
       this.loading = true;
       try {
         const res = await axios({
