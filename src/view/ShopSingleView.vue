@@ -2,8 +2,8 @@
   <SearchFormComp />
   <div class="container mx-auto">
     <RouteLink class="mb-3 text-base" :route="routeLink" />
-    <h2 class="hidden lg:block text-xl mb-2 text-[#4F87D3CC]">Компьютерные комплектующие...</h2>
-    <h1 class="text-2xl mb-3 text-primary">{{ singleObj.name }}</h1>
+    <h2 class="hidden lg:block text-xl mb-2 text-[#4F87D3CC]">{{ product.name }}</h2>
+    <!-- <h1 class="text-2xl mb-3 text-primary">{{ singleObj.name }}</h1> -->
     <div class="flex items-center">
       <svg
         aria-hidden="true"
@@ -17,12 +17,14 @@
           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
         ></path>
       </svg>
-      <p class="ml-2 font-bold text-primaryBlue">4.95</p>
+      <p class="ml-2 font-bold text-primaryBlue">{{ product.avg_rating }}</p>
       <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-      <a href="#" class="font-medium text-primaryBlue underline hover:no-underline">50 отзывов</a>
+      <a href="#" class="font-medium text-primaryBlue underline hover:no-underline">
+        {{ product.reviews ? product.reviews.length : 0 }} отзывов
+      </a>
     </div>
     <div class="singleComp grid grid-cols-12 gap-8 my-8">
-      <div class="swiperImg col-span-12 md:col-span-5"><TheShopSingleComp /></div>
+      <div class="swiperImg col-span-12 md:col-span-5"><TheShopSingleComp :images="store.images" /></div>
       <div class="content col-span-12 md:col-span-7"><SingleContentComp /></div>
     </div>
     <div class="moreInfo">
@@ -63,22 +65,22 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
-import { RouterLink } from "vue-router";
+import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import { shopStore } from "../store/shop";
+import { useProductDetailStore } from "../store/productDetail";
 import RouteLink from "../components/RouteLink.vue";
 import SearchFormComp from "../components/shop/SearchFormComp.vue";
 import TheShopSingleComp from "../components/shopSingle/TheShopSingleComp.vue";
 import SingleContentComp from "../components/shopSingle/SingleContentComp.vue";
 import Comment from "../components/shopSingle/Comment.vue";
-import Info from "../components/shopSingle/Info.vue";
+// import Info from "../components/shopSingle/Info.vue";
 import UserCommit from "../components/shopSingle/UserCommit.vue";
 import SmilarsCompVue from "../components/shopSingle/SmilarsSwiper.vue";
-import axios from "axios";
+const store = useProductDetailStore();
+const route = useRoute();
 
-const store = shopStore();
-const router = useRoute();
+store.getOneProduct(route.params.id);
+const product = computed(() => store.product);
 
 const routeLink = [
   { name: "Магазин", link: "/shop" },
@@ -86,7 +88,5 @@ const routeLink = [
   { name: "Компьютерные комплек..." },
 ];
 
-const id = ref(router.params.id);
-const singleObj = store.cardSwiper[0][1][id.value];
 const infomations = ref(0);
 </script>

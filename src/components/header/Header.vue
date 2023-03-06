@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[95%] fixed z-[99999] top-0 left-1/2 -translate-x-1/2">
+  <div class="w-[95%] fixed z-[99999] top-0 left-1/2 -translate-x-1/2 backdrop-blur-sm">
     <div class="px-4 bg-[#444444BF] drop-shadow-lg rounded-b-2xl flex justify-between items-center shadow-lg">
       <span @click="isOpenSidebar = true" class="md:hidden text-white">
         <i class="fa-solid fa-bars p-3 text-xl"></i>

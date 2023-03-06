@@ -1,14 +1,9 @@
 <template>
-  <div className="mx-auto">
+  <div className="container mx-auto">
     <ul className="text-primary line-clamp-1 md:line-clamp-1 space-x-4">
-      <li
-        className="border-b inline px-2 border-primary active:border-dashed cursor-pointer"
-        v-for="(val, index) in store.shortNav"
-        @click="() => handleClick(val)"
-        :key="index"
-      >
-        <RouterLink to="shop/category">
-          {{ val }}
+      <li className="inline cursor-pointer" v-for="(val, i) in store.categories" :key="i">
+        <RouterLink :to="'shop/category/?category=' + val.name">
+          <span class="bg-blue-100 text-primary text-sm font-medium px-2.5 py-0.5 rounded">{{ val.name }}</span>
         </RouterLink>
       </li>
     </ul>
@@ -16,13 +11,6 @@
 </template>
 
 <script setup>
-import { shopStore } from "../../store/shop";
-import { useRouter } from "vue-router";
-const store = shopStore();
-const router = useRouter();
-
-function handleClick(val) {
-  store.search = val;
-  router.push("/shop/category");
-}
+import { useMainProducts } from "../../store/mainProducts";
+const store = useMainProducts();
 </script>

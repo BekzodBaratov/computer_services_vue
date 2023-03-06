@@ -25,7 +25,7 @@
         <input
           type="text"
           id="search-input"
-          v-model="store.search"
+          v-model="search"
           class="searchInp w-28 md:w-40 lg:w-56 px-2 py-1 outline-none bg-transparent"
           :placeholder="t('market.hero.search')"
         />
@@ -262,20 +262,21 @@
 
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
-import { shopStore } from "../../store/shop";
 import SearchIcon from "../../assets/img/magazin/search-normal.svg";
 import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
 const router = useRouter();
-const store = shopStore();
+const route = useRoute();
 const { t } = useI18n();
 
 const selectRef = ref("all");
+const search = ref(route.query.search);
+
 const searchFrom = () => {
-  if (!store.search) return;
-  router.push("/shop/category");
+  if (!search.value) return;
+  router.push({ path: "/shop/category", query: { search: search.value } });
 };
 
 const count = ref(1);
