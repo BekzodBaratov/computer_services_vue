@@ -45,7 +45,7 @@ const modules = ref([FreeMode, Thumbs, Navigation]);
 const props = defineProps(["images"]);
 </script>
 
-<style scoped>
+<style type="tailwind" scoped>
 .singleSwiper {
   padding: 0;
   padding-bottom: 1rem;
