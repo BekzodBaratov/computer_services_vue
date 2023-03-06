@@ -31,7 +31,9 @@
       </div>
       <div class="col-span-2">
         <div class="bg-whiteBlue rounded-xl px-4 py-2 w-56">
-          <p class="text-2xl text-danger font-semibold text-center pb-2">790 000 сум</p>
+          <p class="text-2xl text-danger font-semibold text-center pb-2">
+            {{ product.product_detail ? product.product_detail.price : 0 }} сум
+          </p>
           <div class="flex gap-1">
             <ButtonFill>Купить</ButtonFill>
             <div
@@ -50,21 +52,33 @@
       </div>
     </div>
     <p class="text-[#4F87D3CC] text-xl mb-3">Характеристики</p>
-    <div v-for="(val, i) in dataProducts" :key="i" class="grid grid-cols-5 text-primary mb-2">
-      <div class="col-span-3">{{ val.name }}</div>
-      <div class="col-span-2">{{ val.param }}</div>
+    <div v-for="(val, i) in productSpecification" :key="i" class="grid grid-cols-5 text-primary mb-2">
+      <div class="col-span-3">{{ val }}</div>
+      <div class="col-span-2">{{ val }}</div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, computed, watch } from "vue";
+import { useProductDetailStore } from "../../store/productDetail";
 import ButtonFill from "../buttons/ButtonFill.vue";
+const store = useProductDetailStore();
+
+const product = computed(() => store.product);
+const productSpecification = computed(() => {
+  if (store.productSpecification.length) {
+    console.log(store.productSpecification);
+    const arr = store.productSpecification.slice(1, -1);
+    console.log(arr);
+    return arr;
+  }
+  return store.productSpecification;
+});
 
 const count = ref(1);
-const countFunc = (val) => {
-  val ? count.value++ : count.value--;
-};
+const countFunc = (val) => (val ? count.value++ : count.value > 0 ? count.value-- : 1);
+
 const dataProducts = reactive([
   { name: "Объем видеопамяти", param: "Lorem ipsum" },
   { name: "Тим памяти", param: "Lorem ipsum" },

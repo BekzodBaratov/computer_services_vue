@@ -25,7 +25,7 @@
     </div>
     <div class="singleComp grid grid-cols-12 gap-8 my-8">
       <div class="swiperImg col-span-12 md:col-span-5"><TheShopSingleComp :images="store.images" /></div>
-      <div class="content col-span-12 md:col-span-7"><SingleContentComp :product="product" /></div>
+      <div class="content col-span-12 md:col-span-7"><SingleContentComp /></div>
     </div>
     <div class="moreInfo">
       <div class="flex gap-4 mb-6">
