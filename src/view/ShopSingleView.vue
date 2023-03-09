@@ -36,13 +36,13 @@
         >
           Описание
         </button>
-        <button
+        <!-- <button
           @click="infomations = 1"
           class="font-bold border-b py-1"
           :class="infomations === 1 ? 'text-primary border-primary' : 'text-[#4F87D3CC] border-[#4F87D3CC]'"
         >
           Обзоры
-        </button>
+        </button> -->
         <button
           @click="infomations = 2"
           class="font-bold border-b py-1"
@@ -52,9 +52,14 @@
         </button>
       </div>
       <div>
-        <Comment v-if="infomations === 0 || infomations === 1" />
-        <!-- <Info v-if="infomations === 1" /> -->
-        <UserCommit v-if="infomations === 2" />
+        <div v-if="infomations === 0">
+          <p class="text-primary mb-6">
+            {{ product.product_detail?.description }}
+          </p>
+        </div>
+        <div>
+          <UserCommit v-if="infomations === 2" />
+        </div>
       </div>
     </div>
     <div class="my-10">
@@ -65,28 +70,29 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useProductDetailStore } from "../store/productDetail";
+
 import RouteLink from "../components/RouteLink.vue";
 import SearchFormComp from "../components/shop/SearchFormComp.vue";
 import TheShopSingleComp from "../components/shopSingle/TheShopSingleComp.vue";
 import SingleContentComp from "../components/shopSingle/SingleContentComp.vue";
-import Comment from "../components/shopSingle/Comment.vue";
-// import Info from "../components/shopSingle/Info.vue";
 import UserCommit from "../components/shopSingle/UserCommit.vue";
 import SmilarsCompVue from "../components/shopSingle/SmilarsSwiper.vue";
+
 const store = useProductDetailStore();
 const route = useRoute();
+const id = route.params.id;
 
-store.getOneProduct(route.params.id);
-const product = computed(() => store.product);
+if (store.product.id != id) store.getOneProduct(id);
 
-const routeLink = [
-  { name: "Магазин", link: "/shop" },
-  { name: "Каталог", link: "/shop" },
-  { name: "Компьютерные комплек..." },
-];
+const routeLink = ref([{ name: "Магазин", link: "/shop" }, { name: "Каталог", link: "/categories" }, { name: "" }]);
+
+const product = computed(() => {
+  if (store.product.name) routeLink.value[2] = { name: store.product.name };
+  return store.product;
+});
 
 const infomations = ref(0);
 </script>

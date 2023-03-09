@@ -1,5 +1,5 @@
 <template>
-  <Swiper
+  <!-- <Swiper
     :navigation="true"
     :lazy="true"
     :loop="true"
@@ -32,13 +32,20 @@
     class="swiperCardComp max-h-[34rem]"
   >
     <SwiperSlide class="bg-white h-full rounded-3xl"> </SwiperSlide>
-  </Swiper>
+  </Swiper> -->
+
+  <customSwiper>
+    <SwiperSlide v-for="product in store.smilarProducts">
+      <Card :product="product" />
+    </SwiperSlide>
+  </customSwiper>
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Lazy, Navigation } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/lazy";
+import { useProductDetailStore } from "../../store/productDetail";
+import { SwiperSlide } from "swiper/vue";
+import customSwiper from "../swiper.vue";
+import Card from "../card.vue";
+
+const store = useProductDetailStore();
 </script>

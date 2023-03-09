@@ -67,32 +67,11 @@ const store = useProductDetailStore();
 
 const product = computed(() => store.product);
 const productSpecification = computed(() => {
-  if (store.productSpecification.length) {
-    console.log(store.productSpecification);
-    const arr = store.productSpecification.slice(1, -1);
-    console.log(arr);
-    return arr;
-  }
   return store.productSpecification;
 });
 
 const count = ref(1);
 const countFunc = (val) => (val ? count.value++ : count.value > 0 ? count.value-- : 1);
-
-const dataProducts = reactive([
-  { name: "Объем видеопамяти", param: "Lorem ipsum" },
-  { name: "Тим памяти", param: "Lorem ipsum" },
-  { name: "Частота памяти", param: "Lorem ipsum" },
-  { name: "Шина обмена с памятью", param: "Lorem ipsum" },
-  { name: "Частота видеопроцессора", param: "Lorem ipsum" },
-  { name: "Разъемы и интерфейсы", param: "Lorem ipsum" },
-  { name: "Техпроцессор", param: "Lorem ipsum" },
-  { name: "Тип подключения", param: "Lorem ipsum" },
-  { name: "Разъем дополнительного питания", param: "Lorem ipsum" },
-  { name: "Максимальное разрешение", param: "Lorem ipsum" },
-  { name: "TDP", param: "Lorem ipsum" },
-  { name: "Количество поддерживаемых мониторов", param: "Lorem ipsum" },
-]);
 
 const isSaved = ref(false);
 const savedFunc = () => {
