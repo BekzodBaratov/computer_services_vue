@@ -1,17 +1,18 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import { useLoadingStore } from "./loading";
 
 export const useServices = defineStore("servis", {
   state: () => {
     return {
       products: [],
       product: [],
-      loading: true,
     };
   },
   actions: {
     async getAllProducts() {
-      this.loading = true;
+      const store = useLoadingStore();
+      store.loading = true;
       try {
         const res = await axios({
           method: "get",
@@ -22,7 +23,7 @@ export const useServices = defineStore("servis", {
       } catch (e) {
         console.log(e);
       } finally {
-        this.loading = false;
+        store.loading = false;
       }
     },
     async getOneService(id) {
