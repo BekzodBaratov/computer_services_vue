@@ -15,4 +15,6 @@ import { storeToRefs } from "pinia";
 
 const store = useLoadingStore();
 const { loading } = storeToRefs(store);
+
+// Amount();
 </script>

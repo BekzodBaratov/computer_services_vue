@@ -14,6 +14,7 @@ export const useMainProducts = defineStore("mainProducts", {
       try {
         const res = await axios.get("/categories");
         this.categories = res.data.data.categories;
+        console.log(res.data.data.categories);
       } catch (error) {
         toast.error(error.message);
       } finally {

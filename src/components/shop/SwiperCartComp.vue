@@ -1,10 +1,15 @@
 <template>
-  <div v-for="data in categories" v-if="categories" :key="data.id">
+  <div v-for="data in store.categories" v-if="store.categories.length" :key="data.id">
     <RouterLink :to="`/shop/category/?search=${data.name}`" class="category-title group">
       {{ data.name }}
       <i class="fa-sharp fa-solid fa-arrow-right-long category-icon"></i>
     </RouterLink>
-    <Swiper :products="data.products" />
+
+    <Swiper>
+      <SwiperSlide v-for="product in data.products" :data-swiper-slide-index="product.id">
+        <Card :product="product" />
+      </SwiperSlide>
+    </Swiper>
   </div>
 </template>
 
@@ -12,10 +17,12 @@
 import { useMainProducts } from "../../store/mainProducts";
 import { computed } from "vue";
 import Swiper from "../swiper.vue";
+import { SwiperSlide } from "swiper/vue";
+import Card from "../card.vue";
 const store = useMainProducts();
 
 if (!store.categories.length) store.getAllProductsByCategory();
-const categories = computed(() => store.categories);
+const categories = computed(() => console.log(store.categories));
 </script>
 
 <style>
