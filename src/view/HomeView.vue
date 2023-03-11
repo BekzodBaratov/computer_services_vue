@@ -2,27 +2,35 @@
   <div class="homeHero">
     <div class="container mx-auto py-12 flex">
       <div class="w-full md:w-[45%]">
-        <h1 class="text-primary text-5xl font-semibold mb-6">STAR NEW TECH</h1>
-        <p class="text-3xl mb-2">{{ t("home.hero.1") }}</p>
-        <div class="flex justify-start mb-6">
-          <ButtonFillVue to="/services">
-            <span class="py-1">{{ t("header.service") }}</span>
-          </ButtonFillVue>
+        <div>
+          <h1 ref="titleName" class="text-primary text-5xl font-semibold mb-6">STAR NEW TECH</h1>
         </div>
-        <p class="text-3xl mb-2">{{ t("home.hero.2") }}</p>
-        <div class="flex justify-start mb-6">
-          <ButtonFillVue to="/shop">
-            <span class="py-1">{{ t("header.magazin") }}</span>
-          </ButtonFillVue>
+        <div ref="targetEl1">
+          <p class="text-3xl mb-2">{{ t("home.hero.1") }}</p>
+          <div class="flex justify-start mb-6">
+            <ButtonFillVue to="/services">
+              <span class="py-1">{{ t("header.service") }}</span>
+            </ButtonFillVue>
+          </div>
         </div>
-        <p class="text-3xl mb-2">{{ t("home.hero.3") }}</p>
-        <div class="flex justify-start mb-6">
-          <ButtonFillVue to="/configurator">
-            <span class="py-1">{{ t("header.fix") }}</span>
-          </ButtonFillVue>
+        <div ref="targetEl2">
+          <p class="text-3xl mb-2">{{ t("home.hero.2") }}</p>
+          <div class="flex justify-start mb-6">
+            <ButtonFillVue to="/shop">
+              <span class="py-1">{{ t("header.magazin") }}</span>
+            </ButtonFillVue>
+          </div>
+        </div>
+        <div ref="targetEl3">
+          <p class="text-3xl mb-2">{{ t("home.hero.3") }}</p>
+          <div class="flex justify-start mb-6">
+            <ButtonFillVue to="/configurator">
+              <span class="py-1">{{ t("header.fix") }}</span>
+            </ButtonFillVue>
+          </div>
         </div>
       </div>
-      <div class="hidden md:block">
+      <div ref="heroImg" class="hidden md:block">
         <img class="w-full" src="../assets/img/home/Layer.png" alt="#Layer" />
       </div>
     </div>
@@ -35,8 +43,8 @@
   <div class="homeSteps">
     <div class="container mx-auto">
       <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-start">
-        <p class="text-3xl text-primary max-w-xs">{{ t("home.service.title") }}</p>
-        <div class="flex justify-between gap-3 md:gap-12 min-h-[18rem]">
+        <p ref="sectionTitle1" class="text-3xl text-primary max-w-xs">{{ t("home.service.title") }}</p>
+        <div ref="cards" class="flex justify-between gap-3 md:gap-12 min-h-[18rem]">
           <div
             class="card relative self-start bg-white px-2 md:px-6 py-10 rounded shadow-xl flex flex-col items-center gap-8"
           >
@@ -137,9 +145,9 @@
           </div>
         </div>
       </div>
-      <div class="grid grid-cols-2 my-32">
-        <p class="text-3xl text-primary max-w-[10rem] md:max-w-xs">{{ t("home.steps.title") }}</p>
-        <div>
+      <div class="grid grid-cols-2 my-16">
+        <p ref="sectionTitle2" class="text-3xl text-primary max-w-[10rem] md:max-w-xs">{{ t("home.steps.title") }}</p>
+        <div ref="steps">
           <ol class="relative border-l-2 border-[#002e69bf]">
             <li v-for="step in sercviceSteps" class="mb-10 ml-8">
               <span
@@ -163,92 +171,37 @@
 
   <div class="comment">
     <div class="container mx-auto">
-      <div class="flex justify-between items-start gap-20 md:gap-40 lg:gap-56">
-        <p class="relative font-medium text-3xl text-primary">
-          <span class="py-3">{{ t("home.review") }}</span>
-          <svg
-            class="absolute left-full bottom-full"
-            width="1.6rem"
-            height="1.6rem"
-            viewBox="0 0 35 35"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="35" height="35" rx="17.5" fill="#D52C55" />
-            <path d="M11.3 20.3H22.9V16.6H11.3V20.3ZM15.1 12.7V24.2H19.1V12.7H15.1Z" fill="#E7F0FE" />
-          </svg>
-        </p>
-        <Swiper
-          :navigation="true"
-          :lazy="true"
-          :loop="true"
-          :scrollbar="{ draggable: true }"
-          :pagination="{ clickable: true }"
-          :breakpoints="{
-            240: {
-              slidesPerView: 1.1,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 15,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            1280: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            1536: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
-          }"
-          :modules="[Navigation, Lazy, Pagination]"
-          class="swiper swiperBigComp swiperSmilarComp max-h-[34rem] mb-7"
+      <div ref="sectionTitle3" class="relative inline font-medium text-3xl text-primary">
+        <span class="py-3">{{ t("home.review") }}</span>
+        <svg
+          class="absolute left-full bottom-full"
+          width="1.6rem"
+          height="1.6rem"
+          viewBox="0 0 35 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <SwiperSlide v-for="(val, key) in 8" :key="key" class="rounded-4xl pb-1">
-            <RouterLink to="#">
-              <div class="bg-whiteBlue w-full rounded-xl p-4 px-8">
-                <div class="flex gap-2 items-center pb-2 md:pb-6 lg:pb-8">
-                  <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M17.5007 18.5941C12.8777 18.5941 9.11523 14.8316 9.11523 10.2087C9.11523 5.58574 12.8777 1.82324 17.5007 1.82324C22.1236 1.82324 25.8861 5.58574 25.8861 10.2087C25.8861 14.8316 22.1236 18.5941 17.5007 18.5941ZM17.5007 4.01074C14.0882 4.01074 11.3027 6.79616 11.3027 10.2087C11.3027 13.6212 14.0882 16.4066 17.5007 16.4066C20.9131 16.4066 23.6986 13.6212 23.6986 10.2087C23.6986 6.79616 20.9131 4.01074 17.5007 4.01074Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M30.0268 33.1771C29.4289 33.1771 28.9331 32.6812 28.9331 32.0833C28.9331 27.0521 23.7997 22.9687 17.4997 22.9687C11.1997 22.9687 6.06641 27.0521 6.06641 32.0833C6.06641 32.6812 5.57057 33.1771 4.97266 33.1771C4.37474 33.1771 3.87891 32.6812 3.87891 32.0833C3.87891 25.8562 9.98932 20.7812 17.4997 20.7812C25.0101 20.7812 31.1206 25.8562 31.1206 32.0833C31.1206 32.6812 30.6247 33.1771 30.0268 33.1771Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <p class="text-white">Мадина</p>
-                </div>
-                <div class="leading-relaxed text-white pb-2 md:pb-6 lg:pb-8">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque eaque quos esse totam a animi
-                  corrupti, sit deserunt veritatis.
-                </div>
-                <p class="date text-white">29.10.2022 | 14:32</p>
-              </div>
-            </RouterLink>
-          </SwiperSlide>
-        </Swiper>
+          <rect width="35" height="35" rx="17.5" fill="#D52C55" />
+          <path d="M11.3 20.3H22.9V16.6H11.3V20.3ZM15.1 12.7V24.2H19.1V12.7H15.1Z" fill="#E7F0FE" />
+        </svg>
       </div>
+      <CustomSwiper class="mt-4">
+        <SwiperSlide v-for="review in reviews">
+          <Review :review="review" />
+        </SwiperSlide>
+      </CustomSwiper>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import { useI18n } from "vue-i18n";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Lazy, Navigation, Pagination } from "swiper";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/lazy";
+import CustomSwiper from "../components/swiper.vue";
+import Review from "../components/Review.vue";
+import { useMotion } from "@vueuse/motion";
+import { SwiperSlide } from "swiper/vue";
 
 const { t } = useI18n();
 
@@ -259,6 +212,115 @@ const sercviceSteps = [
   t("home.steps.step.4"),
   t("home.steps.step.5"),
   t("home.steps.step.6"),
+];
+
+const titleName = ref();
+const targetEl1 = ref();
+const targetEl2 = ref();
+const targetEl3 = ref();
+const heroImg = ref();
+const sectionTitle1 = ref();
+const cards = ref();
+const sectionTitle2 = ref();
+const steps = ref();
+const sectionTitle3 = ref();
+const commits = ref();
+
+useMotion(titleName, {
+  initial: { y: -40, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 800 } },
+});
+useMotion(targetEl1, {
+  initial: { x: -200, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 800 } },
+});
+useMotion(targetEl2, {
+  initial: { x: -200, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 800, delay: 100 } },
+});
+useMotion(targetEl3, {
+  initial: { x: -200, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 800, delay: 200 } },
+});
+useMotion(heroImg, {
+  initial: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 800 } },
+});
+useMotion(sectionTitle1, {
+  initial: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 800 } },
+});
+useMotion(cards, {
+  initial: { opacity: 0, x: 200 },
+  visible: { opacity: 1, x: 0, transition: { duration: 800 } },
+});
+useMotion(sectionTitle2, {
+  initial: { opacity: 0, x: -200 },
+  visible: { opacity: 1, x: 0, transition: { duration: 800 } },
+});
+useMotion(steps, {
+  initial: { opacity: 0, x: 200 },
+  visible: { opacity: 1, x: 0, transition: { duration: 800 } },
+});
+useMotion(sectionTitle3, {
+  initial: { opacity: 0, x: -200 },
+  visible: { opacity: 1, x: 0, transition: { duration: 800 } },
+});
+useMotion(commits, {
+  initial: { opacity: 0, x: 200 },
+  visible: { opacity: 1, x: 0, transition: { duration: 800 } },
+});
+
+const reviews = [
+  {
+    id: 0,
+    user: { username: "Madina" },
+    rating: 4,
+    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
+    createdAt: "2000,07,02",
+  },
+  {
+    id: 1,
+    user: { username: "Tohir" },
+    rating: 3,
+    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
+    createdAt: "2000,08,20",
+  },
+  {
+    id: 2,
+    user: { username: "Kamoliddin" },
+    rating: 5,
+    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
+    createdAt: "2000,08,12",
+  },
+  {
+    id: 3,
+    user: { username: "Madina" },
+    rating: 4,
+    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
+    createdAt: "2000,07,02",
+  },
+  {
+    id: 4,
+    user: { username: "Madina" },
+    rating: 4,
+    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
+    createdAt: "2000,07,02",
+  },
+  {
+    id: 5,
+    user: { username: "Madina" },
+    rating: 4,
+    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
+    createdAt: "2000,07,02",
+  },
+  {
+    id: 6,
+    user: { username: "Madina" },
+    rating: 4,
+    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
+    createdAt: "2000,07,02",
+  },
 ];
 </script>
 

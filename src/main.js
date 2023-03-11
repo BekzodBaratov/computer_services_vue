@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import Paginate from "vuejs-paginate-next";
+import { MotionPlugin } from "@vueuse/motion";
 import Toast from "vue-toastification";
 
 import App from "./App.vue";
@@ -18,6 +19,7 @@ app.use(i18n);
 app.use(pinia);
 app.use(Paginate);
 app.use(Toast);
+app.use(MotionPlugin);
 
 app.mount("#app");
 
