@@ -166,28 +166,4 @@ const emit = defineEmits(["closeRegiterModal"]);
   border: 3px solid #f4f6f9;
   border-radius: 33px;
 }
-.step-item {
-  @apply relative flex flex-col justify-center items-center w-20;
-}
-
-.step-item:not(:first-child):before {
-  @apply content-[''] bg-white absolute w-full h-[1px] 
-  right-2/4 top-1/2;
-}
-
-.step {
-  @apply w-6 h-6 flex z-10 relative 
-  bg-white justify-center items-center rounded-full font-semibold
-   text-white text-blue-900;
-}
-.active .step {
-  @apply bg-blue-900 fill-white;
-}
-.complete .step {
-  @apply bg-blue-900 fill-white;
-}
-.complete:not(:first-child)::before,
-.active:not(:first-child)::before {
-  @apply bg-blue-900;
-}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <Swiper
+  <!-- <Swiper
     :navigation="true"
     :lazy="true"
     :loop="true"
@@ -31,40 +31,21 @@
     :modules="[Navigation, Lazy]"
     class="swiperCardComp max-h-[34rem]"
   >
-    <SwiperSlide v-for="(val, key) in store.cardSwiper[0][1]" :key="key" class="bg-white h-full rounded-3xl">
-      <RouterLink :to="'/shop/' + key">
-        <div class="imgCard p-2">
-          <img class="w-full swiper-lazy" src="/src/assets/img/magazin/card/Rectangle64.png" :alt="val.name" />
-          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </div>
-        <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl h-full space-y-2">
-          <div class="flex justify-between items-center flex-wrap">
-            <div class="text-primaryBlue">{{ val.rating }}</div>
-            <div class="text-primaryBlue">{{ val.review }} отзывов</div>
-          </div>
-          <div>{{ val.name }}</div>
-          <div>{{ val.typeOfMoney }}</div>
-          <div class="flex justify-between items-center flex-wrap">
-            <div class="font-semibold">{{ val.cost }} {{ val.currency }}</div>
-            <ButtonStrokeVue><span class="py-1">В корзину</span> </ButtonStrokeVue>
-          </div>
-        </div>
-      </RouterLink>
+    <SwiperSlide class="bg-white h-full rounded-3xl"> </SwiperSlide>
+  </Swiper> -->
+
+  <customSwiper>
+    <SwiperSlide v-for="product in store.smilarProducts">
+      <Card :product="product" />
     </SwiperSlide>
-  </Swiper>
+  </customSwiper>
 </template>
 
 <script setup>
-import { shopStore } from "../../store/shop";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { RouterLink } from "vue-router";
-import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
+import { useProductDetailStore } from "../../store/productDetail";
+import { SwiperSlide } from "swiper/vue";
+import customSwiper from "../swiper.vue";
+import Card from "../card.vue";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/lazy";
-
-import { Lazy, Navigation } from "swiper";
-const store = shopStore();
-console.log(store.cardSwiper[0][1][0]);
+const store = useProductDetailStore();
 </script>

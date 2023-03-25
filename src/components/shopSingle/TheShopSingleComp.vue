@@ -4,21 +4,13 @@
     :spaceBetween="15"
     :scrollbar="{ draggable: true }"
     :thumbs="{ swiper: thumbsSwiper }"
+    :navigation="true"
     :modules="modules"
     class="singleSwiper rounded-3xl"
   >
-    <swiper-slide v-for="i in 4"
-      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle90.png"
-    /></swiper-slide>
-    <swiper-slide
-      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle90.png"
-    /></swiper-slide>
-    <swiper-slide
-      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle91.png"
-    /></swiper-slide>
-    <swiper-slide
-      ><img class="rounded-xl w-full" src="/src/assets/img/magazin/single-swiper/Rectangle92.png"
-    /></swiper-slide>
+    <swiper-slide v-for="(image, i) in props.images" :key="i" class="h-96">
+      <img class="rounded-xl w-full h-full object-contain object-center bg-gray-500" :src="image" />
+    </swiper-slide>
   </swiper>
 
   <swiper
@@ -31,49 +23,38 @@
     :modules="modules"
     class="singleThumbSwiper"
   >
-    <swiper-slide v-for="i in 4"
-      ><img class="rounded-xl" src="/src/assets/img/magazin/single-swiper/Rectangle92.png"
-    /></swiper-slide>
+    <swiper-slide v-for="(image, i) in props.images" :key="i" class="h-40">
+      <img class="rounded-xl w-full h-full object-cover object-center" :src="image" />
+    </swiper-slide>
   </swiper>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/vue";
-
+import { FreeMode, Thumbs, Navigation } from "swiper";
 import "swiper/css";
-
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import { FreeMode, Thumbs } from "swiper";
-
 const thumbsSwiper = ref(null);
 const setThumbsSwiper = (swiper) => (thumbsSwiper.value = swiper);
-const modules = ref([FreeMode, Thumbs]);
+const modules = ref([FreeMode, Thumbs, Navigation]);
 
-const fetchApi = async () => {
-  try {
-    const res = await axios.get("products/" + 17);
-    console.log(res.data.data.product);
-    console.log(res.data.data.product.product_detail.images);
-    console.log(res.data.data.product.image_main);
-    img.value = res.data.data.product.image_main;
-  } catch (error) {
-    console.log(error);
-  }
-};
-fetchApi();
+const props = defineProps(["images"]);
 </script>
 
-<style scoped>
+<style type="tailwind" scoped>
 .singleSwiper {
   padding: 0;
   padding-bottom: 1rem;
 }
 .singleThumbSwiper {
   padding: 0;
+}
+.singleSwiper .swiper-button-prev,
+.singleSwiper .swiper-button-next {
+  @apply hidden md:block;
 }
 </style>
