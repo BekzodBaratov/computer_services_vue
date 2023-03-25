@@ -1,12 +1,23 @@
 <template>
-  <div v-for="data in store.categories" v-if="store.categories.length" :key="data.id">
-    <RouterLink :to="`/shop/category/?search=${data.name}`" class="category-title group">
+  <!-- <pre>{{ store }}</pre> -->
+  <div
+    v-for="data in store.categories"
+    v-if="store.categories.length"
+    :key="data.id"
+  >
+    <RouterLink
+      :to="`/shop/category/?search=${data.name}`"
+      class="category-title group"
+    >
       {{ data.name }}
       <i class="fa-sharp fa-solid fa-arrow-right-long category-icon"></i>
     </RouterLink>
 
     <Swiper>
-      <SwiperSlide v-for="product in data.products" :data-swiper-slide-index="product.id">
+      <SwiperSlide
+        v-for="product in data.products"
+        :data-swiper-slide-index="product.id"
+      >
         <Card :product="product" />
       </SwiperSlide>
     </Swiper>
