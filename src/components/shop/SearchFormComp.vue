@@ -1,5 +1,4 @@
 <template>
-  <!-- <pre>{{ store }}store</pre> -->
   <div
     class="container mx-auto mt-4 flex justify-between items-center md:w-4/5 mb-6"
   >
@@ -265,6 +264,7 @@
             >
           </button-fill-vue>
         </div>
+
         <!-- empty component end -->
         <div class="flex flex-col gap-3 px-4">
           <div
