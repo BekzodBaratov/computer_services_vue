@@ -9,7 +9,7 @@
       768: { slidesPerView: 3, spaceBetween: 15 },
       1024: { slidesPerView: 4, spaceBetween: 20 },
       1280: { slidesPerView: 5, spaceBetween: 20 },
-      1536: { slidesPerView: 6, spaceBetween: 30 },
+      1636: { slidesPerView: 6, spaceBetween: 35 },
     }"
     :modules="[Navigation, Lazy]"
     class="swiperCardComp max-h-[34rem]"

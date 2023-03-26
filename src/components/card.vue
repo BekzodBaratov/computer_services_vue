@@ -1,8 +1,8 @@
 <template>
   <div class="card bg-[#f9fafd] shadow-sm h-full rounded-xl overflow-hidden">
-    <div class="imgCard max-h-60 overflow-hidden">
+    <div class="imgCard h-[200px] overflow-hidden">
       <img
-        class="w-full object-cover object-center"
+        class="w-full h-full object-cover"
         :src="product.image_url"
         alt="image"
       />
