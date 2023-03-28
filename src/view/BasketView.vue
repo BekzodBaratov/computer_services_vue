@@ -140,7 +140,7 @@
               </div>
               <div class="flex justify-between items-center font-bold">
                 <p>Итого</p>
-                <p>1 798 000 сум</p>
+                <p>{{ numberWithSpaces(basketStore.allSum) }} сум</p>
               </div>
             </div>
           </div>

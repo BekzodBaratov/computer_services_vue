@@ -324,8 +324,8 @@
         </div>
         <div class="space-y-1">
           <div class="flex justify-between items-center">
-            <p>Товар (2)</p>
-            <p>1 998 000 сум</p>
+            <p>Товар ({{ store.productCount }})</p>
+            <p>{{ numberWithSpaces(store.allSum) }} сум</p>
           </div>
           <div class="flex justify-between items-center">
             <p>Сумма скидки</p>
@@ -334,7 +334,7 @@
         </div>
         <div class="flex justify-between items-center font-bold">
           <p>Итого</p>
-          <p>1 798 000 сум</p>
+          <p>{{ numberWithSpaces(store.allSum) }} сум</p>
         </div>
         <div class="flex justify-between items-center">
           <ButtonFillVue to="/basket"
