@@ -94,7 +94,7 @@
       <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
         <p class="text-white text-3xl text-center">Корзина</p>
         <!-- empty component start-->
-        <div class="hidden empty px-12 text-white flex flex-col gap-3">
+        <div class="empty px-12 text-white flex flex-col gap-3">
           <div class="empty_img self-center">
             <svg
               width="12rem"
