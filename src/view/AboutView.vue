@@ -6,13 +6,13 @@
     </div>
     <div class="right grid grid-cols-2 gap-3 h-[24rem] md:mx-16">
       <div class="bg-gray-300">
-        <img class="object-cover object-center w-full h-full" src="../assets/img/about/service1.jpg" alt="" />
+        <img class="object-cover object-center w-full h-full" src="../assets/img/about/service1.jpg" alt="img" />
       </div>
       <div class="bg-gray-300">
-        <img class="object-cover object-center w-full h-full" src="../assets/img/about/service2.jpg" alt="" />
+        <img class="object-cover object-center w-full h-full" src="../assets/img/about/service2.jpg" alt="img" />
       </div>
       <div class="col-span-2 bg-gray-300">
-        <img class="object-cover object-center w-full h-full" src="../assets/img/about/service3.jpg" alt="" />
+        <img class="object-cover object-center w-full h-full" src="../assets/img/about/service3.jpg" alt="img" />
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
           <img
             class="w-52 aspect-square rounded-full object-cover object-center duration-200 group-hover:scale-110"
             src="https://imageio.forbes.com/specials-images/imageserve/60676384c5f722607f2ae0df/0x0.jpg?format=jpg&crop=1078,1078,x0,y2,safe&height=416&width=416&fit=bounds"
-            alt=""
+            alt="img"
           />
         </div>
         <div class="title text-xl font-semibold">Justin Baber</div>
