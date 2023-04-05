@@ -168,6 +168,7 @@ const logoutApi = () => {
   })
     .then(function (response) {
       store.user = { name: "" };
+      store.token = "";
       router.push("/");
     })
     .catch(function (error) {

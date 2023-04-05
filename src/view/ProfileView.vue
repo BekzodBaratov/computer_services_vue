@@ -405,43 +405,6 @@ const ProfileApi = (data) => {
 };
 
 const handleLogout = () => {
-  isLoading.value = true;
-  logoutApi();
+  store.logout();
 };
-const logoutApi = () => {
-  axios({
-    method: "get",
-    url: "users/logout",
-    headers: {},
-    withCredentials: true,
-  })
-    .then(function (response) {
-      store.user = { name: "" };
-      router.push("/");
-    })
-    .catch(function (error) {
-      alert(error.message);
-    })
-    .finally(function () {
-      isLoading.value = false;
-    });
-};
-// const exampleApi = (data) => {
-//   axios({
-//     method: "get",
-//     url: "https://orca-app-nn67b.ondigitalocean.app/api/v1/users/self",
-//     headers: {},
-//     // data: data,
-//   })
-//     .then(function (response) {
-//       console.log(response);
-//     })
-//     .catch(function (error) {
-//       console.log(error);
-//     })
-//     .finally(function () {
-//       console.log("tugadi");
-//     });
-// };
-// exampleApi({});
 </script>

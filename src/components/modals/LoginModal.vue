@@ -54,22 +54,18 @@
       </div>
     </div>
   </Teleport>
-  <LoadingModalVue v-if="loading" />
 </template>
 
 <script setup>
 import { ref, reactive, computed } from "vue";
 import { required, email, minLength, helpers, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
-import axios from "axios";
 
 import ButtonFillVue from "../buttons/ButtonFill.vue";
-import LoadingModalVue from "./LoadingModal.vue";
 import { useUserRegister } from "../../store/UserRegister";
-
 const store = useUserRegister();
 
-const loading = ref(false);
+console.log(store.isRegisteration);
 
 const state = reactive({
   email: "",
@@ -100,32 +96,18 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, state);
 const formLoginData = () => {
   v$.value.$validate();
-  if (!v$.value.$error) {
-    loading.value = true;
-    fetchApi(state);
-  }
+  if (v$.value.$error) return;
+  fetchApi(state);
 };
-const fetchApi = (data) => {
-  axios({
-    method: "post",
-    url: "users/signin",
-    withCredentials: true,
-    data: data,
-  })
-    .then(function (response) {
-      store.user = response.data.data.user;
-      emit("closeLoginModal");
-      alert(response.data.message);
-    })
-    .catch(function (error) {
-      alert(error.message + ", Please try again");
-
-      state.email = "";
-      state.password = "";
-    })
-    .finally(function () {
-      loading.value = false;
-    });
+const fetchApi = async (data) => {
+  try {
+    await store.signIn(data);
+    emit("closeLoginModal");
+    state.email = "";
+    state.password = "";
+  } catch (error) {
+    console.log(error);
+  }
 };
 const emit = defineEmits(["closeLoginModal", "changeTo"]);
 </script>

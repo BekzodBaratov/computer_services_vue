@@ -11,6 +11,7 @@ import router from "./routes";
 import "./plugins/axios";
 import "vue-toastification/dist/index.css";
 import "./style.css";
+// import { useFavoriteStore } from "./store/favoriteProduct";
 
 const pinia = createPinia();
 const app = createApp(App);
@@ -22,5 +23,8 @@ app.use(pinia);
 app.use(Paginate);
 app.use(Toast);
 app.use(MotionPlugin);
+
+// const fav = useFavoriteStore();
+// fav.addProduct(2);
 
 app.mount("#app");
