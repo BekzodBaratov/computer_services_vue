@@ -24,5 +24,3 @@ app.use(Toast);
 app.use(MotionPlugin);
 
 app.mount("#app");
-
-// import "vue-toastification/dist/index.css";
