@@ -53,13 +53,3 @@ export const useUserRegister = defineStore(
   },
   { persist: { storage: window.localStorage } }
 );
-
-// () => {
-//   const user = ref({ name: "" });
-
-//   const isRegisteration = computed(() => {
-//     return user.value.name !== "";
-//   });
-
-//   return { isRegisteration, user };
-// },

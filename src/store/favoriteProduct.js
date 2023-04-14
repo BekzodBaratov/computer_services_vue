@@ -2,6 +2,7 @@ import axios from "axios";
 import { defineStore } from "pinia";
 import { useToast } from "vue-toastification";
 import { useLoadingStore } from "./loading";
+import { useUserRegister } from "./UserRegister";
 const toast = useToast();
 
 export const useFavoriteStore = defineStore("favoriteProduct", {
@@ -11,11 +12,18 @@ export const useFavoriteStore = defineStore("favoriteProduct", {
   actions: {
     async addProduct(id) {
       const loadingStore = useLoadingStore();
+      const user = useUserRegister();
       loadingStore.loading = true;
+      console.log(user.token);
       try {
-        const data = await axios.post("products/favorites", { productId: id });
+        const data = await axios.post(
+          "products/favorites",
+          { productId: id },
+          { headers: { Authorization: `Bearer ${user.token}` } }
+        );
         console.log(data.data.data.message);
       } catch (error) {
+        console.log(error);
         toast.error(error.response.data.message);
       } finally {
         loadingStore.loading = false;
@@ -29,6 +37,7 @@ export const useFavoriteStore = defineStore("favoriteProduct", {
         console.log(data.data);
       } catch (error) {
         toast.error(error.message);
+        console.log(error);
       } finally {
         loadingStore.loading = false;
       }

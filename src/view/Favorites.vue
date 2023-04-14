@@ -7,7 +7,7 @@
     </div>
 
     <div class="cards mb-6 grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
-      <div v-for="(val, key) in store.cardSwiper[0][1]" :key="key" class="bg-white h-full rounded-3xl">
+      <div v-for="(val, key) in fakeStore.cardSwiper[0][1]" :key="key" class="bg-white h-full rounded-3xl">
         <RouterLink :to="'/shop/' + key">
           <div class="imgCard p-2">
             <img class="w-full" src="/src/assets/img/magazin/card/Rectangle64.png" :alt="val.name" />
@@ -34,8 +34,10 @@
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import ButtonStrokeVue from "../components/buttons/ButtonStroke.vue";
 import SortVue from "../components/shop/Sort.vue";
-import LoadingModalVue from "../components/modals/LoadingModal.vue";
 
 import { shopStore } from "../store/shop";
-const store = shopStore();
+import { useFavoriteStore } from "../store/favoriteProduct";
+const fakeStore = shopStore();
+const store = useFavoriteStore();
+store.addProduct(4);
 </script>
