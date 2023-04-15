@@ -31,10 +31,12 @@ export const useFavoriteStore = defineStore("favoriteProduct", {
     },
     async getAllProducts() {
       const loadingStore = useLoadingStore();
+      const user = useUserRegister();
       loadingStore.loading = true;
       try {
-        const data = await axios.get("products/favorites");
-        console.log(data.data);
+        const data = await axios.get("users/self", { headers: { Authorization: `Bearer ${user.token}` } });
+        console.log(data.data.data.user.favorite.products);
+        this.products = data.data.data.user.favorite.products;
       } catch (error) {
         toast.error(error.message);
         console.log(error);

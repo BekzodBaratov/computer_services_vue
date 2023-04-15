@@ -6,38 +6,24 @@
       <SortVue />
     </div>
 
-    <div class="cards mb-6 grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
-      <div v-for="(val, key) in fakeStore.cardSwiper[0][1]" :key="key" class="bg-white h-full rounded-3xl">
-        <RouterLink :to="'/shop/' + key">
-          <div class="imgCard p-2">
-            <img class="w-full" src="/src/assets/img/magazin/card/Rectangle64.png" :alt="val.name" />
-          </div>
-          <div class="context px-2 py-4 bg-[#e7f0fe99] rounded-3xl space-y-2">
-            <div class="flex justify-between items-center flex-wrap">
-              <div class="text-primaryBlue">{{ val.rating }}</div>
-              <div class="text-primaryBlue">{{ val.review }} отзывов</div>
-            </div>
-            <div>{{ val.name }}</div>
-            <div>{{ val.typeOfMoney }}</div>
-            <div class="flex justify-between items-center flex-wrap">
-              <div class="font-semibold">{{ val.cost }} {{ val.currency }}</div>
-              <ButtonStrokeVue to=""><span class="py-1">В корзину</span></ButtonStrokeVue>
-            </div>
-          </div>
-        </RouterLink>
-      </div>
+    <div
+      v-if="store.products.length"
+      class="cards mb-6 grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6"
+    >
+      <card v-for="(val, key) in store.products" :key="key" :product="val" />
+    </div>
+    <div v-else>
+      <p class="py-32 text-center text-5xl text-primary font-semibold">Favourites not found!</p>
     </div>
   </div>
 </template>
 
 <script setup>
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
-import ButtonStrokeVue from "../components/buttons/ButtonStroke.vue";
-import SortVue from "../components/shop/Sort.vue";
-
-import { shopStore } from "../store/shop";
 import { useFavoriteStore } from "../store/favoriteProduct";
-const fakeStore = shopStore();
+import SortVue from "../components/shop/Sort.vue";
+import card from "../components/card.vue";
 const store = useFavoriteStore();
-store.addProduct(4);
+
+store.getAllProducts();
 </script>
