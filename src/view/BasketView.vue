@@ -9,43 +9,42 @@
             <label for="fio" class="block text-primaryBlue">ФИО</label>
             <input
               type="text"
-              id="fio"
-              placeholder="Тимур Зафаров"
-              maxlength="255"
-              minlength="0"
+              v-model="state.username"
+              placeholder="Bekzod Baratov"
               class="w-56 p-1 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
             />
+            <br />
+            <span class="text-sm text-end text-red-600" v-if="v$.username.$error">{{
+              v$.username.$errors[0].$message
+            }}</span>
           </div>
           <div class="tel">
             <label for="tel" class="block text-primaryBlue">ФИО</label>
             <input
-              type="number"
-              id="tel"
+              type="text"
+              v-model="state.phone"
               placeholder="+998 90 123 45 67"
-              maxlength="255"
-              minlength="0"
               class="w-56 p-1 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
             />
+            <br />
+            <span class="text-sm text-end text-red-600" v-if="v$.phone.$error">{{ v$.phone.$errors[0].$message }}</span>
           </div>
-          <div class="flex flex-col items-start gap-3 pt-3">
+          <div @click="formLoginData" class="flex flex-col items-start gap-3 pt-3">
             <ButtonFillVue>
-              <span @click="isOpenModal = true" class="py-2">Выбрать способ оплаты</span>
+              <span class="py-2">Оставить заявку на оплату</span>
             </ButtonFillVue>
           </div>
         </div>
 
         <div class="mb-6">
-          <div class="bg-[#4F87D30D] ml-0 md:ml-28 mr-28 md:mr-0 rounded pt-6">
-            <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] min-h-[20rem] overflow-auto">
-              <!-- <pre>{{ basketStore }}</pre> -->
+          <div class="bg-[#4F87D30D] ml-0 md:ml-20 rounded pt-6">
+            <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] overflow-auto">
               <div
-                class="card bg-white rounded-xl grid grid-cols-2 max-h-52 text-sm shadow-[0_0_5px_rgba(0,0,0,0.3)]"
+                class="card bg-white rounded-xl overflow-hidden grid grid-cols-[1fr_2fr] max-h-40 md:max-h-52 text-sm shadow-[0_0_5px_rgba(0,0,0,0.3)]"
                 v-for="(item, index) in basketStore.products"
                 :key="index"
               >
-                <div class="img">
-                  <img class="object-contain object-center h-[200px] w-full" :src="item?.image_url" alt="cardImg" />
-                </div>
+                <img class="object-cover object-bottom w-40 h-40" :src="item?.image_url" alt="cardImg" />
                 <div class="rounded-xl bg-[#F4F6F9] flex flex-col gap-3 p-2">
                   <div class="flex justify-between">
                     <div class="flex items-center">
@@ -94,7 +93,7 @@
     </div>
   </div>
 
-  <Teleport to="body">
+  <!-- <Teleport v-if="false" to="body">
     <div v-if="isOpenModal" @click="isOpenModal = false" class="fixed z-[99999] inset-0 bg-[#0006] backdrop-blur"></div>
     <div
       v-if="isOpenModal"
@@ -152,19 +151,41 @@
         <ButtonFillVue @click="" class="py-2">Продолжить</ButtonFillVue>
       </form>
     </div>
-  </Teleport>
+  </Teleport> -->
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import InputCount from "../components/shop/InputCount.vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import numberWithSpaces from "../helpers/numberFormat";
 import { useBasketStore } from "../store/basketProducts";
+import { useToast } from "vue-toastification";
+import { required, minLength, helpers, maxLength } from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
 const basketStore = useBasketStore();
-
+const toast = useToast();
 const isOpenModal = ref(false);
+
+let state = ref({ username: "", phone: "" });
+const rules = computed(() => {
+  return {
+    username: { required, minLength: minLength(3), maxLength: maxLength(84) },
+    phone: {
+      required,
+      containsUppercase: helpers.withMessage("The password must be +998901234567", function (value) {
+        return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(value);
+      }),
+    },
+  };
+});
+const v$ = useVuelidate(rules, state);
+const formLoginData = () => {
+  v$.value.$validate();
+  if (v$.value.$error) return;
+  console.log("api yoziladi");
+};
 </script>
 
 <style>
