@@ -5,28 +5,6 @@
       <h1 class="text-3xl text-primary my-4">Оформление заказа</h1>
       <div class="flex flex-col-reverse md:flex-row justify-between">
         <div class="space-y-3 mb-6">
-          <div class="flex flex-col gap-1">
-            <label for="adress "
-              ><span class="text-primaryBlue">Адрес доставки</span></label
-            >
-            <textarea
-              class="w-80 p-2 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
-              placeholder="г. Ташкент, Юнусабадский район, Улица Чарос, дом 30, квартира 7"
-              maxlength="1000"
-              cols="30"
-              rows="3"
-              name="adress"
-              id="adress"
-            ></textarea>
-          </div>
-          <textarea
-            class="w-80 p-2 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
-            placeholder="Комментарий к доставке"
-            maxlength="1000"
-            cols="30"
-            rows="3"
-            id="comment"
-          ></textarea>
           <div class="fio space-y-1">
             <label for="fio" class="block text-primaryBlue">ФИО</label>
             <input
@@ -43,27 +21,22 @@
             <input
               type="number"
               id="tel"
-              placeholder="(90) 123 45 67"
+              placeholder="+998 90 123 45 67"
               maxlength="255"
               minlength="0"
               class="w-56 p-1 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
             />
           </div>
           <div class="flex flex-col items-start gap-3 pt-3">
-            <ButtonFillVue @click="isOpenModal = true"
-              ><span class="py-2">Выбрать способ оплаты</span></ButtonFillVue
-            >
-            <ButtonFillVue color="#B51136"
-              ><span class="py-2">Оплатить и заказать</span>
+            <ButtonFillVue>
+              <span @click="isOpenModal = true" class="py-2">Выбрать способ оплаты</span>
             </ButtonFillVue>
           </div>
         </div>
 
         <div class="mb-6">
           <div class="bg-[#4F87D30D] ml-0 md:ml-28 mr-28 md:mr-0 rounded pt-6">
-            <div
-              class="cards px-6 flex flex-col gap-3 max-h-[30rem] min-h-[20rem] overflow-auto"
-            >
+            <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] min-h-[20rem] overflow-auto">
               <!-- <pre>{{ basketStore }}</pre> -->
               <div
                 class="card bg-white rounded-xl grid grid-cols-2 max-h-52 text-sm shadow-[0_0_5px_rgba(0,0,0,0.3)]"
@@ -71,11 +44,7 @@
                 :key="index"
               >
                 <div class="img">
-                  <img
-                    class="object-contain object-center h-[200px] w-full"
-                    :src="item?.image_url"
-                    alt="cardImg"
-                  />
+                  <img class="object-contain object-center h-[200px] w-full" :src="item?.image_url" alt="cardImg" />
                 </div>
                 <div class="rounded-xl bg-[#F4F6F9] flex flex-col gap-3 p-2">
                   <div class="flex justify-between">
@@ -95,12 +64,8 @@
                       <p class="ml-2 text-primaryBlue">
                         {{ item?.avg_rating }}
                       </p>
-                      <span
-                        class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"
-                      ></span>
-                      <p class="text-primaryBlue underline">
-                        {{ item?.views }} отзывов
-                      </p>
+                      <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
+                      <p class="text-primaryBlue underline">{{ item?.views }} отзывов</p>
                     </div>
                   </div>
                   <h3 class="">
@@ -108,9 +73,7 @@
                   </h3>
                   <div class="text-primaryBlue">В наличии</div>
                   <div class="flex justify-between items-center">
-                    <p class="font-semibold">
-                      {{ numberWithSpaces(item?.product_detail?.price) }} сум
-                    </p>
+                    <p class="font-semibold">{{ numberWithSpaces(item?.product_detail?.price) }} сум</p>
                     <InputCount v-model="item.count" />
                   </div>
                 </div>
@@ -118,26 +81,8 @@
             </div>
             <div
               v-if="basketStore.productCount > 0"
-              class="menu w-full text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 h-[1/3] shadow-lg"
+              class="menu w-full text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 shadow-lg"
             >
-              <div class="flex justify-between items-center gap-3">
-                <ButtonStrokeVue :disabled="true"
-                  ><span class="py-2">Введите промокод</span>
-                </ButtonStrokeVue>
-                <ButtonStrokeVue to=""
-                  ><span class="py-2">Применить</span>
-                </ButtonStrokeVue>
-              </div>
-              <div class="space-y-1">
-                <div class="flex justify-between items-center">
-                  <p>Товар ({{ basketStore.productCount }})</p>
-                  <p>{{ numberWithSpaces(basketStore.allSum) }} сум</p>
-                </div>
-                <div class="flex justify-between items-center">
-                  <p>Сумма скидки</p>
-                  <p class="text-red-500">-200 000 сум</p>
-                </div>
-              </div>
               <div class="flex justify-between items-center font-bold">
                 <p>Итого</p>
                 <p>{{ numberWithSpaces(basketStore.allSum) }} сум</p>
@@ -150,11 +95,7 @@
   </div>
 
   <Teleport to="body">
-    <div
-      v-if="isOpenModal"
-      @click="isOpenModal = false"
-      class="fixed z-[99999] inset-0 bg-[#0006] backdrop-blur"
-    ></div>
+    <div v-if="isOpenModal" @click="isOpenModal = false" class="fixed z-[99999] inset-0 bg-[#0006] backdrop-blur"></div>
     <div
       v-if="isOpenModal"
       class="PayModal fixed z-[999999] w-[40rem] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white rounded-md px-6 py-8 space-y-10 shadow-lg"
@@ -172,16 +113,8 @@
             <label for="card">
               <div class="flex items-center gap-2">
                 <p>Онлайн оплата с помощью Humocard / UzCard</p>
-                <img
-                  class="w-7 h-7"
-                  src="/src/assets/img/magazin/modal/toshkent.png"
-                  alt="humo"
-                />
-                <img
-                  class="w-7 h-7"
-                  src="/src/assets/img/magazin/modal/Frame323.png"
-                  alt="uzcard"
-                />
+                <img class="w-7 h-7" src="/src/assets/img/magazin/modal/toshkent.png" alt="humo" />
+                <img class="w-7 h-7" src="/src/assets/img/magazin/modal/Frame323.png" alt="uzcard" />
               </div>
               <p class="text-sm">Комиссия - 0%, быстрая оплата.</p>
             </label>
@@ -191,31 +124,19 @@
               <li class="flex items-center">
                 <input type="radio" name="pay" id="clickCard" />
                 <label for="clickCard">
-                  <img
-                    class="h-16"
-                    src="/src/assets/img/magazin/modal/Frame27.png"
-                    alt=""
-                  />
+                  <img class="h-16" src="/src/assets/img/magazin/modal/Frame27.png" alt="" />
                 </label>
               </li>
               <li class="space-x-4 flex items-center">
                 <input type="radio" name="pay" id="PaymeCard" />
                 <label for="PaymeCard">
-                  <img
-                    class="h-8"
-                    src="/src/assets/img/magazin/modal/payme.png"
-                    alt=""
-                  />
+                  <img class="h-8" src="/src/assets/img/magazin/modal/payme.png" alt="" />
                 </label>
               </li>
               <li class="space-x-4 flex items-center">
                 <input type="radio" name="pay" id="apelsinCard" />
                 <label for="apelsinCard">
-                  <img
-                    class="h-8"
-                    src="/src/assets/img/magazin/modal/apelsin.png"
-                    alt=""
-                  />
+                  <img class="h-8" src="/src/assets/img/magazin/modal/apelsin.png" alt="" />
                 </label>
               </li>
             </ul>
@@ -224,9 +145,7 @@
             <input class="" type="radio" name="pay" id="order" />
             <label for="order">
               <h3 class="">Оплата наличными после доставке</h3>
-              <p class="text-xs">
-                Оплата полную стоимость товара при получении
-              </p>
+              <p class="text-xs">Оплата полную стоимость товара при получении</p>
             </label>
           </li>
         </ul>
@@ -241,7 +160,6 @@ import { ref } from "vue";
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import InputCount from "../components/shop/InputCount.vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
-import ButtonStrokeVue from "../components/buttons/ButtonStroke.vue";
 import numberWithSpaces from "../helpers/numberFormat";
 import { useBasketStore } from "../store/basketProducts";
 const basketStore = useBasketStore();
@@ -252,6 +170,5 @@ const isOpenModal = ref(false);
 <style>
 .PayModal input:checked + label {
   color: #4f87d3;
-  /* width: 10rem; */
 }
 </style>

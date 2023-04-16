@@ -19,12 +19,9 @@
     "scss": "^0.2.4",
     "swiper": "^8.4.5",
     "vue": "^3.2.41",
-    "vue-google-auth": "^1.0.5",
-    "vue-google-oauth2": "^1.5.8",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6",
     "vue-toastification": "^2.0.0-rc.5",
-    "vue3-google-oauth2": "^1.0.6",
     "vuejs-paginate-next": "^1.0.2"
   },
   "devDependencies": {

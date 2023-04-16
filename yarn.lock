@@ -1179,16 +1179,6 @@ vue-demi@*, vue-demi@^0.13.11, vue-demi@latest:
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.13.11.tgz"
   integrity sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==
 
-vue-google-auth@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.npmjs.org/vue-google-auth/-/vue-google-auth-1.0.5.tgz"
-  integrity sha512-cT3bR2nrj/rSXn3oFTf0DkaOvuCtyphqfMcZn9oY2nymMQI4KyH/he9BvqtsGw+Gu+44FuID88Txw5nQFK8uaw==
-
-vue-google-oauth2@^1.5.8:
-  version "1.5.8"
-  resolved "https://registry.npmjs.org/vue-google-oauth2/-/vue-google-oauth2-1.5.8.tgz"
-  integrity sha512-mATpPrLjzjAoUwgFC2feEZEhyoFyItPQSdEgX3m+rHI17sXLEdKzcMLmk+8B1obu4J/YVuVRR9A1afs+4VEk0Q==
-
 vue-i18n@^9.2.2:
   version "9.2.2"
   resolved "https://registry.npmjs.org/vue-i18n/-/vue-i18n-9.2.2.tgz"

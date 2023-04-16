@@ -2,7 +2,6 @@ import axios from "axios";
 import i18n from "./i18n";
 
 // axios.defaults.baseURL = "https://plankton-app-vomkh.ondigitalocean.app/api/v1/";
-// axios.defaults.baseURL = "http://64.226.69.232:8000/api/v1/";
 axios.defaults.baseURL = "http://167.71.62.65:8000/api/v1/";
 axios.interceptors.request.use(
   (config) => {
