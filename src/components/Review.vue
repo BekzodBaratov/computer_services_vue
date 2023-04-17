@@ -30,6 +30,7 @@
 const props = defineProps(["review"]);
 const date = (date) => {
   const createdAt = new Date(date);
+
   return `${createdAt.toLocaleDateString()} | ${createdAt.toLocaleTimeString()}`;
 };
 </script>
