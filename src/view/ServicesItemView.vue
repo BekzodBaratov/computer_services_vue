@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="!store.loading"
-    className="md:w-3/4 w-4/5 mx-auto my-10 space-y-44 md:space-y-32 lg:space-y-24 xl:space-y-12 min-h-screen"
-  >
+  <div className="md:w-3/4 w-4/5 mx-auto my-10 space-y-44 md:space-y-32 lg:space-y-24 xl:space-y-12 min-h-screen">
     <div className="flex justify-between  flex-col-reverse lg:flex-row gap-6">
       <div className="flex-6  flex flex-col gap-4 md:gap-8">
         <h2 className="text-primary  font-bold text-5xl">{{ store.product.name }}</h2>

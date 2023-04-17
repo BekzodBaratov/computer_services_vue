@@ -51,16 +51,17 @@
       </div>
     </div>
   </div>
+
   <Teleport class="basket" to="body">
-    <div @click="open = false" v-if="open" class="modal fixed z-[999999] inset-0 bg-[#0005] backdrop-blur-sm"></div>
+    <div @click="open = false" v-if="open" class="modal fixed z-[99999] inset-0 bg-[#0005] backdrop-blur-sm"></div>
     <div
       :class="open ? 'translate-x-0' : 'translate-x-full'"
-      class="fixed w-[30rem] inset-y-0 z-[999999] duration-300 right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
+      class="fixed w-[30rem] inset-y-0 z-[99999] duration-300 right-0 bg-blue-500 text-center flex flex-col justify-between items-center"
     >
       <div class="text-start pt-2 space-y-2 overflow-y-auto h-[2/3]">
         <p class="text-white text-3xl text-center">Корзина</p>
         <!-- empty component start-->
-        <div class="empty px-12 text-white flex flex-col gap-3">
+        <div v-if="!store.productCount" class="empty px-12 text-white flex flex-col gap-3">
           <div class="empty_img self-center">
             <svg width="12rem" height="10rem" viewBox="0 0 256 222" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -154,9 +155,9 @@
             <span @click="open = false" class="py-2 self-start">Перейти в каталог</span>
           </button-fill-vue>
         </div>
-
         <!-- empty component end -->
-        <div class="flex flex-col gap-3 px-4">
+
+        <div v-else class="flex flex-col gap-3 px-4">
           <div
             v-for="(item, index) in store.products"
             :key="index"
@@ -182,7 +183,8 @@
                   </svg>
                   <p class="ml-2 text-primaryBlue">{{ item?.avg_rating }}</p>
                   <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                  <p class="text-primaryBlue underline">{{ item?.views }}</p>
+                  <p class="text-primaryBlue">{{ item?.views }}</p>
+                  <p class="text-primaryBlue pl-1">views</p>
                 </div>
               </div>
               <h3 class="s line-clamp-2">
@@ -198,20 +200,6 @@
         </div>
       </div>
       <div class="menu w-full bg-white text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 h-[1/3]">
-        <div class="hidden flex justify-between items-center gap-3">
-          <ButtonStrokeVue><span class="py-2">Введите промокод</span></ButtonStrokeVue>
-          <ButtonStrokeVue><span class="py-2">Применить</span></ButtonStrokeVue>
-        </div>
-        <div class="space-y-1">
-          <div class="flex justify-between items-center">
-            <p>Товар ({{ store.productCount }})</p>
-            <p>{{ numberWithSpaces(store.allSum) }} сум</p>
-          </div>
-          <div class="flex justify-between items-center">
-            <p>Сумма скидки</p>
-            <p class="text-red-500">-200 000 сум</p>
-          </div>
-        </div>
         <div class="flex justify-between items-center font-bold">
           <p>Итого</p>
           <p>{{ numberWithSpaces(store.allSum) }} сум</p>
@@ -230,7 +218,6 @@ import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import SearchIcon from "../../assets/img/magazin/search-normal.svg";
-import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
 import numberWithSpaces from "../../helpers/numberFormat";
 import { useBasketStore } from "../../store/basketProducts";
