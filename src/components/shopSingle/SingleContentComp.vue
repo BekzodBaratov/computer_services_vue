@@ -52,9 +52,11 @@
       </div>
     </div>
     <p class="text-[#4F87D3CC] text-xl mb-3">Характеристики</p>
-    <div v-for="(val, i) in productSpecification" :key="i" class="grid grid-cols-5 text-primary mb-2">
-      <div class="col-span-3">{{ val }}</div>
-      <div class="col-span-2">{{ val }}</div>
+    <div v-for="(val, k) in productSpecification" :key="k" class="">
+      <div v-for="(el, key, index) in val" :key="index" class="grid grid-cols-5 text-primary mb-2">
+        <div class="col-span-3">{{ key }}</div>
+        <div class="col-span-2">{{ el }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -66,9 +68,7 @@ import ButtonFill from "../buttons/ButtonFill.vue";
 const store = useProductDetailStore();
 
 const product = computed(() => store.product);
-const productSpecification = computed(() => {
-  return store.productSpecification;
-});
+const productSpecification = computed(() => JSON.parse(store.productSpecification));
 
 const count = ref(1);
 const countFunc = (val) => (val ? count.value++ : count.value > 0 ? count.value-- : 1);
