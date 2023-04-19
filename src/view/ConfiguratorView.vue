@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto">
+      <pre>{{store}} STORE</pre>
     <div class="header grid grid-cols-1 md:grid-cols-2 gap-6 justify-between items-center pt-10">
       <div class="">
         <h2 class="text-primary text-5xl font-semibold">{{ t("configure.title") }}</h2>
@@ -122,7 +123,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
 import ButtonFill from "../components/buttons/ButtonFill.vue";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
@@ -130,6 +131,15 @@ const isSaved = ref(false);
 const savedFunc = () => {
   isSaved.value = !isSaved.value;
 };
+
+import { useConfigration } from "../store/configration.js"
+const store = useConfigration()
+
+
+onMounted(() =>{
+    store.fetchData()
+})
+
 </script>
 
 <style scoped>
