@@ -3,7 +3,7 @@
     <SearchFormCompVue />
     <div class="container mx-auto">
       <h1 class="text-3xl text-primary my-4">Оформление заказа</h1>
-      <div class="flex flex-col-reverse md:flex-row justify-between">
+      <div class="flex flex-col md:flex-row justify-between">
         <div class="space-y-3 mb-6">
           <div class="fio space-y-1">
             <label for="fio" class="block text-primaryBlue">ФИО</label>
@@ -36,47 +36,10 @@
           </div>
         </div>
 
-        <div class="mb-6">
+        <div class="mb-6 max-w-[600px]">
           <div class="bg-[#4F87D30D] ml-0 md:ml-20 rounded pt-6">
             <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] overflow-auto">
-              <div
-                class="card bg-white rounded-xl overflow-hidden grid grid-cols-[1fr_2fr] max-h-40 md:max-h-52 text-sm shadow-[0_0_5px_rgba(0,0,0,0.3)]"
-                v-for="(item, index) in basketStore.products"
-                :key="index"
-              >
-                <img class="object-cover object-bottom w-40 h-40" :src="item?.image_url" alt="cardImg" />
-                <div class="rounded-xl bg-[#F4F6F9] flex flex-col gap-3 p-2">
-                  <div class="flex justify-between">
-                    <div class="flex items-center">
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5 text-primaryBlue"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <title>Rating star</title>
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        ></path>
-                      </svg>
-                      <p class="ml-2 text-primaryBlue">
-                        {{ item?.avg_rating }}
-                      </p>
-                      <span class="w-1 h-1 mx-3 bg-[#769acd] rounded-full"></span>
-                      <p class="text-primaryBlue underline">{{ item?.views }} отзывов</p>
-                    </div>
-                  </div>
-                  <h3 class="">
-                    {{ item?.name }}
-                  </h3>
-                  <div class="text-primaryBlue">В наличии</div>
-                  <div class="flex justify-between items-center">
-                    <p class="font-semibold">{{ numberWithSpaces(item?.product_detail?.price) }} сум</p>
-                    <InputCount v-model="item.count" />
-                  </div>
-                </div>
-              </div>
+                <BasketCard v-for="(item,index) in basketStore.products" :key="index" :item="item"/>
             </div>
             <div
               v-if="basketStore.productCount > 0"
@@ -159,6 +122,7 @@ import { ref, computed } from "vue";
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import InputCount from "../components/shop/InputCount.vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
+import BasketCard from "../components/card/BasketCard.vue";
 import numberWithSpaces from "../helpers/numberFormat";
 import { useBasketStore } from "../store/basketProducts";
 import { useToast } from "vue-toastification";
