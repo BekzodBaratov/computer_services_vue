@@ -57,17 +57,25 @@
 
         <div class="pl-8 pr-12 md:max-h-[100vh] overflow-y-scroll py-14 bg-[#4f87d30d]">
           <!-- select option 1 -->
-          <div class="flex justify-between gap-4 items-center mb-8" v-for="(configration, i) in store.data" :key="i">
+          <div
+            class="flex justify-between gap-4 items-center mb-8"
+            v-for="configration in store.data"
+            :key="configration.id"
+          >
             <p class="text-primary text-base leading-[3rem] font-medium">{{ configration.type }}</p>
             <div class="size w-32">
               <select
                 id="countries"
                 v-model="selected"
-                @change="() => selectFunc(i, selected)"
+                @change="() => selectFunc(configration.id, selected)"
                 class="bg-transparent border border-primary text-[#002e694d] leading-[3rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-1 outline-none"
               >
                 <option value="0" selected>None</option>
-                <option v-for="(product, id) in configration.products" :key="id" :value="product.product_detail.price">
+                <option
+                  v-for="product in configration.products"
+                  :key="product.id"
+                  :value="product.product_detail.price"
+                >
                   {{ product.name }}
                 </option>
               </select>
@@ -124,6 +132,7 @@ onMounted(() => store.fetchData());
 
 const selectFunc = (i) => {
   console.log(i);
+  console.log(selected.value);
 };
 </script>
 
