@@ -10,7 +10,7 @@
             <input
               type="text"
               v-model="state.username"
-              placeholder="Bekzod Baratov"
+              placeholder="Ism Familiya"
               class="w-56 p-1 border rounded bg-transparent placeholder:text-[#4f86d3ae] border-primaryBlue text-primary outline-none"
             />
             <br />
@@ -19,7 +19,7 @@
             }}</span>
           </div>
           <div class="tel">
-            <label for="tel" class="block text-primaryBlue">ФИО</label>
+            <label for="tel" class="block text-primaryBlue">Телефон рақам</label>
             <input
               type="text"
               v-model="state.phone"
@@ -118,7 +118,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import {ref, computed, reactive, onMounted} from "vue";
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
 import InputCount from "../components/shop/InputCount.vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
@@ -128,8 +128,11 @@ import { useBasketStore } from "../store/basketProducts";
 import { useToast } from "vue-toastification";
 import { required, minLength, helpers, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import axios from "axios";
+import {useRouter} from "vue-router";
 const basketStore = useBasketStore();
 const toast = useToast();
+const router = useRouter()
 const isOpenModal = ref(false);
 
 let state = ref({ username: "", phone: "" });
@@ -145,11 +148,51 @@ const rules = computed(() => {
   };
 });
 const v$ = useVuelidate(rules, state);
+
+
+
+const sendData = reactive({
+    amount:basketStore.allSum,
+    location:null,
+    phone_number:"",
+    full_name:"",
+    comment:"",
+    products : []
+})
+
+sendData.products = computed(() =>{
+    const arr = []
+    for(let i = 0 ; i < basketStore.products.length;i++){
+        let obj = {
+            id : basketStore.products[i].id,
+            amount: basketStore.products[i].count
+
+        }
+        arr.push(obj)
+    }
+    return arr
+})
 const formLoginData = () => {
   v$.value.$validate();
   if (v$.value.$error) return;
-  console.log("api yoziladi");
+    sendData.phone_number = state.value.phone
+    sendData.full_name = state.value.username
+    axios.post("/orders",{...sendData}).then((res)=>{
+        toast.success("So'qovingiz muvaffaqiyatli amalga oshirildi")
+        setTimeout(() =>{
+            router.push("/")
+            localStorage.clear();
+
+        },2000)
+        setTimeout(() =>{
+            window.location.reload()
+            router.push("/")
+        },3000)
+    }).catch((err)=>{
+        toast.error("Yuborishda xatolik yuz berdi")
+    })
 };
+
 </script>
 
 <style>
