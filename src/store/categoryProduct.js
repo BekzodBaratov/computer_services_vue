@@ -26,7 +26,6 @@ export const useCategoryProduct = defineStore("categoryProduct", {
         const res = await axios.get(`/products/search`, { params: { search: params || "" } });
         this.products = res.data.data.results;
         this.maxPrice = res.data.data.options.maxPrice;
-        console.log(res.data.data);
       } catch (error) {
         this.error = error.message;
       } finally {
