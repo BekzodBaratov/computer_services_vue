@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-      <pre>{{store}} STORE</pre>
+    <pre>{{ store }} STORE</pre>
     <div class="header grid grid-cols-1 md:grid-cols-2 gap-6 justify-between items-center pt-10">
       <div class="">
         <h2 class="text-primary text-5xl font-semibold">{{ t("configure.title") }}</h2>
@@ -41,51 +41,41 @@
 
       <div class="grid divide-y-reverse grid-cols-1 md:grid-cols-[2fr,4fr] md:divide-x md:divide-slate-300">
         <div class="hidden md:block px-5 py-2 md:max-h-[100vh] overflow-y-scroll bg-[#4f87d30d]">
-          <div class="mt-2 text-base" v-for="(item, index) in 18" :key="index">
+          <div
+            class="mt-2 text-base"
+            v-for="(configutarion, index) in store.data"
+            :key="index"
+            :id="`#${configutarion.type}`"
+          >
             <p
               class="font-medium leading-[2rem] text-[#002e6980] cursor-pointer transition-all duration-300 hover:text-primary"
             >
-              Процессор
+              {{ configutarion.type }}
             </p>
           </div>
         </div>
 
         <div class="pl-8 pr-12 md:max-h-[100vh] overflow-y-scroll py-14 bg-[#4f87d30d]">
           <!-- select option 1 -->
-          <div class="flex justify-between gap-4 items-center mb-8" v-for="(item, index) in 2" :key="index">
-            <p class="text-primary text-base leading-[3rem] font-medium">Материнская плата</p>
+          <div
+            class="flex justify-between gap-4 items-center mb-8"
+            v-for="(configration, index) in store.data"
+            :key="index"
+          >
+            <p class="text-primary text-base leading-[3rem] font-medium">{{ configration.type }}</p>
             <div class="size w-32">
               <select
                 id="countries"
                 class="bg-transparent border border-primary text-[#002e694d] leading-[3rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-1 outline-none"
               >
                 <option selected>Size By</option>
-                <option v-for="(item, index) in 6" :key="index">option</option>
-              </select>
-            </div>
-          </div>
-          <!-- input tupy radio -->
-          <div class="mb-10 mx-auto">
-            <div class="" v-for="(item, index) in 3" :key="index">
-              <div class="flex gap-5 items-center mt-2">
-                <input type="radio" :id="index" name="index" />
-                <div>
-                  <p class="text-primary text-base leading-[35px] font-medium">Intel Box</p>
-                  <p class="text-danger text-base leading-[23px] font-normal">80 000 сум</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- select option 2 -->
-          <div class="flex justify-between gap-4 items-center mb-12" v-for="(item, index) in 8" :key="index">
-            <p class="text-primary text-base leading-[3rem] font-medium">Материнская плата</p>
-            <div class="size w-32">
-              <select
-                id="countries"
-                class="bg-transparent border border-primary text-[#002e694d] leading-[3rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-1 outline-none"
-              >
-                <option selected>Size By</option>
-                <option v-for="(item, index) in 6" :key="index">option</option>
+                <option
+                  v-for="(product, index) in configration.products"
+                  :key="index"
+                  :value="product.product_detail.price"
+                >
+                  {{ product.name }}
+                </option>
               </select>
             </div>
           </div>
@@ -123,23 +113,18 @@
 </template>
 
 <script setup>
-import {onMounted, ref} from "vue";
+import { onMounted, ref } from "vue";
 import ButtonFill from "../components/buttons/ButtonFill.vue";
 import { useI18n } from "vue-i18n";
+import { useConfigration } from "../store/configration.js";
+
 const { t } = useI18n();
 const isSaved = ref(false);
-const savedFunc = () => {
-  isSaved.value = !isSaved.value;
-};
+const savedFunc = () => (isSaved.value = !isSaved.value);
 
-import { useConfigration } from "../store/configration.js"
-const store = useConfigration()
+const store = useConfigration();
 
-
-onMounted(() =>{
-    store.fetchData()
-})
-
+onMounted(() => store.fetchData());
 </script>
 
 <style scoped>

@@ -165,11 +165,11 @@ const data = reactive({
   },
 });
 
-const addReview = () => {
+const addReview = async () => {
   data.clicked = true;
   if (data.errors().body.error || data.errors().rating.error) return;
 
-  store.addReview(route.params.id, { body: data.body, rating: data.rating });
+  await store.addReview(route.params.id, { body: data.body, rating: data.rating });
 
   data.clicked = false;
   data.body = "";
