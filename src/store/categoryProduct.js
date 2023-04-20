@@ -8,6 +8,7 @@ export const useCategoryProduct = defineStore("categoryProduct", {
     limit: 12,
     products: [],
     maxPrice: 10000,
+    minPrice: 0,
     error: "",
   }),
   getters: {
@@ -19,13 +20,14 @@ export const useCategoryProduct = defineStore("categoryProduct", {
     async getProducts() {
       const store = useLoadingStore();
       const route = useRoute();
-      console.log(route.query);
+      // console.log(route.query);
       const params = route.query.search;
       try {
         store.loading = true;
         const res = await axios.get(`/products/search`, { params: { search: params || "" } });
         this.products = res.data.data.results;
         this.maxPrice = res.data.data.options.maxPrice;
+        console.log(res);
       } catch (error) {
         this.error = error.message;
       } finally {

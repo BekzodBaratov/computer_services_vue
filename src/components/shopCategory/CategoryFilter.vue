@@ -59,6 +59,11 @@ import { ref } from "vue";
 import Range from "./Range.vue";
 import ButtonStrokeVue from "../buttons/ButtonStroke.vue";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
+import { useCategoryProduct } from "../../store/categoryProduct";
+import { useLoadingStore } from "../../store/loading";
+import axios from "axios";
+const store = useCategoryProduct();
+const loading = useLoadingStore();
 
 const data = ref({
   range: [0, 1],
@@ -67,12 +72,27 @@ const data = ref({
   typeMoney: "",
 });
 
-function rangeInp(rangeMinMaxArr) {
+async function rangeInp(rangeMinMaxArr) {
   data.value.range = rangeMinMaxArr;
   console.log(rangeMinMaxArr);
 }
 
-const handleFilter = () => {};
+const handleFilter = async () => {
+  loading.loading = true;
+  console.log(data.value.range);
+  try {
+    const res = await axios.get(
+      `/products/search?search=cat&minPrice=${data.value.range[0]}&maxPrice=${data.value.range[1]}`
+    );
+    console.log(res);
+    console.log(res.data.data.results);
+    store.products = res.data.data.results;
+  } catch (error) {
+    console.log(error.message);
+  } finally {
+    loading.loading = false;
+  }
+};
 const handleReset = () => {
   data.value = {
     range: [0, 1],
