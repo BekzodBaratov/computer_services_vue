@@ -57,23 +57,17 @@
 
         <div class="pl-8 pr-12 md:max-h-[100vh] overflow-y-scroll py-14 bg-[#4f87d30d]">
           <!-- select option 1 -->
-          <div
-            class="flex justify-between gap-4 items-center mb-8"
-            v-for="(configration, index) in store.data"
-            :key="index"
-          >
+          <div class="flex justify-between gap-4 items-center mb-8" v-for="(configration, i) in store.data" :key="i">
             <p class="text-primary text-base leading-[3rem] font-medium">{{ configration.type }}</p>
             <div class="size w-32">
               <select
                 id="countries"
+                v-model="selected"
+                @change="() => selectFunc(i, selected)"
                 class="bg-transparent border border-primary text-[#002e694d] leading-[3rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-1 outline-none"
               >
-                <option selected>Size By</option>
-                <option
-                  v-for="(product, index) in configration.products"
-                  :key="index"
-                  :value="product.product_detail.price"
-                >
+                <option value="0" selected>None</option>
+                <option v-for="(product, id) in configration.products" :key="id" :value="product.product_detail.price">
                   {{ product.name }}
                 </option>
               </select>
@@ -81,6 +75,7 @@
           </div>
         </div>
       </div>
+
       <!-- left result -->
       <div class="hidden md:block mx-auto bg-[#4f87d30d] py-12 w-full">
         <div class="flex flex-row md:flex-col">
@@ -122,9 +117,14 @@ const { t } = useI18n();
 const isSaved = ref(false);
 const savedFunc = () => (isSaved.value = !isSaved.value);
 
-const store = useConfigration();
+const selected = ref(0);
 
+const store = useConfigration();
 onMounted(() => store.fetchData());
+
+const selectFunc = (i) => {
+  console.log(i);
+};
 </script>
 
 <style scoped>
