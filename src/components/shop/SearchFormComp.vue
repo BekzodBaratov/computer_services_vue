@@ -22,11 +22,11 @@
     </form>
 
     <div class="flex items-end gap-4 h-full">
-      <RouterLink to="/favorites" @click="savedFunc" class="shopcart flex flex-col items-center cursor-pointer">
-        <i class="fa-heart text-[2rem] text-primary fa-regular"></i>
-        <i class="hidden fa-heart text-[2rem] text-primary fa-solid"></i>
-        <div class="text hidden md:block">{{ t("market.hero.favorite") }}</div>
-      </RouterLink>
+<!--      <RouterLink to="/favorites" @click="savedFunc" class="shopcart flex flex-col items-center cursor-pointer">-->
+<!--        <i class="fa-heart text-[2rem] text-primary fa-regular"></i>-->
+<!--        <i class="hidden fa-heart text-[2rem] text-primary fa-solid"></i>-->
+<!--        <div class="text hidden md:block">{{ t("market.hero.favorite") }}</div>-->
+<!--      </RouterLink>-->
 
       <div @click="open = true" class="izbrannoe flex flex-col items-center cursor-pointer">
         <svg class="w-8 h-8" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">

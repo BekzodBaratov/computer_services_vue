@@ -38,8 +38,8 @@
 
         <div class="mb-6 max-w-[600px]">
           <div class="bg-[#4F87D30D] ml-0 md:ml-20 rounded pt-6">
-            <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] overflow-auto">
-                <BasketCard v-for="(item,index) in basketStore.products" :key="index" :item="item"/>
+            <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] overflow-scroll ">
+                <BasketCard class="flex-shrink-0" v-for="(item,index) in basketStore.products" :key="index" :item="item"/>
             </div>
             <div
               v-if="basketStore.productCount > 0"
