@@ -16,28 +16,40 @@
       </div>
       <div class="flex justify-between items-center flex-wrap">
         <div class="font-semibold">{{ numberWithSpaces(product?.product_detail?.price) }} so’m</div>
-        <ButtonStrokeVue><span class="py-1" @click="addBasket(product)">В корзину</span> </ButtonStrokeVue>
+<!--        <ButtonStrokeVue><span class="py-1" @click="addBasket(product)">В корзину</span> </ButtonStrokeVue>-->
+          <SaveBasket @click="addBasket(product)"  :isClick="isClick">
+              В корзину
+          </SaveBasket>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed,ref } from "vue";
 import ButtonStrokeVue from "./buttons/ButtonStroke.vue";
+import SaveBasket from "./buttons/SaveBasket.vue";
 import numberWithSpaces from "../helpers/numberFormat";
 import { useBasketStore } from "../store/basketProducts";
 const store = useBasketStore();
+const isClick = ref(false)
 
 const props = defineProps(["product"]);
 const product = computed(() => props.product);
 
 function addBasket(product) {
-  const newProduct = {
-    ...product,
-    count: 1,
-  };
-  store.products = store.products.filter((item) => item.id !== product.id);
-  store.products.push(newProduct);
+    isClick.value = !isClick.value
+    if(isClick.value){
+        const newProduct = {
+            ...product,
+            count: 1,
+        };
+        store.products = store.products.filter((item) => item.id !== product.id);
+        store.products.push(newProduct);
+    }
+    else{
+        store.products = store.products.filter((item) => item.id !== product.id);
+    }
+
 }
 </script>
