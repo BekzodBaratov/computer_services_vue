@@ -1,6 +1,8 @@
 <template>
   <div class="container mx-auto">
-    <pre>{{ store }} STORE</pre>
+<!--    <pre>{{ configBasket.products }} STORE</pre>-->
+<!--      basket store-->
+<!--      <pre>{{basketStore.products}}</pre>-->
     <div class="header grid grid-cols-1 md:grid-cols-2 gap-6 justify-between items-center pt-10">
       <div class="">
         <h2 class="text-primary text-5xl font-semibold">{{ t("configure.title") }}</h2>
@@ -19,20 +21,10 @@
           </div>
           <div class="mx-auto mt-12">
             <div class="bg-whiteBlue rounded-xl px-4 py-2 w-56">
-              <p class="text-2xl text-danger font-semibold text-center pb-2">790 000 сум</p>
+              <p class="text-2xl text-danger font-semibold text-center pb-2">{{FormatNumber(configBasket?.allSum || 0)}} UZS</p>
               <div class="flex gap-1">
                 <ButtonFill>{{ t("configure.btnPay") }}</ButtonFill>
-                <div
-                  @click="savedFunc"
-                  class="p-2 rounded-lg border border-primary flex items-center justify-center cursor-pointer"
-                >
-                  <div class="shopcart flex flex-col items-center">
-                    <i class="fa-heart text-[2rem] text-primary" :class="!isSaved ? 'fa-regular' : 'fa-solid'"></i>
-                  </div>
-                </div>
-                <span class="p-2 rounded-lg border border-primary flex items-center justify-center cursor-pointer">
-                  <img src="../assets/img/magazin/shopping-cart.svg" alt="" />
-                </span>
+                  <SaveBasket @click="addBasket" :isClick="isClick">В корзину</SaveBasket>
               </div>
             </div>
           </div>
@@ -48,38 +40,22 @@
             :id="`#${configutarion.type}`"
           >
             <p
-              class="font-medium leading-[2rem] text-[#002e6980] cursor-pointer transition-all duration-300 hover:text-primary"
+              class="font-medium leading-[2rem] text-[20px] mt-2 text-[#002e6980] cursor-pointer transition-all duration-300 hover:text-primary"
             >
-              {{ configutarion.type }}
+              {{ configutarion?.type }}
             </p>
           </div>
         </div>
 
         <div class="pl-8 pr-12 md:max-h-[100vh] overflow-y-scroll py-14 bg-[#4f87d30d]">
-          <!-- select option 1 -->
           <div
-            class="flex justify-between gap-4 items-center mb-8"
+            class="grid grid-cols-2 gap-4 items-center mb-8"
             v-for="configration in store.data"
             :key="configration.id"
           >
-            <p class="text-primary text-base leading-[3rem] font-medium">{{ configration.type }}</p>
-            <div class="size w-32">
-              <select
-                id="countries"
-                v-model="selected"
-                @change="() => selectFunc(configration.id, selected)"
-                class="bg-transparent border border-primary text-[#002e694d] leading-[3rem] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-1 outline-none"
-              >
-                <option value="0" selected>None</option>
-                <option
-                  v-for="product in configration.products"
-                  :key="product.id"
-                  :value="product.product_detail.price"
-                >
-                  {{ product.name }}
-                </option>
-              </select>
-            </div>
+            <p class="text-primary text-[20px] leading-[3rem] font-medium">{{ configration?.type }}</p>
+            <ConfigrationCard :data="configration.products" :inputName="configration?.type" class="mt-3"/>
+
           </div>
         </div>
       </div>
@@ -92,20 +68,10 @@
           </div>
           <div class="mx-auto mt-12">
             <div class="bg-whiteBlue rounded-xl px-4 py-2 w-56">
-              <p class="text-2xl text-danger font-semibold text-center pb-2">790 000 сум</p>
+              <p class="text-2xl text-danger font-semibold text-center pb-2">{{FormatNumber(configBasket?.allSum || 0)}} UZS</p>
               <div class="flex gap-1">
-                <ButtonFill>Купить</ButtonFill>
-                <div
-                  @click="savedFunc"
-                  class="p-2 rounded-lg border border-primary flex items-center justify-center cursor-pointer"
-                >
-                  <div class="shopcart flex flex-col items-center">
-                    <i class="fa-heart text-[2rem] text-primary" :class="!isSaved ? 'fa-regular' : 'fa-solid'"></i>
-                  </div>
-                </div>
-                <span class="p-2 rounded-lg border border-primary flex items-center justify-center cursor-pointer">
-                  <img src="../assets/img/magazin/shopping-cart.svg" alt="" />
-                </span>
+                  <save-basket @click="costProduct">Купить</save-basket>
+               <SaveBasket @click="addBasket" :isClick="isClick">В корзину</SaveBasket>
               </div>
             </div>
           </div>
@@ -120,31 +86,47 @@ import { onMounted, ref } from "vue";
 import ButtonFill from "../components/buttons/ButtonFill.vue";
 import { useI18n } from "vue-i18n";
 import { useConfigration } from "../store/configration.js";
+import { useConfigBasketStore } from "../store/configBasket.js"
+import {useBasketStore} from "../store/basketProducts.js";
+import ConfigrationCard from "../components/card/ConfigrationCard.vue";
+import FormatNumber from "../helpers/numberFormat.js"
+import SaveBasket from "../components/buttons/SaveBasket.vue";
+import {useRouter} from "vue-router";
 
 const { t } = useI18n();
 const isSaved = ref(false);
 const savedFunc = () => (isSaved.value = !isSaved.value);
 
-const selected = ref(0);
+
 
 const store = useConfigration();
-onMounted(() => store.fetchData());
+const configBasket = useConfigBasketStore()
+const basketStore = useBasketStore()
 
-const selectFunc = (i) => {
-  console.log(i);
-  console.log(selected.value);
-};
+const router = useRouter()
+
+
+const isClick = ref(false)
+function addBasket() {
+    isClick.value = !isClick.value
+    if(isClick.value){
+
+        // basketStore.products = basketStore.products.filter((item) => item.id !== product.id);
+        basketStore.products = [...basketStore.products,...configBasket.products]
+        configBasket.products = []
+        localStorage.removeItem('configBasketProduct')
+    }
+    else{
+        // basketStore.products = basketStore.products.filter((item) => item.id !== product.id);
+    }
+}
+
+function costProduct(){
+    basketStore.products = [...basketStore.products,...configBasket.products]
+    localStorage.removeItem('configBasketProduct')
+    router.push('/basket')
+}
+    onMounted(() => store.fetchData());
 </script>
 
-<style scoped>
-input[type="radio"] {
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid currentColor;
-  border-radius: 50%;
-}
-</style>
+

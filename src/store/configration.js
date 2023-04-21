@@ -25,4 +25,5 @@ export const useConfigration = defineStore("configration", {
       }
     },
   },
+
 });
