@@ -1,13 +1,13 @@
 <template>
   <div class="container mx-auto mt-4 flex justify-between items-center md:w-4/5 mb-6">
-    <form @submit.prevent="searchFrom" class="form items-center flex gap-4">
+    <form class="form items-center flex gap-4">
       <div class="SearchForm flex items-center p-0 border border-[#0003] rounded-3xl overflow-hidden">
-        <div
+        <button
           @click.prevent="(e) => searchFrom(e)"
           class="all px-3 md:px-6 py-1 rounded-r-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
         >
           Search
-        </div>
+        </button>
         <input
           type="text"
           id="search-input"
@@ -22,11 +22,11 @@
     </form>
 
     <div class="flex items-end gap-4 h-full">
-<!--      <RouterLink to="/favorites" @click="savedFunc" class="shopcart flex flex-col items-center cursor-pointer">-->
-<!--        <i class="fa-heart text-[2rem] text-primary fa-regular"></i>-->
-<!--        <i class="hidden fa-heart text-[2rem] text-primary fa-solid"></i>-->
-<!--        <div class="text hidden md:block">{{ t("market.hero.favorite") }}</div>-->
-<!--      </RouterLink>-->
+      <!--      <RouterLink to="/favorites" @click="savedFunc" class="shopcart flex flex-col items-center cursor-pointer">-->
+      <!--        <i class="fa-heart text-[2rem] text-primary fa-regular"></i>-->
+      <!--        <i class="hidden fa-heart text-[2rem] text-primary fa-solid"></i>-->
+      <!--        <div class="text hidden md:block">{{ t("market.hero.favorite") }}</div>-->
+      <!--      </RouterLink>-->
 
       <div @click="open = true" class="izbrannoe flex flex-col items-center cursor-pointer">
         <svg class="w-8 h-8" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +158,7 @@
         <!-- empty component end -->
 
         <div v-else class="flex flex-col gap-3 px-4">
-            <BasketCard v-for="(item,index) in store.products" :key="index" :item="item"/>
+          <BasketCard v-for="(item, index) in store.products" :key="index" :item="item" />
         </div>
       </div>
       <div class="menu w-full bg-white text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 h-[1/3]">
@@ -205,6 +205,4 @@ const isSaved = ref(false);
 const savedFunc = () => {
   isSaved.value = !isSaved.value;
 };
-
-
 </script>
