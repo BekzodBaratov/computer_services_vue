@@ -49,29 +49,37 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 import { useCategoryProduct } from "../../store/categoryProduct";
 const store = useCategoryProduct();
 
-const rangeInput = reactive([0, store.maxPrice]); // 0 uzs dan 10000 gacha
-const priceMinMax = reactive({ min: 0, max: store.maxPrice }); // uzgarmas qiymatlar. input bosh va oxirgi qiymatlari
-const rangeMinVal = reactive([0, 0]); // left:0% Right:0%
-const priceTMP = ref(0);
+let rangeInput = ref([0, store.maxPrice]); // 0 uzs dan 10000 gacha
+let priceMinMax = ref({ min: 0, max: store.maxPrice }); // uzgarmas qiymatlar. input bosh va oxirgi qiymatlari
+let rangeMinVal = ref([0, 0]); // left:0% Right:0%
+let priceTMP = ref(0);
+
+watch(
+  () => store.maxPrice,
+  (res) => {
+    rangeInput.value[1] = res; // 0 uzs dan 10000 gacha
+    priceMinMax.value.max = res; // uzgarmas qiymatlar. input bosh va oxirgi qiymatlari
+  }
+);
 
 const emit = defineEmits(["rangeInp"]);
 
-const setChangeSlider = () => {
-  if (rangeInput[0] > rangeInput[1]) {
-    priceTMP.value = rangeInput[1];
-    rangeInput[1] = rangeInput[0];
-    rangeInput[0] = priceTMP.value;
+function setChangeSlider() {
+  if (rangeInput.value[0] > rangeInput.value[1]) {
+    priceTMP.value = rangeInput.value[1];
+    rangeInput.value[1] = rangeInput.value[0];
+    rangeInput.value[0] = priceTMP.value;
   }
 
-  rangeMinVal[0] = (rangeInput[0] / priceMinMax.max) * 100;
-  rangeMinVal[1] = 100 - (rangeInput[1] / priceMinMax.max) * 100;
+  rangeMinVal.value[0] = (rangeInput.value[0] / priceMinMax.value.max) * 100;
+  rangeMinVal.value[1] = 100 - (rangeInput.value[1] / priceMinMax.value.max) * 100;
 
-  emit("rangeInp", rangeInput);
-};
+  emit("rangeInp", rangeInput.value);
+}
 </script>
 
 <style scoped>
