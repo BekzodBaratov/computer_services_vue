@@ -10,12 +10,12 @@ export const useBasketStore = defineStore(
       allSum() {
         let sum = 0;
         for (let i = 0; i < this.products.length; i++) {
-          sum += this.products[i].count * this.products[i].product_detail.price;
+          sum += this.products[i]?.count * this.products[i]?.product_detail?.price;
         }
         return sum;
       },
       productCount() {
-        return this.products.length;
+        return this.products?.length;
       },
     },
     actions: {},

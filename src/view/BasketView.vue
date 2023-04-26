@@ -177,20 +177,25 @@ const formLoginData = () => {
   if (v$.value.$error) return;
     sendData.phone_number = state.value.phone
     sendData.full_name = state.value.username
-    axios.post("/orders",{...sendData}).then((res)=>{
-        toast.success("So'qovingiz muvaffaqiyatli amalga oshirildi")
-        setTimeout(() =>{
-            router.push("/")
-            localStorage.clear();
+    if(sendData.products.length){
+        axios.post("/orders",{...sendData}).then((res)=>{
+            toast.success("So'qovingiz muvaffaqiyatli amalga oshirildi")
+            setTimeout(() =>{
+                router.push("/")
+                localStorage.clear();
 
-        },2000)
-        setTimeout(() =>{
-            window.location.reload()
-            router.push("/")
-        },3000)
-    }).catch((err)=>{
-        toast.error("Yuborishda xatolik yuz berdi")
-    })
+            },2000)
+            setTimeout(() =>{
+                window.location.reload()
+                router.push("/")
+            },3000)
+        }).catch((err)=>{
+            toast.error("Yuborishda xatolik yuz berdi")
+        })
+    }
+  else{
+      toast("Yuborish uchun savatchangizda kamida bitta mahsulot bo'lishi kerak!")
+    }
 };
 
 </script>
