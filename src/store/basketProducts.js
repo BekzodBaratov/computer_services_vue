@@ -20,5 +20,5 @@ export const useBasketStore = defineStore(
     },
     actions: {},
   },
-  { persist: { storage: window.localStorage } }
+  { persist: true }
 );

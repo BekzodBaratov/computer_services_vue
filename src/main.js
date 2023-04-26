@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import Paginate from "vuejs-paginate-next";
-import { createPersistPlugin } from "pinia-persist";
 import { MotionPlugin } from "@vueuse/motion";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import Toast from "vue-toastification";
 
 import App from "./App.vue";
@@ -14,7 +14,7 @@ import "./style.css";
 
 const app = createApp(App);
 const pinia = createPinia();
-pinia.use(createPersistPlugin());
+pinia.use(piniaPluginPersistedstate);
 
 app.use(router);
 app.use(i18n);

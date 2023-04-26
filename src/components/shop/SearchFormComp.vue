@@ -185,6 +185,7 @@ import numberWithSpaces from "../../helpers/numberFormat";
 import { useBasketStore } from "../../store/basketProducts";
 import InputCount from "./InputCount.vue";
 import BasketCard from "../card/BasketCard.vue";
+import axios from "axios";
 const router = useRouter();
 const route = useRoute();
 const { t } = useI18n();

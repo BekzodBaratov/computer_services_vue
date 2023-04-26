@@ -406,5 +406,6 @@ const ProfileApi = (data) => {
 
 const handleLogout = () => {
   store.logout();
+  router.push("/");
 };
 </script>

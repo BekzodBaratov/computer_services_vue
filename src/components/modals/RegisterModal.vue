@@ -60,7 +60,7 @@
             </div>
 
             <div class="flex justify-center mt-3">
-              <ButtonFillVue aria-disabled="isFetch">
+              <ButtonFillVue>
                 <button @click.prevent="handleRegister" class="py-1 px-4">Далее</button>
               </ButtonFillVue>
             </div>
@@ -69,22 +69,17 @@
       </div>
     </div>
   </Teleport>
-  <LoadingModalVue v-if="loading" />
 </template>
 
 <script setup>
 import { computed, reactive, ref } from "vue";
-import axios from "axios";
 import { useVuelidate } from "@vuelidate/core";
-import { required, email, sameAs, minLength, helpers, maxLength } from "@vuelidate/validators";
+import { required, email, sameAs, minLength, maxLength } from "@vuelidate/validators";
 
 import { useUserRegister } from "../../store/UserRegister";
 import ButtonFillVue from "../buttons/ButtonFill.vue";
-import LoadingModalVue from "../modals/LoadingModal.vue";
 
 const store = useUserRegister();
-
-const loading = ref(false);
 
 const userData = reactive({
   username: "",
@@ -97,64 +92,26 @@ const rules = computed(() => {
   return {
     username: { required, minLength: minLength(3), maxLength: maxLength(52) },
     email: { required, email, maxLength: maxLength(84) },
-    password: {
-      required,
-      minLength: minLength(8),
-      maxLength: maxLength(32),
-      containsUppercase: helpers.withMessage("The password requires an uppercase character", function (value) {
-        return /[A-Z]/.test(value);
-      }),
-      containsLowercase: helpers.withMessage("The password requires an lowercase character", function (value) {
-        return /[a-z]/.test(value);
-      }),
-      containsNumber: helpers.withMessage("The password requires an number character", function (value) {
-        return /[0-9]/.test(value);
-      }),
-      containsSpecial: helpers.withMessage("The password requires an special character", function (value) {
-        return /[#?!_@$%^&*-]/.test(value);
-      }),
-    },
+    password: { required, minLength: minLength(4), maxLength: maxLength(32) },
     passwordConfirm: { required, sameAs: sameAs(userData.password) },
   };
 });
 
 const v$ = useVuelidate(rules, userData);
-const isFetch = ref(true);
 
-const handleRegister = () => {
+const handleRegister = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
-    isFetch.value = false;
-    fetchApi(userData);
-    loading.value = true;
-  }
-};
-
-const fetchApi = (data) => {
-  axios({
-    method: "post",
-    url: "users/signup",
-    withCredentials: true,
-    data: data,
-  })
-    .then(function (response) {
-      store.user = response.data.data.user;
-      emit("closeRegiterModal");
-      alert(response.data.message);
-    })
-    .catch(function (error) {
-      alert(error.message + ", Please try again");
-
-      isFetch.value = true;
-
+    try {
+      await store.signup(userData);
+      !store.closemodal && emit("closeRegiterModal");
+    } finally {
       userData.username = "";
       userData.email = "";
       userData.password = "";
       userData.passwordConfirm = "";
-    })
-    .finally(function () {
-      loading.value = false;
-    });
+    }
+  }
 };
 
 const emit = defineEmits(["closeRegiterModal"]);
