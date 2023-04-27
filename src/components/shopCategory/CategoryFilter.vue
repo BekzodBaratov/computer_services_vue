@@ -4,7 +4,7 @@
       <Range @rangeInp="rangeInp" />
 
       <div>
-        <p class="titleName">Модель</p>
+        <p class="titleName">Category</p>
         <select
           id="countries"
           class="bg-transparent border border-whiteBlue outline-none text-primary rounded-lg px-2 py-1"
@@ -17,7 +17,7 @@
         </select>
       </div>
 
-      <div>
+      <!-- <div>
         <p class="titleName">Цвет</p>
         <select
           id="countries"
@@ -29,9 +29,9 @@
           <option value="FR">France</option>
           <option value="DE">Germany</option>
         </select>
-      </div>
+      </div> -->
 
-      <div class="space-y-1">
+      <!-- <div class="space-y-1">
         <div class="space-x-2 text-primary">
           <input type="radio" name="pul" id="naqt" />
           <label for="naqt">В наличии</label>
@@ -40,14 +40,16 @@
           <input type="radio" name="pul" id="aksiya" />
           <label for="aksiya">Акция</label>
         </div>
-      </div>
+      </div> -->
 
       <span class="flex md:flex-col items-start gap-3">
         <span @click="handleFilter">
           <ButtonFillVue><span class="py-2">Применить</span></ButtonFillVue>
         </span>
         <span @click="handleReset">
-          <ButtonStrokeVue><span class="py-2">Сбросить все</span> </ButtonStrokeVue>
+          <ButtonStrokeVue
+            ><span class="py-2">Сбросить все</span>
+          </ButtonStrokeVue>
         </span>
       </span>
     </div>

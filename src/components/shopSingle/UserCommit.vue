@@ -58,7 +58,7 @@
   </Swiper> -->
 
   <CustomSwiper>
-    <SwiperSlide v-for="review in store.reviews">
+    <SwiperSlide v-for="review in store.reviews" :key="review">
       <Review :review="review" />
     </SwiperSlide>
   </CustomSwiper>
@@ -66,7 +66,9 @@
   <div>
     <form class="md:w-4/5 grid grid-cols-2">
       <div class="flex flex-col items-start gap-4">
-        <h3 class="title text-2xl text-primaryBlue pb-3">Поделитесь впечатлением о товаре</h3>
+        <h3 class="title text-2xl text-primaryBlue pb-3">
+          Поделитесь впечатлением о товаре
+        </h3>
         <textarea
           class="bg-transparent outline-none text-primaryBlue rounded-lg p-3 border border-primaryBlue"
           cols="40"
@@ -74,9 +76,13 @@
           rows="5"
           placeholder="Напишите ваш отзыв"
         ></textarea>
-        <span v-if="data.errors().body.error" class="text-danger">{{ data.errors().body.message }}</span>
+        <span v-if="data.errors().body.error" class="text-danger">{{
+          data.errors().body.message
+        }}</span>
         <div @click="addReview">
-          <ButtonFillVue color="#002e69"><span class="py-2">Отправить отзыв</span></ButtonFillVue>
+          <ButtonFillVue color="#002e69"
+            ><span class="py-2">Отправить отзыв</span></ButtonFillVue
+          >
         </div>
       </div>
       <div>
@@ -99,42 +105,64 @@
               ></path>
             </svg>
           </div>
-          <p v-if="data.errors().rating.error" class="text-danger">{{ data.errors().rating.message }}</p>
+          <p v-if="data.errors().rating.error" class="text-danger">
+            {{ data.errors().rating.message }}
+          </p>
         </div>
         <div class="flex items-center mt-4">
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">5 star</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >5 star</span
+          >
           <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
             <div class="h-5 bg-primaryBlue rounded" style="width: 70%"></div>
           </div>
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">70%</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >70%</span
+          >
         </div>
         <div class="flex items-center mt-4">
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4 star</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >4 star</span
+          >
           <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
             <div class="h-5 bg-primaryBlue rounded" style="width: 17%"></div>
           </div>
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">17%</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >17%</span
+          >
         </div>
         <div class="flex items-center mt-4">
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">3 star</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >3 star</span
+          >
           <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
             <div class="h-5 bg-primaryBlue rounded" style="width: 8%"></div>
           </div>
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">8%</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >8%</span
+          >
         </div>
         <div class="flex items-center mt-4">
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">2 star</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >2 star</span
+          >
           <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
             <div class="h-5 bg-primaryBlue rounded" style="width: 4%"></div>
           </div>
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4%</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >4%</span
+          >
         </div>
         <div class="flex items-center mt-4">
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1 star</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >1 star</span
+          >
           <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
             <div class="h-5 bg-primaryBlue rounded" style="width: 1%"></div>
           </div>
-          <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1%</span>
+          <span class="text-sm font-medium text-blue-600 dark:text-blue-500"
+            >1%</span
+          >
         </div>
       </div>
     </form>
@@ -147,10 +175,15 @@ import ButtonFillVue from "../buttons/ButtonFill.vue";
 import CustomSwiper from "../swiper.vue";
 import Review from "../Review.vue";
 import { useProductDetailStore } from "../../store/productDetail";
+import { useUserRegister } from "../../store/UserRegister";
 import { reactive } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import { useToast } from "vue-toastification";
 const store = useProductDetailStore();
 const route = useRoute();
+const router = useRouter();
+const toast = useToast();
+const userStore = useUserRegister();
 
 const data = reactive({
   body: "",
@@ -159,17 +192,27 @@ const data = reactive({
 
   errors() {
     return {
-      body: { error: !this.body && this.clicked, message: "Iltimos fikringizni yozib qoldiring." },
-      rating: { error: !this.rating && this.clicked, message: "Iltimos ratingni belgilang." },
+      body: {
+        error: !this.body && this.clicked,
+        message: "Iltimos fikringizni yozib qoldiring.",
+      },
+      rating: {
+        error: !this.rating && this.clicked,
+        message: "Iltimos ratingni belgilang.",
+      },
     };
   },
 });
 
 const addReview = async () => {
   data.clicked = true;
+  if (!userStore.token) return toast.error("Ro'yxatdan o'tilmagan");
   if (data.errors().body.error || data.errors().rating.error) return;
 
-  await store.addReview(route.params.id, { body: data.body, rating: data.rating });
+  await store.addReview(route.params.id, {
+    body: data.body,
+    rating: data.rating,
+  });
 
   data.clicked = false;
   data.body = "";
