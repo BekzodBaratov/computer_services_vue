@@ -1,19 +1,20 @@
-import axios from "axios";
 import { defineStore } from "pinia";
 import { useToast } from "vue-toastification";
 import { useLoadingStore } from "./loading";
-const toast = useToast();
+import axios from "axios";
 
-export const useMainProducts = defineStore("mainProducts", {
-  state: () => ({ categories: [] }),
-
+export const useBannerStore = defineStore("bannerStore", {
+  state: () => ({
+    banners: [],
+  }),
   actions: {
-    async getAllProductsByCategory() {
+    async getAllBanners() {
       const loadingStore = useLoadingStore();
-      loadingStore.loading = true;
+      const toast = useToast();
       try {
-        const res = await axios.get("/categories");
-        this.categories = res.data.data.categories;
+        loadingStore.loading = true;
+        const banners = await axios.get("/swapers");
+        this.banners = banners.data.data.swapers;
       } catch (error) {
         toast.error(error.message);
       } finally {

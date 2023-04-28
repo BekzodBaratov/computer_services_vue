@@ -14,10 +14,6 @@
     :modules="[Navigation, Lazy]"
     class="swiperCardComp max-h-[34rem]"
   >
-    <!-- <SwiperSlide v-for="product in 5" :key="product.id">
-      <Card v-if="props.products" :product="product" />
-      <Review />
-    </SwiperSlide> -->
     <slot></slot>
   </Swiper>
 </template>

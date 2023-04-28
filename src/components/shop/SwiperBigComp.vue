@@ -1,60 +1,37 @@
 <template>
-  <swiper
-    :centeredSlides="true"
-    :loop="true"
-    :navigation="true"
-    :breakpoints="{
-      240: {
-        slidesPerView: 1.1,
-        spaceBetween: 10,
-      },
-      768: {
-        slidesPerView: 1.2,
-        spaceBetween: 20,
-      },
-      1024: {
-        slidesPerView: 1.3,
-        spaceBetween: 30,
-      },
-    }"
-    :pagination="{
-      clickable: true,
-    }"
-    :modules="[Pagination, Navigation]"
-    class="mySwiper swiperBigComp"
-  >
-    <swiper-slide v-for="(val, i) in store.arr" :key="i">
-      <RouterLink :to="val.link">
-        <img class="w-full" src="../../assets/img/magazin/Group2.png" alt="val" />
-      </RouterLink>
-    </swiper-slide>
-  </swiper>
+  <div class="mx-28 rounded-xl overflow-hidden">
+    <swiper
+      :centeredSlides="true"
+      :loop="true"
+      :navigation="true"
+      :slidesPerView="1"
+      :pagination="{
+        clickable: true,
+      }"
+      :autoPlay="{
+        delay: 2000,
+      }"
+      :modules="[Pagination, Navigation]"
+      class="mySwiper swiperBigComp"
+    >
+      <swiper-slide v-if="store.banners.length" v-for="val in store.banners" :key="val.id">
+        <RouterLink :to="`/shop/${val.productId}`">
+          <img class="w-full object-cover object-center" :src="val.imageUrl" :alt="val.title" />
+        </RouterLink>
+      </swiper-slide>
+    </swiper>
+  </div>
 </template>
 
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 import { RouterLink } from "vue-router";
-import { shopStore } from "../../store/shop";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper";
-
-const store = shopStore();
+import { useBannerStore } from "../../store/banner";
+const store = useBannerStore();
+store.getAllBanners();
 </script>
-
-<!-- :breakpoints="{
-  240: {
-    slidesPerView: 1.2,
-    spaceBetween: 10,
-  },
-  768: {
-    slidesPerView: 1.5,
-    spaceBetween: 20,
-  },
-  1024: {
-    slidesPerView: 2,
-    spaceBetween: 30,
-  },
-}" -->
