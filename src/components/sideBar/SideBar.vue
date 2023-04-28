@@ -87,11 +87,11 @@
         >
           <li @click="handleLogup" class="px-8 py-3 rounded-md duration-200 hover:bg-gray-200">
             <i class="fa-solid fa-arrow-right-to-bracket pr-4"></i>
-            Регистрация
+              {{ $t('register') }}
           </li>
           <li @click="handleLogin" class="px-8 py-3 rounded-md duration-200 hover:bg-gray-200">
             <i class="fa-solid fa-arrow-right-to-bracket pr-4"></i>
-            Вход
+              {{ $t('exit') }}
           </li>
         </ul>
       </div>

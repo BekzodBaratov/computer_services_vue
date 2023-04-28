@@ -46,7 +46,7 @@
               class="menu w-full text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 shadow-lg"
             >
               <div class="flex justify-between items-center font-bold">
-                <p>Итого</p>
+                <p>{{$t('all')}}</p>
                 <p>{{ numberWithSpaces(basketStore.allSum) }} сум</p>
               </div>
             </div>

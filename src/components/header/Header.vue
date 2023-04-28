@@ -111,7 +111,7 @@
           class="relative before:duration-300 before:absolute before:bottom-0 before:opacity-0 hover:before:opacity-100 hover:before:bottom-3 before:left-1/2 hover:before:left-0 hover:before: before:w-2 hover:before:w-full before:h-[1px] before:bg-white"
           :class="router.currentRoute.value.path === val.link ? 'text-primary' : 'text-[#F4F6F9]'"
         >
-          <RouterLink class="capitalize" :to="val.link">{{ val.name }}</RouterLink>
+          <RouterLink class="capitalize" :to="val.link">{{ $t(val.name) }}</RouterLink>
         </li>
       </ul>
 
@@ -126,7 +126,7 @@
 
         <div class="hidden md:flex items-center gap-2" v-if="!store.isRegisteration">
           <span @click="isRegisterationModal = true" class="duration-200 cursor-pointer hover:text-primary"
-            >Регистрация</span
+            >{{ $t('register') }}</span
           >
           <span
             @click="isLoginModal = true"
@@ -160,7 +160,7 @@
                 />
               </svg>
             </span>
-            Вход
+            {{$t('exit')}}
           </span>
         </div>
 
@@ -207,11 +207,11 @@ const router = useRouter();
 const { t } = useI18n();
 
 const routeNav = ref([
-  { name: t("header.service"), link: "/services" },
-  { name: t("header.magazin"), link: "/shop" },
-  { name: t("header.fix"), link: "/configurator" },
-  { name: t("header.about"), link: "/about" },
-  { name: t("header.contact"), link: "/contact" },
+  { name: ("header.service"), link: "/services" },
+  { name: ("header.magazin"), link: "/shop" },
+  { name: ("header.fix"), link: "/configurator" },
+  { name: ("header.about"), link: "/about" },
+  { name: ("header.contact"), link: "/contact" },
 ]);
 
 const isLoginModal = ref(false);
