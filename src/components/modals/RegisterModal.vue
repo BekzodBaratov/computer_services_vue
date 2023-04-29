@@ -7,7 +7,7 @@
           <img class="w-28 self-center mb-1" src="../../assets/login/logo.png" alt="logo_img" />
           <form class="flex flex-col gap-2 mb-8">
             <div class="name flex flex-col gap-0">
-              <label for="username text-sm">Your Name:</label>
+              <label for="username text-sm">Ваше имя:</label>
               <input
                 class="bg-transparent border min-w-[16rem] border-white rounded-xl py-1 px-3 text-[#f4f4f9] outline-none text-center placeholder:text-[#f4f6f927]"
                 type="text"
@@ -21,7 +21,7 @@
               </p>
             </div>
             <div class="email flex flex-col gap-0">
-              <label for="email">Your Email:</label>
+              <label for="email">Электронная почта:</label>
               <input
                 class="bg-transparent border min-w-[16rem] border-white rounded-xl py-1 px-3 text-[#f4f4f9] outline-none text-center placeholder:text-[#f4f6f927]"
                 type="email"
@@ -33,7 +33,7 @@
               <p v-if="v$.email.$error" class="text-sm text-end text-red-600">{{ v$.email.$errors[0].$message }}*</p>
             </div>
             <div class="password flex flex-col gap-0">
-              <label for="password">Your Password:</label>
+              <label for="password">Пароль:</label>
               <input
                 class="bg-transparent capitalize border min-w-[16rem] border-white rounded-xl py-1 px-3 text-[#f4f4f9] outline-none text-center placeholder:text-[#F4F6F9B2]"
                 type="password"
@@ -46,7 +46,7 @@
               </p>
             </div>
             <div class="confirmPassword flex flex-col gap-0">
-              <label for="passwordConfirm">Confirm Password:</label>
+              <label for="passwordConfirm">Подтвердите пароль:</label>
               <input
                 class="bg-transparent capitalize border min-w-[16rem] border-white rounded-xl py-1 px-3 text-[#f4f4f9] outline-none text-center placeholder:text-[#F4F6F9B2]"
                 type="password"
