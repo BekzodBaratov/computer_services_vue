@@ -38,15 +38,20 @@
 
         <div class="mb-6 max-w-[600px]">
           <div class="bg-[#4F87D30D] ml-0 md:ml-20 rounded pt-6">
-            <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] overflow-scroll ">
-                <BasketCard class="flex-shrink-0" v-for="(item,index) in basketStore.products" :key="index" :item="item"/>
+            <div class="cards px-6 flex flex-col gap-3 max-h-[30rem] overflow-scroll">
+              <BasketCard
+                class="flex-shrink-0"
+                v-for="(item, index) in basketStore.products"
+                :key="index"
+                :item="item"
+              />
             </div>
             <div
               v-if="basketStore.productCount > 0"
               class="menu w-full text-primaryBlue rounded-t-xl px-8 py-8 space-y-6 shadow-lg"
             >
               <div class="flex justify-between items-center font-bold">
-                <p>{{$t('all')}}</p>
+                <p>{{ $t("all") }}</p>
                 <p>{{ numberWithSpaces(basketStore.allSum) }} сум</p>
               </div>
             </div>
@@ -118,9 +123,8 @@
 </template>
 
 <script setup>
-import {ref, computed, reactive, onMounted} from "vue";
+import { ref, computed, reactive, onMounted } from "vue";
 import SearchFormCompVue from "../components/shop/SearchFormComp.vue";
-import InputCount from "../components/shop/InputCount.vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import BasketCard from "../components/card/BasketCard.vue";
 import numberWithSpaces from "../helpers/numberFormat";
@@ -129,10 +133,10 @@ import { useToast } from "vue-toastification";
 import { required, minLength, helpers, maxLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import axios from "axios";
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 const basketStore = useBasketStore();
 const toast = useToast();
-const router = useRouter()
+const router = useRouter();
 const isOpenModal = ref(false);
 
 let state = ref({ username: "", phone: "" });
@@ -149,55 +153,52 @@ const rules = computed(() => {
 });
 const v$ = useVuelidate(rules, state);
 
-
-
 const sendData = reactive({
-    amount:basketStore.allSum,
-    location:null,
-    phone_number:"",
-    full_name:"",
-    comment:"",
-    products : []
-})
+  amount: basketStore.allSum,
+  location: null,
+  phone_number: "",
+  full_name: "",
+  comment: "",
+  products: [],
+});
 
-sendData.products = computed(() =>{
-    const arr = []
-    for(let i = 0 ; i < basketStore.products.length;i++){
-        let obj = {
-            id : basketStore.products[i].id,
-            amount: basketStore.products[i].count
-
-        }
-        arr.push(obj)
-    }
-    return arr
-})
+sendData.products = computed(() => {
+  const arr = [];
+  for (let i = 0; i < basketStore.products.length; i++) {
+    let obj = {
+      id: basketStore.products[i].id,
+      amount: basketStore.products[i].count,
+    };
+    arr.push(obj);
+  }
+  return arr;
+});
 const formLoginData = () => {
   v$.value.$validate();
   if (v$.value.$error) return;
-    sendData.phone_number = state.value.phone
-    sendData.full_name = state.value.username
-    if(sendData.products.length){
-        axios.post("/orders",{...sendData}).then((res)=>{
-            toast.success("So'qovingiz muvaffaqiyatli amalga oshirildi")
-            setTimeout(() =>{
-                router.push("/")
-                localStorage.clear();
-
-            },2000)
-            setTimeout(() =>{
-                window.location.reload()
-                router.push("/")
-            },3000)
-        }).catch((err)=>{
-            toast.error("Yuborishda xatolik yuz berdi")
-        })
-    }
-  else{
-      toast("Yuborish uchun savatchangizda kamida bitta mahsulot bo'lishi kerak!")
-    }
+  sendData.phone_number = state.value.phone;
+  sendData.full_name = state.value.username;
+  if (sendData.products.length) {
+    axios
+      .post("/orders", { ...sendData })
+      .then((res) => {
+        toast.success("So'qovingiz muvaffaqiyatli amalga oshirildi");
+        setTimeout(() => {
+          router.push("/");
+          localStorage.clear();
+        }, 2000);
+        setTimeout(() => {
+          window.location.reload();
+          router.push("/");
+        }, 3000);
+      })
+      .catch((err) => {
+        toast.error("Yuborishda xatolik yuz berdi");
+      });
+  } else {
+    toast("Yuborish uchun savatchangizda kamida bitta mahsulot bo'lishi kerak!");
+  }
 };
-
 </script>
 
 <style>

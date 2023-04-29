@@ -127,26 +127,26 @@ const formLoginData = () => {
     // fetchApi(state);
   }
 };
-const fetchApi = (data) => {
-  axios({
-    method: "post",
-    url: "users/commit",
-    withCredentials: true,
-    data: data,
-  })
-    .then(function (response) {
-      // store.user = response.data.data.user;
-      alert(response.data.message);
-    })
-    .catch(function (error) {
-      alert(error.message + ", Please try again");
-    })
-    .finally(function () {
-      loading.value = false;
+// const fetchApi = (data) => {
+//   axios({
+//     method: "post",
+//     url: "users/commit",
+//     withCredentials: true,
+//     data: data,
+//   })
+//     .then(function (response) {
+//       // store.user = response.data.data.user;
+//       alert(response.data.message);
+//     })
+//     .catch(function (error) {
+//       alert(error.message + ", Please try again");
+//     })
+//     .finally(function () {
+//       loading.value = false;
 
-      state.name = "";
-      state.email = "";
-      state.comment = "";
-    });
-};
+//       state.name = "";
+//       state.email = "";
+//       state.comment = "";
+//     });
+// };
 </script>
