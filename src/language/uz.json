@@ -69,5 +69,8 @@
     "btn": "Jo`natish",
     "contactUs": "Bizning Kontakt",
     "address": "Universam savdo markazi, Toshkent 100037, Oʻzbekiston"
-  }
+  },
+  "register" : "Registratsiya",
+  "exit": "Kirish",
+  "all" : "Jami"
 }

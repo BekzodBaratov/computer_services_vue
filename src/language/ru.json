@@ -54,7 +54,7 @@
     "btnPay": "Купить"
   },
   "about": {
-    "title": "Bizning vazifamiz",
+    "title": "Наша миссия",
     "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis a blanditiis aspernatur perspiciatis commodi quisquam distinctio animi atque obcaecati rerum incidunt, illum, nostrum minima dolorem, amet dolores eius corporis expedita quidem natus architecto mollitia! Rerum quos ea harum sit vel.",
     "leaders": "Познакомьтесь с нашими лидерами",
     "leadersDesc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
@@ -69,5 +69,8 @@
     "btn": "Отправить",
     "contactUs": "Cвязаться с нами",
     "address": "Торговый центр Универсам, Tashkent 100037, Узбекистан"
-  }
+  },
+  "register" : "Регистрация",
+  "exit": "Вход",
+  "all" : "Общий"
 }

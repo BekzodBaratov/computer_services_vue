@@ -37,14 +37,14 @@
             <div class="flex justify-center">
               <button type="submit" @click.prevent="formLoginData">
                 <ButtonFillVue>
-                  <span class="py-1 px-4">Вход</span>
+                  <span class="py-1 px-4">{{ $t('exit') }}</span>
                 </ButtonFillVue>
               </button>
             </div>
           </form>
           <div class="flex justify-between items-center">
             <div @click="emit('changeTo')" class="underline hover:no-underline active:no-underline cursor-pointer">
-              Регистрация
+                {{ $t('register') }}
             </div>
             <div @click="emit('changeTo')" class="underline hover:no-underline active:no-underline cursor-pointer">
               Забыли пароль?

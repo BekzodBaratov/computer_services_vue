@@ -3,11 +3,11 @@
     <swiper
       :centeredSlides="true"
       :loop="true"
+      :autoplay="{ delay: 2000, disableOnInteraction: false }"
       :navigation="true"
       :slidesPerView="1"
       :spaceBetween="16"
       :pagination="{ clickable: true }"
-      :autoplay="{ delay: 2000, disableOnInteraction: false }"
       :modules="[Pagination, Navigation, Autoplay]"
       class="bannerSwiper swiperBigComp"
     >
