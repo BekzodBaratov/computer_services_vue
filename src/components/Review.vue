@@ -22,7 +22,8 @@
     <div class="leading-relaxed text-white text-sm pb-2 md:pb-6 lg:pb-8">
       {{ props.review.body }}
     </div>
-    <p class="date text-white">{{ date(props.review?.createdAt) }}</p>
+<!--    <p class="date text-white">{{ date(props.review?.createdAt) }}</p>-->
+    <p class="date text-white">{{ (props.review?.createdAt) }}</p>
   </div>
 </template>
 

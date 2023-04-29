@@ -1,12 +1,13 @@
 <template>
   <div class="homeHero">
+<!--      <pre>{{homeData}}</pre>-->
     <div class="container mx-auto py-12 flex">
       <div class="w-full md:w-[45%]">
         <div>
           <h1 ref="titleName" class="text-primary text-5xl font-semibold mb-6">STAR NEW TECH</h1>
         </div>
         <div ref="targetEl1">
-          <p class="text-3xl mb-2">{{ t("home.hero.1") }}</p>
+          <p class="text-3xl mb-2">{{ homeData?.firstText ? homeData?.firstText :  $t('home.hero.1')  }}</p>
           <div class="flex justify-start mb-6">
             <ButtonFillVue to="/services">
               <span class="py-1">{{ t("header.service") }}</span>
@@ -14,7 +15,7 @@
           </div>
         </div>
         <div ref="targetEl2">
-          <p class="text-3xl mb-2">{{ t("home.hero.2") }}</p>
+          <p class="text-3xl mb-2">{{ homeData?.secondText ? homeData?.secondText : $t('home.hero.2')  }}</p>
           <div class="flex justify-start mb-6">
             <ButtonFillVue to="/shop">
               <span class="py-1">{{ t("header.magazin") }}</span>
@@ -22,7 +23,7 @@
           </div>
         </div>
         <div ref="targetEl3">
-          <p class="text-3xl mb-2">{{ t("home.hero.3") }}</p>
+          <p class="text-3xl mb-2">{{ homeData?.thirdText ? homeData?.thirdText : $t('home.hero.3') }}</p>
           <div class="flex justify-start mb-6">
             <ButtonFillVue to="/configurator">
               <span class="py-1">{{ t("header.fix") }}</span>
@@ -31,7 +32,8 @@
         </div>
       </div>
       <div ref="heroImg" class="hidden md:block">
-        <img class="w-full" src="../assets/img/home/Layer.png" alt="#Layer" />
+<!--        <img class="w-full" src="../assets/img/home/Layer.png" alt="#Layer" />-->
+        <img class="w-full" :src="homeData?.image" alt="#Layer" />
       </div>
     </div>
   </div>
@@ -195,13 +197,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import { useI18n } from "vue-i18n";
 import CustomSwiper from "../components/swiper.vue";
 import Review from "../components/Review.vue";
 import { useMotion } from "@vueuse/motion";
 import { SwiperSlide } from "swiper/vue";
+import axios from "axios";
 
 const { t } = useI18n();
 
@@ -271,56 +274,74 @@ useMotion(commits, {
   visible: { opacity: 1, x: 0, transition: { duration: 800 } },
 });
 
+const homeData = ref()
+
+function fetchBannerData (){
+    axios.get('/spiners').then((res)=>{
+        homeData.value = res.data.data.spiner
+    })
+}
+
+onMounted(() =>{
+    fetchBannerData()
+})
 const reviews = [
   {
     id: 0,
-    user: { username: "Madina" },
-    rating: 4,
-    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
-    createdAt: "2000,07,02",
+    user: { username: "Валишер" },
+    rating: 5,
+    body: "Я попробовал услуги StarNewTech, и мне понравилось их обслуживание. С тех пор являюсь клиентом этой компании, какая бы проблема не была, они находят решение!.",
+    createdAt: "25-04-2023 18:35",
   },
   {
     id: 1,
-    user: { username: "Tohir" },
-    rating: 3,
-    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
-    createdAt: "2000,08,20",
+    user: { username: "Бекзод" },
+    rating: 4,
+    body: "Мой компьютер не включался. StartNewTech решил эту проблему быстро и качественно. Одна из лучших компаний, которых я знаю. Быстро и качественно",
+    createdAt: "20-04-2023 09:00",
   },
   {
     id: 2,
-    user: { username: "Kamoliddin" },
+    user: { username: "Медина" },
     rating: 5,
-    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
-    createdAt: "2000,08,12",
+    body: "Я хотел купить новый компьютер.Я смотрел на многих рынках и цены были очень дорогими.Потом мой друг предложил это место.Здесь намного дешевле.",
+    createdAt: "27-04-2023 13:00",
   },
   {
     id: 3,
-    user: { username: "Madina" },
+    user: { username: "Ниёзбек" },
     rating: 4,
-    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
-    createdAt: "2000,07,02",
+    body: "Я зашла на сайт Starnewtech, выбрала и заказала понравившиеся товары, со мной связались и быстро доставили.Все отлично!Я остался доволен обслуживанием",
+    createdAt: "18-04-2023 07:23",
   },
-  {
-    id: 4,
-    user: { username: "Madina" },
-    rating: 4,
-    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
-    createdAt: "2000,07,02",
-  },
-  {
-    id: 5,
-    user: { username: "Madina" },
-    rating: 4,
-    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
-    createdAt: "2000,07,02",
-  },
-  {
-    id: 6,
-    user: { username: "Madina" },
-    rating: 4,
-    body: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti laboriosam libero natus in. Quam placeat rerum exercitationem beatae nesciunt. Aut.",
-    createdAt: "2000,07,02",
-  },
+    {
+        id: 0,
+        user: { username: "Валишер" },
+        rating: 5,
+        body: "Я попробовал услуги StarNewTech, и мне понравилось их обслуживание. С тех пор являюсь клиентом этой компании, какая бы проблема не была, они находят решение!.",
+        createdAt: "25-04-2023 18:35",
+    },
+    {
+        id: 1,
+        user: { username: "Бекзод" },
+        rating: 4,
+        body: "Мой компьютер не включался. StartNewTech решил эту проблему быстро и качественно. Одна из лучших компаний, которых я знаю. Быстро и качественно",
+        createdAt: "20-04-2023 09:00",
+    },
+    {
+        id: 2,
+        user: { username: "Медина" },
+        rating: 5,
+        body: "Я хотел купить новый компьютер.Я смотрел на многих рынках и цены были очень дорогими.Потом мой друг предложил это место.Здесь намного дешевле.",
+        createdAt: "27-04-2023 13:00",
+    },
+    {
+        id: 3,
+        user: { username: "Ниёзбек" },
+        rating: 4,
+        body: "Я зашла на сайт Starnewtech, выбрала и заказала понравившиеся товары, со мной связались и быстро доставили.Все отлично!Я остался доволен обслуживанием",
+        createdAt: "18-04-2023 07:23",
+    },
 ];
 </script>
 
