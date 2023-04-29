@@ -21,6 +21,9 @@ module.exports = {
         primaryBlue: "#4F87D3",
         blue100: "#E7F0FE",
       },
+      aspectRatio: {
+        "10/4": "10 / 4",
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

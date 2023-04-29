@@ -1,22 +1,24 @@
 <template>
-  <div class="mx-28 rounded-xl overflow-hidden">
+  <div class="container mx-auto rounded-xl overflow-hidden">
     <swiper
       :centeredSlides="true"
       :loop="true"
       :navigation="true"
       :slidesPerView="1"
-      :pagination="{
-        clickable: true,
-      }"
-      :autoPlay="{
-        delay: 2000,
-      }"
-      :modules="[Pagination, Navigation]"
-      class="mySwiper swiperBigComp"
+      :spaceBetween="16"
+      :pagination="{ clickable: true }"
+      :autoplay="{ delay: 2000, disableOnInteraction: false }"
+      :modules="[Pagination, Navigation, Autoplay]"
+      class="bannerSwiper swiperBigComp"
     >
-      <swiper-slide v-if="store.banners.length" v-for="val in store.banners" :key="val.id">
-        <RouterLink :to="`/shop/${val.productId}`">
-          <img class="w-full object-cover object-center" :src="val.imageUrl" :alt="val.title" />
+      <swiper-slide
+        class="rounded-xl overflow-hidden"
+        v-if="store.banners.length"
+        v-for="val in store.banners"
+        :key="val.id"
+      >
+        <RouterLink class="block aspect-10/4" :to="`/shop/${val.productId}`">
+          <img class="w-full h-full object-cover object-center" :src="val.imageUrl" :alt="val.title" />
         </RouterLink>
       </swiper-slide>
     </swiper>
@@ -30,8 +32,14 @@ import { RouterLink } from "vue-router";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 import { useBannerStore } from "../../store/banner";
 const store = useBannerStore();
 store.getAllBanners();
 </script>
+
+<style scoped>
+.bannerSwiper {
+  padding: 0;
+}
+</style>
