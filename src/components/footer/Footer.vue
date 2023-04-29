@@ -34,7 +34,7 @@
           </form>
         </div>
 
-        <div class="text-[#F4F6F9] text-lg font-light">2022. All rights reserved.</div>
+        <div class="text-[#F4F6F9] text-lg font-light">2023. All rights reserved.</div>
       </div>
     </div>
   </footer>
