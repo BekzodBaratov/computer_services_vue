@@ -17,7 +17,7 @@
         v-for="val in store.banners"
         :key="val.id"
       >
-        <RouterLink class="block aspect-10/4" :to="`/shop/${val.productId}`">
+        <RouterLink class="block aspect-10/3" :to="`/shop/${val.productId}`">
           <img class="w-full h-full object-cover object-center" :src="val.imageUrl" :alt="val.title" />
         </RouterLink>
       </swiper-slide>
