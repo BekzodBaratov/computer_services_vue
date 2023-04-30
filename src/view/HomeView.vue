@@ -1,13 +1,17 @@
 <template>
   <div class="homeHero">
-<!--      <pre>{{homeData}}</pre>-->
+    <!--      <pre>{{homeData}}</pre>-->
     <div class="container mx-auto py-12 flex">
       <div class="w-full md:w-[45%]">
         <div>
-          <h1 ref="titleName" class="text-primary text-5xl font-semibold mb-6">STAR NEW TECH</h1>
+          <h1 ref="titleName" class="text-primary text-5xl font-semibold mb-6">
+            STAR NEW TECH
+          </h1>
         </div>
         <div ref="targetEl1">
-          <p class="text-3xl mb-2">{{ homeData?.firstText ? homeData?.firstText :  $t('home.hero.1')  }}</p>
+          <p class="text-3xl mb-2">
+            {{ homeData?.firstText ? homeData?.firstText : $t("home.hero.1") }}
+          </p>
           <div class="flex justify-start mb-6">
             <ButtonFillVue to="/services">
               <span class="py-1">{{ t("header.service") }}</span>
@@ -15,7 +19,11 @@
           </div>
         </div>
         <div ref="targetEl2">
-          <p class="text-3xl mb-2">{{ homeData?.secondText ? homeData?.secondText : $t('home.hero.2')  }}</p>
+          <p class="text-3xl mb-2">
+            {{
+              homeData?.secondText ? homeData?.secondText : $t("home.hero.2")
+            }}
+          </p>
           <div class="flex justify-start mb-6">
             <ButtonFillVue to="/shop">
               <span class="py-1">{{ t("header.magazin") }}</span>
@@ -23,7 +31,9 @@
           </div>
         </div>
         <div ref="targetEl3">
-          <p class="text-3xl mb-2">{{ homeData?.thirdText ? homeData?.thirdText : $t('home.hero.3') }}</p>
+          <p class="text-3xl mb-2">
+            {{ homeData?.thirdText ? homeData?.thirdText : $t("home.hero.3") }}
+          </p>
           <div class="flex justify-start mb-6">
             <ButtonFillVue to="/configurator">
               <span class="py-1">{{ t("header.fix") }}</span>
@@ -32,7 +42,7 @@
         </div>
       </div>
       <div ref="heroImg" class="hidden md:block">
-<!--        <img class="w-full" src="../assets/img/home/Layer.png" alt="#Layer" />-->
+        <!--        <img class="w-full" src="../assets/img/home/Layer.png" alt="#Layer" />-->
         <img class="w-full" :src="homeData?.image" alt="#Layer" />
       </div>
     </div>
@@ -44,13 +54,26 @@
 
   <div class="homeSteps">
     <div class="container mx-auto">
-      <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-start">
-        <p ref="sectionTitle1" class="text-3xl text-primary max-w-xs">{{ t("home.service.title") }}</p>
-        <div ref="cards" class="flex justify-between gap-3 md:gap-12 min-h-[18rem]">
+      <div
+        class="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-start"
+      >
+        <p ref="sectionTitle1" class="text-3xl text-primary max-w-xs">
+          {{ t("home.service.title") }}
+        </p>
+        <div
+          ref="cards"
+          class="flex justify-between gap-3 md:gap-12 min-h-[18rem]"
+        >
           <div
             class="card relative self-start bg-white px-2 md:px-6 py-10 rounded shadow-xl flex flex-col items-center gap-8"
           >
-            <svg width="6rem" height="4rem" viewBox="0 0 96 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="6rem"
+              height="4rem"
+              viewBox="0 0 96 101"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M51.2974 73.7026C51.5248 72.7927 51.5248 71.6553 51.5248 70.5179C51.5248 69.3805 51.5248 68.4706 51.2974 67.3332L57.6667 62.7836C58.3492 62.3287 58.5766 61.4188 58.1217 60.7363L51.9798 50.2723C51.5248 49.5899 50.8424 49.3624 50.16 49.5899L43.1081 53.0021C41.5158 51.6372 39.696 50.7273 37.6487 49.8174L36.9662 42.0831C36.9662 41.4007 36.2838 40.7183 35.6014 40.7183H23.545C22.8626 40.7183 22.1802 41.4007 22.1802 42.0831L21.2703 50.0449C19.223 50.7273 17.6306 51.8647 15.8108 53.2296L8.75897 50.0449C8.07654 49.8174 7.16663 50.0449 6.93915 50.7273L0.797242 61.1913C0.342286 61.8737 0.569764 62.7836 1.2522 63.2386L7.62158 67.7881C7.3941 68.6981 7.3941 69.8354 7.3941 70.9728C7.3941 72.1102 7.3941 73.0201 7.62158 74.1575L1.2522 78.7071C0.569764 79.162 0.342286 80.072 0.797242 80.7544L6.93915 91.2184C7.3941 91.9008 8.07654 92.1283 8.75897 91.9008L15.8108 88.7161C17.4031 90.081 19.223 90.9909 21.2703 91.9008L21.9527 99.6351C21.9527 100.317 22.6351 101 23.3176 101H35.3739C36.0563 101 36.7388 100.317 36.7388 99.6351L37.4212 91.9008C39.4685 91.2184 41.0608 90.081 42.8807 88.7161L49.9325 91.9008C50.6149 92.1283 51.5248 91.9008 51.7523 91.2184L57.8942 80.7544C58.3492 80.072 58.1217 79.162 57.4393 78.7071L51.2974 73.7026ZM29.4595 81.8918C23.0901 81.8918 18.0856 76.8873 18.0856 70.5179C18.0856 64.1485 23.0901 59.144 29.4595 59.144C35.8288 59.144 40.8334 64.1485 40.8334 70.5179C40.8334 76.8873 35.8288 81.8918 29.4595 81.8918Z"
                 fill="#E65100"
@@ -61,25 +84,45 @@
               />
             </svg>
             <p class="max-w-[12rem]">{{ t("home.service.ans.1") }}</p>
-            <p class="absolute -bottom-5 text-4xl text-primary font-black opacity-50">1</p>
+            <p
+              class="absolute -bottom-5 text-4xl text-primary font-black opacity-50"
+            >
+              1
+            </p>
           </div>
           <div
             class="card relative self-end bg-white px-2 md:px-6 py-10 rounded shadow-xl flex flex-col items-center gap-8"
           >
-            <svg width="5rem" height="4.4rem" viewBox="0 0 118 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="5rem"
+              height="4.4rem"
+              viewBox="0 0 118 101"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M60.867 1.09423C59.984 0.385928 58.8865 0 57.7553 0C56.6241 0 55.5267 0.385928 54.6436 1.09423L35.9734 16.0581C35.4402 16.4594 34.9929 16.9639 34.6581 17.5418C34.3232 18.1196 34.1077 18.7589 34.0242 19.4218C33.9407 20.0847 33.9911 20.7576 34.1722 21.4006C34.3533 22.0437 34.6615 22.6437 35.0785 23.1651C35.4955 23.6865 36.0128 24.1186 36.5998 24.4359C37.1867 24.7531 37.8312 24.949 38.4952 25.0119C39.1591 25.0748 39.8289 25.0034 40.4648 24.802C41.1007 24.6005 41.6896 24.2732 42.1968 23.8393L57.7553 11.3694L73.3138 23.8393C74.348 24.6177 75.644 24.9622 76.9274 24.8C78.2107 24.6378 79.3807 23.9816 80.1895 22.9703C80.9984 21.959 81.3826 20.672 81.2608 19.3818C81.1391 18.0917 80.5209 16.8996 79.5372 16.0581L60.867 1.09423ZM11.7021 34.9126C8.73114 34.9126 5.88183 36.095 3.78103 38.1997C1.68022 40.3044 0.5 43.159 0.5 46.1355V53.6174C0.5 56.5939 1.68022 59.4485 3.78103 61.5532C5.88183 63.6579 8.73114 64.8403 11.7021 64.8403C14.6731 64.8403 17.5224 63.6579 19.6232 61.5532C21.724 59.4485 22.9043 56.5939 22.9043 53.6174V46.1355C22.9043 44.6617 22.6145 43.2023 22.0515 41.8406C21.4886 40.479 20.6634 39.2418 19.6232 38.1997C18.583 37.1575 17.3481 36.3309 15.989 35.7669C14.6299 35.2029 13.1732 34.9126 11.7021 34.9126ZM7.96808 46.1355C7.96808 45.1433 8.36149 44.1918 9.06176 43.4902C9.76203 42.7886 10.7118 42.3945 11.7021 42.3945C12.6925 42.3945 13.6422 42.7886 14.3425 43.4902C15.0428 44.1918 15.4362 45.1433 15.4362 46.1355V53.6174C15.4362 54.6096 15.0428 55.5611 14.3425 56.2627C13.6422 56.9642 12.6925 57.3584 11.7021 57.3584C10.7118 57.3584 9.76203 56.9642 9.06176 56.2627C8.36149 55.5611 7.96808 54.6096 7.96808 53.6174V46.1355ZM39.0851 34.9126C36.1141 34.9126 33.2648 36.095 31.164 38.1997C29.0632 40.3044 27.883 43.159 27.883 46.1355V53.6174C27.883 56.5939 29.0632 59.4485 31.164 61.5532C33.2648 63.6579 36.1141 64.8403 39.0851 64.8403C42.0561 64.8403 44.9054 63.6579 47.0062 61.5532C49.107 59.4485 50.2872 56.5939 50.2872 53.6174V46.1355C50.2872 43.159 49.107 40.3044 47.0062 38.1997C44.9054 36.095 42.0561 34.9126 39.0851 34.9126ZM35.3511 46.1355C35.3511 45.1433 35.7445 44.1918 36.4447 43.4902C37.145 42.7886 38.0948 42.3945 39.0851 42.3945C40.0754 42.3945 41.0252 42.7886 41.7255 43.4902C42.4257 44.1918 42.8191 45.1433 42.8191 46.1355V53.6174C42.8191 54.6096 42.4257 55.5611 41.7255 56.2627C41.0252 56.9642 40.0754 57.3584 39.0851 57.3584C38.0948 57.3584 37.145 56.9642 36.4447 56.2627C35.7445 55.5611 35.3511 54.6096 35.3511 53.6174V46.1355ZM67.7128 46.1355C67.7128 43.159 68.893 40.3044 70.9938 38.1997C73.0946 36.095 75.9439 34.9126 78.9149 34.9126C81.8859 34.9126 84.7352 36.095 86.836 38.1997C88.9368 40.3044 90.117 43.159 90.117 46.1355V53.6174C90.117 56.5939 88.9368 59.4485 86.836 61.5532C84.7352 63.6579 81.8859 64.8403 78.9149 64.8403C75.9439 64.8403 73.0946 63.6579 70.9938 61.5532C68.893 59.4485 67.7128 56.5939 67.7128 53.6174V46.1355ZM78.9149 42.3945C77.9246 42.3945 76.9748 42.7886 76.2745 43.4902C75.5743 44.1918 75.1809 45.1433 75.1809 46.1355V53.6174C75.1809 54.6096 75.5743 55.5611 76.2745 56.2627C76.9748 56.9642 77.9246 57.3584 78.9149 57.3584C79.9052 57.3584 80.855 56.9642 81.5553 56.2627C82.2555 55.5611 82.6489 54.6096 82.6489 53.6174V46.1355C82.6489 45.1433 82.2555 44.1918 81.5553 43.4902C80.855 42.7886 79.9052 42.3945 78.9149 42.3945ZM106.298 34.9126C103.327 34.9126 100.478 36.095 98.3768 38.1997C96.276 40.3044 95.0957 43.159 95.0957 46.1355V53.6174C95.0957 56.5939 96.276 59.4485 98.3768 61.5532C100.478 63.6579 103.327 64.8403 106.298 64.8403C109.269 64.8403 112.118 63.6579 114.219 61.5532C116.32 59.4485 117.5 56.5939 117.5 53.6174V46.1355C117.5 43.159 116.32 40.3044 114.219 38.1997C112.118 36.095 109.269 34.9126 106.298 34.9126ZM102.564 46.1355C102.564 45.1433 102.957 44.1918 103.658 43.4902C104.358 42.7886 105.308 42.3945 106.298 42.3945C107.288 42.3945 108.238 42.7886 108.938 43.4902C109.639 44.1918 110.032 45.1433 110.032 46.1355V53.6174C110.032 54.6096 109.639 55.5611 108.938 56.2627C108.238 56.9642 107.288 57.3584 106.298 57.3584C105.308 57.3584 104.358 56.9642 103.658 56.2627C102.957 55.5611 102.564 54.6096 102.564 53.6174V46.1355ZM62.734 43.6415C62.734 44.6337 62.3406 45.5852 61.6404 46.2867C60.9401 46.9883 59.9903 47.3825 59 47.3825C58.0097 47.3825 57.0599 46.9883 56.3596 46.2867C55.6594 45.5852 55.266 44.6337 55.266 43.6415C55.266 42.6493 55.6594 41.6978 56.3596 40.9962C57.0599 40.2947 58.0097 39.9005 59 39.9005C59.9903 39.9005 60.9401 40.2947 61.6404 40.9962C62.3406 41.6978 62.734 42.6493 62.734 43.6415ZM59 62.3463C59.9903 62.3463 60.9401 61.9522 61.6404 61.2506C62.3406 60.549 62.734 59.5975 62.734 58.6054C62.734 57.6132 62.3406 56.6617 61.6404 55.9601C60.9401 55.2585 59.9903 54.8644 59 54.8644C58.0097 54.8644 57.0599 55.2585 56.3596 55.9601C55.6594 56.6617 55.266 57.6132 55.266 58.6054C55.266 59.5975 55.6594 60.549 56.3596 61.2506C57.0599 61.9522 58.0097 62.3463 59 62.3463ZM60.8919 99.8857L80.8068 83.6748C81.7863 82.8273 82.398 81.631 82.5121 80.3394C82.6262 79.0479 82.2337 77.7625 81.418 76.7559C80.6023 75.7492 79.4273 75.1004 78.1422 74.9468C76.857 74.7933 75.5627 75.1472 74.5336 75.9335L57.7553 89.5905L40.977 75.9335C40.4725 75.497 39.8857 75.1665 39.2514 74.9615C38.617 74.7565 37.948 74.6812 37.284 74.7401C36.6201 74.7989 35.9747 74.9908 35.3861 75.3042C34.7975 75.6176 34.2778 76.0463 33.8577 76.5647C33.4375 77.0832 33.1256 77.6809 32.9403 78.3223C32.7551 78.9638 32.7003 79.636 32.7792 80.2991C32.8581 80.9622 33.0692 81.6027 33.3998 82.1826C33.7304 82.7624 34.1738 83.2699 34.7038 83.6748L54.6187 99.8857C55.5057 100.607 56.6132 101 57.7553 101C58.8975 101 60.0049 100.607 60.8919 99.8857Z"
                 fill="#138600"
               />
             </svg>
             <p class="max-w-[14rem]">{{ t("home.service.ans.2") }}</p>
-            <p class="absolute -top-5 text-4xl text-primary font-black opacity-50">2</p>
+            <p
+              class="absolute -top-5 text-4xl text-primary font-black opacity-50"
+            >
+              2
+            </p>
           </div>
           <div
             class="card relative self-start bg-white px-2 md:px-6 py-10 rounded shadow-xl flex-col items-center gap-8 justify-center"
           >
             <div class="flex justify-center">
-              <svg width="4rem" height="4rem" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="4rem"
+                height="4rem"
+                viewBox="0 0 101 101"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M60.6006 87.3231H40.4007C21.9261 87.3231 13.6777 79.0747 13.6777 60.6002V40.4002C13.6777 21.9256 21.9261 13.6772 40.4007 13.6772H60.6006C79.0752 13.6772 87.3236 21.9256 87.3236 40.4002V60.6002C87.3236 79.0747 79.0752 87.3231 60.6006 87.3231ZM40.4007 19.9897C25.3348 19.9897 19.9902 25.3343 19.9902 40.4002V60.6002C19.9902 75.666 25.3348 81.0106 40.4007 81.0106H60.6006C75.6665 81.0106 81.0111 75.666 81.0111 60.6002V40.4002C81.0111 25.3343 75.6665 19.9897 60.6006 19.9897H40.4007Z"
                   fill="#0058C7"
@@ -143,19 +186,33 @@
               </svg>
             </div>
             <p class="max-w-[12rem] pt-2">{{ t("home.service.ans.3") }}</p>
-            <p class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-4xl text-primary font-black opacity-50">3</p>
+            <p
+              class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-4xl text-primary font-black opacity-50"
+            >
+              3
+            </p>
           </div>
         </div>
       </div>
       <div class="grid grid-cols-2 my-16">
-        <p ref="sectionTitle2" class="text-3xl text-primary max-w-[10rem] md:max-w-xs">{{ t("home.steps.title") }}</p>
+        <p
+          ref="sectionTitle2"
+          class="text-3xl text-primary max-w-[10rem] md:max-w-xs"
+        >
+          {{ t("home.steps.title") }}
+        </p>
         <div ref="steps">
           <ol class="relative border-l-2 border-[#002e69bf]">
-            <li v-for="step in sercviceSteps" class="mb-10 ml-8">
+            <li v-for="(step, i) in sercviceSteps" class="mb-10 ml-8" :key="i">
               <span
                 class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white"
               >
-                <svg aria-hidden="true" class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  aria-hidden="true"
+                  class="w-3 h-3 text-blue-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fill-rule="evenodd"
                     d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
@@ -163,7 +220,11 @@
                   ></path>
                 </svg>
               </span>
-              <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">{{ step }}</h3>
+              <h3
+                class="flex items-center mb-1 text-lg font-semibold text-gray-900"
+              >
+                {{ step }}
+              </h3>
             </li>
           </ol>
         </div>
@@ -173,7 +234,10 @@
 
   <div class="comment">
     <div class="container mx-auto">
-      <div ref="sectionTitle3" class="relative inline font-medium text-3xl text-primary">
+      <div
+        ref="sectionTitle3"
+        class="relative inline font-medium text-3xl text-primary"
+      >
         <span class="py-3">{{ t("home.review") }}</span>
         <svg
           class="absolute left-full bottom-full"
@@ -184,11 +248,14 @@
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect width="35" height="35" rx="17.5" fill="#D52C55" />
-          <path d="M11.3 20.3H22.9V16.6H11.3V20.3ZM15.1 12.7V24.2H19.1V12.7H15.1Z" fill="#E7F0FE" />
+          <path
+            d="M11.3 20.3H22.9V16.6H11.3V20.3ZM15.1 12.7V24.2H19.1V12.7H15.1Z"
+            fill="#E7F0FE"
+          />
         </svg>
       </div>
       <CustomSwiper class="mt-4">
-        <SwiperSlide v-for="review in reviews">
+        <SwiperSlide v-for="(review, i) in reviews" :key="i">
           <Review :review="review" />
         </SwiperSlide>
       </CustomSwiper>
@@ -197,7 +264,7 @@
 </template>
 
 <script setup>
-import {onMounted, ref} from "vue";
+import { onMounted, ref } from "vue";
 import ButtonFillVue from "../components/buttons/ButtonFill.vue";
 import { useI18n } from "vue-i18n";
 import CustomSwiper from "../components/swiper.vue";
@@ -274,17 +341,17 @@ useMotion(commits, {
   visible: { opacity: 1, x: 0, transition: { duration: 800 } },
 });
 
-const homeData = ref()
+const homeData = ref();
 
-function fetchBannerData (){
-    axios.get('/spiners').then((res)=>{
-        homeData.value = res.data.data.spiner
-    })
+function fetchBannerData() {
+  axios.get("/spiners").then((res) => {
+    homeData.value = res.data.data.spiner;
+  });
 }
 
-onMounted(() =>{
-    fetchBannerData()
-})
+onMounted(() => {
+  fetchBannerData();
+});
 const reviews = [
   {
     id: 0,
@@ -314,34 +381,34 @@ const reviews = [
     body: "Я зашла на сайт Starnewtech, выбрала и заказала понравившиеся товары, со мной связались и быстро доставили.Все отлично!Я остался доволен обслуживанием",
     createdAt: "18-04-2023 07:23",
   },
-    {
-        id: 0,
-        user: { username: "Валишер" },
-        rating: 5,
-        body: "Я попробовал услуги StarNewTech, и мне понравилось их обслуживание. С тех пор являюсь клиентом этой компании, какая бы проблема не была, они находят решение!.",
-        createdAt: "25-04-2023 18:35",
-    },
-    {
-        id: 1,
-        user: { username: "Бекзод" },
-        rating: 4,
-        body: "Мой компьютер не включался. StartNewTech решил эту проблему быстро и качественно. Одна из лучших компаний, которых я знаю. Быстро и качественно",
-        createdAt: "20-04-2023 09:00",
-    },
-    {
-        id: 2,
-        user: { username: "Медина" },
-        rating: 5,
-        body: "Я хотел купить новый компьютер.Я смотрел на многих рынках и цены были очень дорогими.Потом мой друг предложил это место.Здесь намного дешевле.",
-        createdAt: "27-04-2023 13:00",
-    },
-    {
-        id: 3,
-        user: { username: "Ниёзбек" },
-        rating: 4,
-        body: "Я зашла на сайт Starnewtech, выбрала и заказала понравившиеся товары, со мной связались и быстро доставили.Все отлично!Я остался доволен обслуживанием",
-        createdAt: "18-04-2023 07:23",
-    },
+  {
+    id: 0,
+    user: { username: "Валишер" },
+    rating: 5,
+    body: "Я попробовал услуги StarNewTech, и мне понравилось их обслуживание. С тех пор являюсь клиентом этой компании, какая бы проблема не была, они находят решение!.",
+    createdAt: "25-04-2023 18:35",
+  },
+  {
+    id: 1,
+    user: { username: "Бекзод" },
+    rating: 4,
+    body: "Мой компьютер не включался. StartNewTech решил эту проблему быстро и качественно. Одна из лучших компаний, которых я знаю. Быстро и качественно",
+    createdAt: "20-04-2023 09:00",
+  },
+  {
+    id: 2,
+    user: { username: "Медина" },
+    rating: 5,
+    body: "Я хотел купить новый компьютер.Я смотрел на многих рынках и цены были очень дорогими.Потом мой друг предложил это место.Здесь намного дешевле.",
+    createdAt: "27-04-2023 13:00",
+  },
+  {
+    id: 3,
+    user: { username: "Ниёзбек" },
+    rating: 4,
+    body: "Я зашла на сайт Starnewtech, выбрала и заказала понравившиеся товары, со мной связались и быстро доставили.Все отлично!Я остался доволен обслуживанием",
+    createdAt: "18-04-2023 07:23",
+  },
 ];
 </script>
 
