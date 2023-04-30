@@ -297,19 +297,19 @@ const sectionTitle3 = ref();
 const commits = ref();
 
 useMotion(titleName, {
-  initial: { y: -40, opacity: 0 },
+  initial: { y: -10, opacity: 0 },
   visible: { y: 0, opacity: 1, transition: { duration: 800 } },
 });
 useMotion(targetEl1, {
-  initial: { x: -20, opacity: 0 },
+  initial: { x: -10, opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 800 } },
 });
 useMotion(targetEl2, {
-  initial: { x: -20, opacity: 0 },
+  initial: { x: -10, opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 800, delay: 100 } },
 });
 useMotion(targetEl3, {
-  initial: { x: -20, opacity: 0 },
+  initial: { x: -10, opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 800, delay: 200 } },
 });
 useMotion(heroImg, {
@@ -321,23 +321,23 @@ useMotion(sectionTitle1, {
   visible: { opacity: 1, x: 0, transition: { duration: 800 } },
 });
 useMotion(cards, {
-  initial: { opacity: 0, x: 20 },
+  initial: { opacity: 0, x: 10 },
   visible: { opacity: 1, x: 0, transition: { duration: 800 } },
 });
 useMotion(sectionTitle2, {
-  initial: { opacity: 0, x: -20 },
+  initial: { opacity: 0, x: -10 },
   visible: { opacity: 1, x: 0, transition: { duration: 800 } },
 });
 useMotion(steps, {
-  initial: { opacity: 0, x: 20 },
+  initial: { opacity: 0, x: 10 },
   visible: { opacity: 1, x: 0, transition: { duration: 800 } },
 });
 useMotion(sectionTitle3, {
-  initial: { opacity: 0, x: -20 },
+  initial: { opacity: 0, x: -10 },
   visible: { opacity: 1, x: 0, transition: { duration: 800 } },
 });
 useMotion(commits, {
-  initial: { opacity: 0, x: 20 },
+  initial: { opacity: 0, x: 10 },
   visible: { opacity: 1, x: 0, transition: { duration: 800 } },
 });
 
