@@ -26,7 +26,7 @@
       <div class="block md:hidden mx-auto bg-[#4f87d30d] py-12 w-full">
         <div class="flex flex-row md:flex-col">
           <div class="mx-auto">
-            <img class="w-40" src="/src/assets/img/static/comp.svg" />
+            <img class="w-40" src="../assets/img/static/comp.svg" />
           </div>
           <div class="mx-auto mt-12">
             <div class="bg-whiteBlue rounded-xl px-4 py-2 w-56">
