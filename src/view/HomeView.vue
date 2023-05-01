@@ -1,8 +1,8 @@
 <template>
   <div class="homeHero">
     <!--      <pre>{{homeData}}</pre>-->
-    <div class="container mx-auto py-12 flex">
-      <div class="w-full md:w-[45%]">
+    <div class="container mx-auto py-12 flex items-center">
+      <div class="w-full md:w-[45%] flex-shrink-0">
         <div>
           <h1 ref="titleName" class="text-primary text-5xl font-semibold mb-6">
             STAR NEW TECH
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <div ref="heroImg" class="hidden md:block">
+      <div ref="heroImg" class="hidden md:block md:w-full">
         <!--        <img class="w-full" src="../assets/img/home/Layer.png" alt="#Layer" />-->
         <img class="w-full" :src="homeData?.image" alt="#Layer" />
       </div>
