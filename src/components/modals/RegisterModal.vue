@@ -7,14 +7,14 @@
           <img class="w-28 self-center mb-1" src="../../assets/login/logo.png" alt="logo_img" />
           <form class="flex flex-col gap-2 mb-8">
             <div class="name flex flex-col gap-0">
-              <label for="username text-sm">Ваше имя:</label>
+              <label for="username text-sm">Логин:</label>
               <input
                 class="bg-transparent border min-w-[16rem] border-white rounded-xl py-1 px-3 text-[#f4f4f9] outline-none text-center placeholder:text-[#f4f6f927]"
                 type="text"
                 v-model="userData.username"
                 name="username"
                 id="username"
-                placeholder="John"
+                placeholder="Введите ваш логин"
               />
               <p v-if="v$.username.$error" class="text-sm text-end text-red-600">
                 {{ v$.username.$errors[0].$message }}*
@@ -28,7 +28,7 @@
                 v-model="userData.email"
                 name="email"
                 id="email"
-                placeholder="john@gmail.com"
+                placeholder="Введите электронной почты"
               />
               <p v-if="v$.email.$error" class="text-sm text-end text-red-600">{{ v$.email.$errors[0].$message }}*</p>
             </div>
