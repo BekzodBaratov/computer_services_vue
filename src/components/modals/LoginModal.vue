@@ -2,7 +2,7 @@
   <Teleport to="body">
     <div @click="emit('closeLoginModal')" class="fixed z-[999999] inset-0 bg-[#0006] backdrop-blur-sm"></div>
     <div class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-      <div class="loginModalbg p-16 text-[#F4F6F9] text-lg">
+      <div class="loginModalbg p-16 text-[#F4F6F9] text-lg relative">
         <div class="flex flex-col gap-6">
           <img class="w-28 self-center mb-8" src="../../assets/login/logo.png" alt="" />
           <form class="flex flex-col gap-6">
@@ -37,19 +37,22 @@
             <div class="flex justify-center">
               <button type="submit" @click.prevent="formLoginData">
                 <ButtonFillVue>
-                  <span class="py-1 px-4">{{ $t('exit') }}</span>
+                  <span class="py-1 px-4">{{ $t("exit") }}</span>
                 </ButtonFillVue>
               </button>
             </div>
           </form>
           <div class="flex justify-between items-center">
             <div @click="emit('changeTo')" class="underline hover:no-underline active:no-underline cursor-pointer">
-                {{ $t('register') }}
+              {{ $t("register") }}
             </div>
             <div @click="emit('changeTo')" class="underline hover:no-underline active:no-underline cursor-pointer">
               Забыли пароль?
             </div>
           </div>
+        </div>
+        <div @click="emit('closeLoginModal')" class="absolute top-3 right-3 text-xl">
+          <i class="fa-solid fa-xmark p-3 duration-200 hover:opacity-40"></i>
         </div>
       </div>
     </div>

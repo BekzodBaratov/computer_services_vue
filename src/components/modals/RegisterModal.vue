@@ -2,7 +2,7 @@
   <Teleport to="body">
     <div @click="emit('closeRegiterModal')" class="fixed z-[999999] bg-[#0006] inset-0 backdrop-blur-sm"></div>
     <div class="fixed z-[999999] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg">
-      <div class="loginModalbg px-16 py-4 text-[#F4F6F9] text-lg">
+      <div class="loginModalbg px-16 py-4 text-[#F4F6F9] text-lg relative">
         <div class="flex flex-col gap-6">
           <img class="w-28 self-center mb-1" src="../../assets/login/logo.png" alt="logo_img" />
           <form class="flex flex-col gap-2 mb-8">
@@ -65,6 +65,9 @@
               </ButtonFillVue>
             </div>
           </form>
+        </div>
+        <div @click="emit('closeRegiterModal')" class="absolute top-3 right-3 text-xl">
+          <i class="fa-solid fa-xmark p-3 duration-200 hover:opacity-40"></i>
         </div>
       </div>
     </div>
