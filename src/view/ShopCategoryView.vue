@@ -14,7 +14,7 @@
       <SortVue />
     </div> -->
 
-    <div class="grid grid-cols-9">
+    <div class="grid grid-cols-9 mb-6">
       <div v-if="openFilter" class="col-span-9 md:col-span-2 filter">
         <FilterVue />
       </div>

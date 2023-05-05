@@ -1,7 +1,9 @@
 <template>
   <div class="container mx-auto grid md:grid-cols-2 gap-12 my-12 items-center">
     <div class="left font-semibold">
-      <h3 class="text-5xl pb-2 font-semibold text-gray-800">{{ t("about.title") }}</h3>
+      <h3 class="text-5xl pb-2 font-semibold text-gray-800">
+        {{ t("about.title") }}
+      </h3>
       <p class="pr-24 text-xl text-gray-500">{{ aboutData?.text }}</p>
     </div>
     <div class="right grid gap-3 md:mx-16">
@@ -9,8 +11,12 @@
     </div>
   </div>
 
-  <div class="mt-[35px] sm:mt-[50px] md:mt-[60px] lg:mt-[96px] container !max-w-[1000px] mx-auto">
-    <p class="font-bold text-[20px] md:text-2xl lg:text-[32px] text-[#22232C] leading-130 mb-6">
+  <div
+    class="mt-[35px] sm:mt-[50px] md:mt-[60px] lg:mt-[96px] container !max-w-[1000px] px-4 md:px-0 mx-auto"
+  >
+    <p
+      class="font-bold text-[20px] md:text-2xl lg:text-[32px] text-[#22232C] leading-130 mb-6"
+    >
       Часто задаваемые вопросы
     </p>
     <AccordionCard
@@ -52,7 +58,8 @@ const faqData = ref([
   {
     answer:
       "Для этого перейдите в раздел Конфигурация нашего сайта и выберите подходящее вам оборудование из категорий.",
-    question: "Как мне отсортировать необходимое мне компьютерное оборудование?",
+    question:
+      "Как мне отсортировать необходимое мне компьютерное оборудование?",
   },
   {
     answer:
@@ -67,7 +74,8 @@ const faqData = ref([
   {
     answer:
       "Для этого перейдите в раздел Конфигурация нашего сайта и выберите подходящее вам оборудование из категорий.",
-    question: "Как мне отсортировать необходимое мне компьютерное оборудование?",
+    question:
+      "Как мне отсортировать необходимое мне компьютерное оборудование?",
   },
   {
     answer:

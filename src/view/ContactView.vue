@@ -12,15 +12,15 @@
           </div>
           <div class="flex gap-5 items-center">
             <i class="fa-regular fa-envelope text-xl"></i>
-            <p>Hello@loremipsum.com</p>
+            <p>Samariddin@gmail.com</p>
           </div>
           <div class="flex gap-5 items-center">
             <i class="fa-solid fa-phone text-xl"></i>
-            <p>+99894 455 5537</p>
+            <p>+998 (99) 886 26 27</p>
           </div>
           <div class="flex gap-5 items-center">
             <i class="fa-solid fa-fax text-xl"></i>
-            <p>+99894 455 5537</p>
+            <p>+998 (99) 886 26 27</p>
           </div>
         </div>
       </div>

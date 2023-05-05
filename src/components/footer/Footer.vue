@@ -7,16 +7,52 @@
         <div class="flex gap-3 items-center flex-wrap">
           <span>{{ t("footer.social") }}:</span>
           <div class="flex gap-2 flex-wrap">
-            <img :src="icon1" alt="icon" class="duration-200 hover:-translate-y-1 w-6 h-6" />
-            <img :src="icon2" alt="icon" class="duration-200 hover:-translate-y-1 w-6 h-6" />
-            <img :src="icon3" alt="icon" class="duration-200 hover:-translate-y-1 w-6 h-6" />
-            <img :src="icon4" alt="icon" class="duration-200 hover:-translate-y-1 w-6 h-6" />
+            <a
+              target="_blank"
+              class="inline-block"
+              href="http://t.me/STAR_NEW_TECH"
+            >
+              <img
+                :src="icon1"
+                alt="icon"
+                class="duration-200 hover:-translate-y-1 w-6 h-6"
+              />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100088042748728&mibextid=ZbWKwL"
+            >
+              <img
+                :src="icon2"
+                alt="icon"
+                class="duration-200 hover:-translate-y-1 w-6 h-6"
+              />
+            </a>
+            <a target="_blank" href="https://www.youtube.com/@Star_New_Tech">
+              <img
+                :src="icon3"
+                alt="icon"
+                class="duration-200 hover:-translate-y-1 w-6 h-6"
+              />
+            </a>
+            <a
+              target="_blank"
+              href="https://instagram.com/starnewtech?igshid=ZDdkNTZiNTM"
+            >
+              <img
+                :src="icon4"
+                alt="icon"
+                class="duration-200 hover:-translate-y-1 w-6 h-6"
+              />
+            </a>
           </div>
         </div>
 
         <div class="SearchForm">
           <form>
-            <div class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden">
+            <div
+              class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden"
+            >
               <input
                 type="text"
                 class="searchInp px-3 py-[2px] outline-none bg-transparent"
@@ -34,7 +70,9 @@
           </form>
         </div>
 
-        <div class="text-[#F4F6F9] text-lg font-light">2023. All rights reserved.</div>
+        <div class="text-[#F4F6F9] text-lg font-light">
+          2023. All rights reserved.
+        </div>
       </div>
     </div>
   </footer>

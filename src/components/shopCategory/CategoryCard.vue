@@ -12,7 +12,7 @@
     Siz izlayotgan mahsulot yoki jihoz ma`lumotlar bazasidan topilmadi!
   </p>
 
-  <ul v-if="hasProduct" class="cardContainer">
+  <ul v-if="hasProduct" class="cardContainer mt-6">
     <li v-for="product in categoryStore.products" :key="product.id">
       <Card :product="product" />
     </li>

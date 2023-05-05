@@ -1,5 +1,4 @@
 <template>
-
   <CustomSwiper>
     <SwiperSlide v-for="review in store.reviews" :key="review">
       <Review :review="review" />
@@ -7,7 +6,7 @@
   </CustomSwiper>
 
   <div>
-    <form class="md:w-4/5 grid grid-cols-2">
+    <form class="md:w-4/5 grid md:grid-cols-2 gap-8 md:gap-0">
       <div class="flex flex-col items-start gap-4">
         <h3 class="title text-2xl text-primaryBlue pb-3">
           Поделитесь впечатлением о товаре
