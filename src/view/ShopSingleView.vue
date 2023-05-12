@@ -85,7 +85,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useProductDetailStore } from "../store/productDetail";
 
@@ -99,6 +99,14 @@ import SmilarsCompVue from "../components/shopSingle/SmilarsSwiper.vue";
 const store = useProductDetailStore();
 const route = useRoute();
 const id = route.params.id;
+
+watch(
+  () => route.params.id,
+  (newId) => {
+    console.log(newId, "id");
+    if (store.product.id != id) store.getOneProduct(id);
+  }
+);
 
 if (store.product.id != id) store.getOneProduct(id);
 
