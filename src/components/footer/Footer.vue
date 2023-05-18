@@ -55,13 +55,20 @@
             >
               <input
                 type="text"
-                class="searchInp px-3 py-[2px] outline-none bg-transparent"
+                class="searchInp pl-3 py-[2px] outline-none bg-transparent"
                 placeholder="Ваш номер"
-                value="+998948775777"
+                value="+998 (98) 1801808"
                 disabled
               />
+                <input
+                        type="text"
+                        class="searchInp px-0 py-[2px] outline-none bg-transparent"
+                        placeholder="Ваш номер"
+                        value="+998 (71) 2250015"
+                        disabled
+                />
               <a
-                href="tel:+998948775777"
+                href="tel:+998981801808"
                 class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
               >
                 {{ t("footer.call") }}

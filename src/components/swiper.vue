@@ -3,6 +3,8 @@
     :navigation="true"
     :lazy="true"
     :loop="true"
+    :slidesPerView="6"
+    :loopFillGroupWithBlank="true"
     :pagination="{ clickable: true }"
     :breakpoints="{
       240: { slidesPerView: 2, spaceBetween: 10 },
