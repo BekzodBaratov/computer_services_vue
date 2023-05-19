@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <div class="SearchForm">
+        <div class="SearchForm hidden xs:block">
           <form>
             <div
               class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden"
@@ -76,6 +76,48 @@
             </div>
           </form>
         </div>
+<!--          responsive qismi-->
+
+          <div class="SearchForm block xs:hidden">
+              <form>
+                  <div
+                          class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden"
+                  >
+                      <input
+                              type="text"
+                              class="searchInp pl-3 py-[2px] outline-none bg-transparent"
+                              placeholder="Ваш номер"
+                              value="+998 (98) 1801808"
+                              disabled
+                      />
+                      <a
+                              href="tel:+998981801808"
+                              class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
+                      >
+                          {{ t("footer.call") }}
+                      </a>
+                  </div>
+              </form>
+              <form class="mt-4">
+                  <div
+                          class="SearchForm flex items-center p-0 border border-[#F4F6F940] rounded-3xl overflow-hidden"
+                  >
+                      <input
+                              type="text"
+                              class="searchInp pl-3 py-[2px] outline-none bg-transparent"
+                              placeholder="Ваш номер"
+                              value="+998 (71) 2250015"
+                              disabled
+                      />
+                      <a
+                              href="tel:+9989712250015"
+                              class="all px-6 py-[2px] rounded-l-2xl text-primary font-semibold cursor-pointer bg-whiteBlue"
+                      >
+                          {{ t("footer.call") }}
+                      </a>
+                  </div>
+              </form>
+          </div>
 
         <div class="text-[#F4F6F9] text-lg font-light">
           2023. All rights reserved.
