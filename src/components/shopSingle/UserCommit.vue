@@ -148,7 +148,7 @@ const data = reactive({
 
 const addReview = async () => {
   data.clicked = true;
-  if (!userStore.token) return toast.error("Ro'yxatdan o'tilmagan");
+  if (!userStore.token) return toast.error("Не зарегистрирован");
   if (data.errors().body.error || data.errors().rating.error) return;
 
   await store.addReview(route.params.id, {

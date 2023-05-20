@@ -24,9 +24,9 @@ export const useUserRegister = defineStore("user", {
         this.token = data.data.accessToken;
         this.user = data.data.user;
         console.log(data.data.user);
-        toast.success(data.message);
+        toast.success('Вы успешно зарегистрировались');
       } catch (error) {
-        toast.error(error.message + ", Please try again");
+        toast.error("Произошла ошибка!");
       } finally {
         loadingStore.loading = false;
       }
@@ -44,10 +44,10 @@ export const useUserRegister = defineStore("user", {
         this.token = res.data.data.accessToken;
         this.user = res.data.data.user;
         console.log(res);
-        toast.success(res.data.message);
+        toast.success("Вы успешно вошли в систему!");
         this.closemodal = false;
       } catch (error) {
-        toast.error(error.message + ", Please try again");
+        toast.error("Произошла ошибка!");
         this.closemodal = true;
       } finally {
         loadingStore.loading = false;

@@ -182,7 +182,7 @@ const formLoginData = () => {
     axios
       .post("/orders", { ...sendData })
       .then((res) => {
-        toast.success("So'qovingiz muvaffaqiyatli amalga oshirildi");
+        toast.success("Ваш запрос успешно обработан");
         setTimeout(() => {
           router.push("/");
           localStorage.clear();
@@ -193,10 +193,10 @@ const formLoginData = () => {
         }, 3000);
       })
       .catch((err) => {
-        toast.error("Yuborishda xatolik yuz berdi");
+        toast.error("Произошла ошибка!");
       });
   } else {
-    toast("Yuborish uchun savatchangizda kamida bitta mahsulot bo'lishi kerak!");
+    toast("Выберите хотя бы один продукт!");
   }
 };
 </script>

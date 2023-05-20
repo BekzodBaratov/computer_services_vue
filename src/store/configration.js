@@ -18,8 +18,8 @@ export const useConfigration = defineStore("configration", {
         const res = await axios.get("configurations");
         this.data = res.data.data.configurations;
       } catch (e) {
-        toast.error(e.message);
-        console.log(e);
+        toast.error('Произошла ошибка!');
+
       } finally {
         store.loading = false;
       }

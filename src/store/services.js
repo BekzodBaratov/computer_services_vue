@@ -23,8 +23,7 @@ export const useServices = defineStore("servis", {
         });
         this.products = res.data.data.services;
       } catch (e) {
-        toast.error(e.message);
-        console.log(e);
+        toast.error('Произошла ошибка!');
       } finally {
         store.loading = false;
       }
@@ -36,8 +35,7 @@ export const useServices = defineStore("servis", {
         const res = await axios.get(`/services/${id}`);
         this.product = res.data.data.service;
       } catch (e) {
-        toast.error(e.message);
-        console.log(e);
+        toast.error('Произошла ошибка!');
       } finally {
         store.loading = false;
       }

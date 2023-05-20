@@ -28,9 +28,9 @@ export const useProductDetailStore = defineStore("ProductDetail", {
           data.data.data.product.product_detail.specifications;
         this.reviews = data.data.data.product.reviews;
         this.smilarProducts = data.data.data.product.category.products;
-        console.log(data.data.data.product);
+
       } catch (error) {
-        toast.error(error.message);
+        toast.error('Произошла ошибка!');
       } finally {
         loadingStore.loading = false;
       }
@@ -47,10 +47,10 @@ export const useProductDetailStore = defineStore("ProductDetail", {
             Authorization: `Bearer ${userStore.token}`,
           },
         });
-        toast.success("Sizning fikringiz qabul qilindi.");
+        toast.success("Ваш комментарий принят.");
         console.log(res.data.message);
       } catch (error) {
-        toast.error(error.message);
+        toast.error("Произошла ошибка!");
       } finally {
         loadingStore.loading = false;
       }

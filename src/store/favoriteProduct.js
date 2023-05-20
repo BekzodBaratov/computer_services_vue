@@ -38,8 +38,8 @@ export const useFavoriteStore = defineStore("favoriteProduct", {
         console.log(data.data.data.user.favorite.products);
         this.products = data.data.data.user.favorite.products;
       } catch (error) {
-        toast.error(error.message);
-        console.log(error);
+        toast.error('Произошла ошибка!');
+
       } finally {
         loadingStore.loading = false;
       }
