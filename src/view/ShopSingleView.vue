@@ -3,7 +3,7 @@
     <SearchFormComp />
     <div class="container mx-auto">
       <RouteLink class="mb-3 text-base" :route="routeLink" />
-      <h2 class="hidden lg:block text-3xl mb-2 font-bold text-primaryBlue">
+      <h2 class="text-3xl mb-2 font-bold text-primaryBlue">
         {{ product.name }}
       </h2>
       <!--    <div class="flex items-center">-->
@@ -27,7 +27,7 @@
       <!--    </div>-->
       <div class="singleComp grid grid-cols-12 gap-8 my-8">
         <div class="swiperImg col-span-12 md:col-span-5">
-          <TheShopSingleComp :images="store.images" />
+          <img class="rounded-xl w-full h-auto" :src="store.images[0]" alt="product image" />
         </div>
         <div class="content col-span-12 md:col-span-7">
           <SingleContentComp />
@@ -38,11 +38,7 @@
           <button
             @click="infomations = 0"
             class="font-bold border-b py-1"
-            :class="
-              infomations === 0
-                ? 'text-primary border-primary'
-                : 'text-[#4F87D3CC] border-[#4F87D3CC]'
-            "
+            :class="infomations === 0 ? 'text-primary border-primary' : 'text-[#4F87D3CC] border-[#4F87D3CC]'"
           >
             Описание
           </button>
@@ -56,11 +52,7 @@
           <button
             @click="infomations = 2"
             class="font-bold border-b py-1"
-            :class="
-              infomations === 2
-                ? 'text-primary border-primary'
-                : 'text-[#4F87D3CC] border-[#4F87D3CC]'
-            "
+            :class="infomations === 2 ? 'text-primary border-primary' : 'text-[#4F87D3CC] border-[#4F87D3CC]'"
           >
             Отзывы
           </button>
@@ -91,7 +83,6 @@ import { useProductDetailStore } from "../store/productDetail";
 
 import RouteLink from "../components/RouteLink.vue";
 import SearchFormComp from "../components/shop/SearchFormComp.vue";
-import TheShopSingleComp from "../components/shopSingle/TheShopSingleComp.vue";
 import SingleContentComp from "../components/shopSingle/SingleContentComp.vue";
 import UserCommit from "../components/shopSingle/UserCommit.vue";
 import SmilarsCompVue from "../components/shopSingle/SmilarsSwiper.vue";
@@ -110,11 +101,7 @@ watch(
 
 if (store.product.id != id) store.getOneProduct(id);
 
-const routeLink = ref([
-  { name: "Магазин", link: "/shop" },
-  { name: "Каталог", link: "/categories" },
-  { name: "" },
-]);
+const routeLink = ref([{ name: "Магазин", link: "/shop" }, { name: "Каталог", link: "/categories" }, { name: "" }]);
 
 const product = computed(() => {
   if (store.product.name) routeLink.value[2] = { name: store.product.name };
