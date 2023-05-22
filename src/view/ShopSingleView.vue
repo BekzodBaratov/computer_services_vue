@@ -53,7 +53,7 @@
         >
           Обзоры
         </button> -->
-          <button
+          <!-- <button
             @click="infomations = 2"
             class="font-bold border-b py-1"
             :class="
@@ -63,7 +63,7 @@
             "
           >
             Отзывы
-          </button>
+          </button> -->
         </div>
         <div>
           <div v-if="infomations === 0">
